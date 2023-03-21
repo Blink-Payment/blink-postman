@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "dec781ce-2623-49d3-bedb-0e7b175b1b95",
-		"name": "Blink Payment v1.0.1",
+		"name": "Blink Payment v1.0.2",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "25355064"
 	},
@@ -1110,6 +1110,133 @@
 			"name": "Process Credit Card",
 			"item": [
 				{
+					"name": "payment_token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"postman.setEnvironmentVariable(\"paymentToken\", JSON.parse(responseBody).paymentToken);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "process",
+									"value": "tokenise",
+									"type": "text"
+								},
+								{
+									"key": "merchantID",
+									"value": "{{merchant_id}}",
+									"type": "text"
+								},
+								{
+									"key": "tokenType",
+									"value": "card",
+									"type": "text"
+								},
+								{
+									"key": "tokenData[cardNumber]",
+									"value": "4111111111111111",
+									"type": "text"
+								},
+								{
+									"key": "tokenData[cardExpiryDate]",
+									"value": "12/23",
+									"type": "text"
+								},
+								{
+									"key": "tokenData[cardCVV]",
+									"value": "123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://gateway2.blinkpayment.co.uk/paymentform",
+							"protocol": "https",
+							"host": [
+								"gateway2",
+								"blinkpayment",
+								"co",
+								"uk"
+							],
+							"path": [
+								"paymentform"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "cardstream::paymentform",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "process",
+											"value": "tokenise",
+											"type": "text"
+										},
+										{
+											"key": "merchantID",
+											"value": "{{merchant_id}}",
+											"type": "text"
+										},
+										{
+											"key": "tokenType",
+											"value": "card",
+											"type": "text"
+										},
+										{
+											"key": "tokenData[cardNumber]",
+											"value": "4111111111111111",
+											"type": "text"
+										},
+										{
+											"key": "tokenData[cardExpiryDate]",
+											"value": "12/23",
+											"type": "text"
+										},
+										{
+											"key": "tokenData[cardCVV]",
+											"value": "123",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://gateway2.blinkpayment.co.uk/paymentform",
+									"protocol": "https",
+									"host": [
+										"gateway2",
+										"blinkpayment",
+										"co",
+										"uk"
+									],
+									"path": [
+										"paymentform"
+									]
+								}
+							},
+							"_postman_previewlanguage": "",
+							"header": "",
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
 					"name": "cc/process (ECOM 3DS)",
 					"request": {
 						"method": "POST",
@@ -1519,54 +1646,13 @@
 							}
 						],
 						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "payment_intent",
-									"value": "{{payment_intent}}",
-									"type": "text"
-								},
-								{
-									"key": "given_name",
-									"value": "{{$randomFirstName}}",
-									"type": "text"
-								},
-								{
-									"key": "family_name",
-									"value": "{{$randomLastName}}",
-									"type": "text"
-								},
-								{
-									"key": "company_name",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "email",
-									"value": "{{$randomEmail}}",
-									"type": "text"
-								},
-								{
-									"key": "account_holder_name",
-									"value": "{{$randomFullName}}",
-									"type": "text"
-								},
-								{
-									"key": "branch_code",
-									"value": "200000",
-									"type": "text"
-								},
-								{
-									"key": "account_number",
-									"value": "55779911",
-									"type": "text"
-								},
-								{
-									"key": "iban",
-									"value": "",
-									"type": "text"
+							"mode": "raw",
+							"raw": "{\n    \"given_name\": \"{{$randomFirstName}}\",\n    \"family_name\": \"{{$randomLastName}}\",\n    \"company_name\": null,\n    \"email\": \"{{$randomEmail}}\",\n    \"country_code\": \"GB\",\n    \"account_holder_name\": \"{{$randomFullName}}\",\n    \"branch_code\": \"200000\",\n    \"account_number\": \"55779911\",\n    \"iban\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
 								}
-							]
+							}
 						},
 						"url": {
 							"raw": "{{url}}/dd/process",
@@ -1579,132 +1665,7 @@
 							]
 						}
 					},
-					"response": [
-						{
-							"name": "Process DD",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJtZXJjaGFudF9pZCI6NTg2LCJzZWNyZXRfa2V5IjoiMTNkYjI0NGI1MWRhMDRhMWZmMGNkMWFhNzQwZjNhZmQ5Njk3NjIzNjYzMWFkOTdhMTYzN2RkMTJmNTk3NTEzOSIsImV4cCI6MTY3NjQ0NjM0NX0.2p5vWYUzXjfEz8CyLSk3lbBn6UaqJ76JDMKJ9HXbkKA",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "payment_intent",
-											"value": "pi_2xoFLwklPS1IhrwKtYUwtw3RkxuQhBttCwA6HxzKVfYFVYk5F4VIYB8Dn5Zqejf7v5_YB06ZuzooRQYiFCsCTL2tb9lQ2GE2QMdPMSdB5kE",
-											"type": "text"
-										},
-										{
-											"key": "unique_transaction",
-											"value": "RaWnFctlcwYV",
-											"type": "text"
-										},
-										{
-											"key": "given_name",
-											"value": "Sainita",
-											"type": "text"
-										},
-										{
-											"key": "family_name",
-											"value": "Mukherjee",
-											"type": "text"
-										},
-										{
-											"key": "company_name",
-											"value": "Test",
-											"type": "text"
-										},
-										{
-											"key": "email",
-											"value": "sainita@capitalnumbers.com",
-											"type": "text"
-										},
-										{
-											"key": "account_holder_name",
-											"value": "Sainita Mukherjee",
-											"type": "text"
-										},
-										{
-											"key": "branch_code",
-											"value": "200000",
-											"type": "text"
-										},
-										{
-											"key": "account_number",
-											"value": "55779911",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{url}}/dd/process",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"dd",
-										"process"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Date",
-									"value": "Wed, 15 Feb 2023 07:11:07 GMT"
-								},
-								{
-									"key": "Server",
-									"value": "Apache/2.4.54 () OpenSSL/1.0.2k-fips"
-								},
-								{
-									"key": "Vary",
-									"value": "Authorization"
-								},
-								{
-									"key": "Upgrade",
-									"value": "h2,h2c"
-								},
-								{
-									"key": "Connection",
-									"value": "Upgrade, Keep-Alive"
-								},
-								{
-									"key": "Cache-Control",
-									"value": "no-cache, private"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "60"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "59"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5, max=100"
-								},
-								{
-									"key": "Transfer-Encoding",
-									"value": "chunked"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"url\": \"https://api-demo-php.blinkpayment.co.uk/return?res=QkwtMDBGN0Q2MUI1Ng%3D%3D\"\n}"
-						}
-					]
+					"response": []
 				}
 			]
 		},
