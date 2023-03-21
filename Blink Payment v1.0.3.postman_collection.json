@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "dec781ce-2623-49d3-bedb-0e7b175b1b95",
-		"name": "Blink Payment v1.0.2",
+		"name": "Blink Payment v1.0.3",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "25355064"
 	},
@@ -1647,7 +1647,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"given_name\": \"{{$randomFirstName}}\",\n    \"family_name\": \"{{$randomLastName}}\",\n    \"company_name\": null,\n    \"email\": \"{{$randomEmail}}\",\n    \"country_code\": \"GB\",\n    \"account_holder_name\": \"{{$randomFullName}}\",\n    \"branch_code\": \"200000\",\n    \"account_number\": \"55779911\",\n    \"iban\": null\n}",
+							"raw": "{\n    \"payment_intent\": \"{{payment_intent}}\",\n    \"given_name\": \"{{$randomFirstName}}\",\n    \"family_name\": \"{{$randomLastName}}\",\n    \"company_name\": null,\n    \"email\": \"{{$randomEmail}}\",\n    \"country_code\": \"GB\",\n    \"account_holder_name\": \"{{$randomFullName}}\",\n    \"branch_code\": \"200000\",\n    \"account_number\": \"55779911\",\n    \"iban\": null\n}",
 							"options": {
 								"raw": {
 									"language": "json"
