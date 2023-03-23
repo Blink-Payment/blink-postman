@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "bb3571f7-a399-4882-abe6-3331410c1562",
-		"name": "Blink Payment v1.0.4",
+		"name": "Blink Payment v1.0.5",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "25355064"
 	},
@@ -843,7 +843,7 @@
 			]
 		},
 		{
-			"name": "Credit Cards",
+			"name": "CreditCards",
 			"item": [
 				{
 					"name": "payment_tokens",
@@ -990,7 +990,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"payment_intent\": \"{{payment_intent}}\",\n    \"paymentToken\": \"{{access_token}}\",\n    \"type\": 1,\n    \"raw_amount\": \"{{raw_amount}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"transaction_unique\": \"{{transaction_unique}}\",\n    \"device_timezone\": \"-330\",\n    \"device_capabilities\": \"javascript\",\n    \"device_accept_language\": \"en-GB\",\n    \"device_screen_resolution\": \"1366x768x24\",\n    \"remote_address\": \"123.123.123.123\"\n}",
+							"raw": "{\n    \"payment_intent\": \"{{payment_intent}}\",\n    \"paymentToken\": \"{{paymentToken}}\",\n    \"type\": 1,\n    \"raw_amount\": \"{{raw_amount}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"transaction_unique\": \"{{transaction_unique}}\",\n    \"device_timezone\": \"-330\",\n    \"device_capabilities\": \"javascript\",\n    \"device_accept_language\": \"en-GB\",\n    \"device_screen_resolution\": \"1366x768x24\",\n    \"remote_address\": \"123.123.123.123\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1106,7 +1106,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"payment_intent\": \"{{payment_intent}}\",\n    \"paymentToken\": \"{{access_token}}\",\n    \"raw_amount\": \"{{raw_amount}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"transaction_unique\": \"{{transaction_unique}}\",\n    \"type\": 2\n}",
+							"raw": "{\n    \"payment_intent\": \"{{payment_intent}}\",\n    \"paymentToken\": \"{{paymentToken}}\",\n    \"raw_amount\": \"{{raw_amount}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"transaction_unique\": \"{{transaction_unique}}\",\n    \"type\": 2\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1212,7 +1212,7 @@
 			]
 		},
 		{
-			"name": "Open Bankings",
+			"name": "OpenBankings",
 			"item": [
 				{
 					"name": "openbankings",
@@ -1251,13 +1251,12 @@
 							]
 						},
 						"url": {
-							"raw": "{{url}}/ob/process",
+							"raw": "{{url}}/openbankings",
 							"host": [
 								"{{url}}"
 							],
 							"path": [
-								"ob",
-								"process"
+								"openbankings"
 							]
 						}
 					},
@@ -1366,7 +1365,7 @@
 			]
 		},
 		{
-			"name": "Direct Debits",
+			"name": "DirectDebits",
 			"item": [
 				{
 					"name": "directdebits",
