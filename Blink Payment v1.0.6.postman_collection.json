@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "bb3571f7-a399-4882-abe6-3331410c1562",
-		"name": "Blink Payment v1.0.5",
+		"_postman_id": "b0a35290-f962-4d0e-ad40-23add3ef1f78",
+		"name": "Blink Payment v1.0.4",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "25355064"
+		"_exporter_id": "7767584"
 	},
 	"item": [
 		{
@@ -27,13 +27,19 @@
 						"method": "POST",
 						"header": [],
 						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"api_key\": \"{{api_key}}\",\n    \"secret_key\": \"{{secret_key}}\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "api_key",
+									"value": "{{api_key}}",
+									"type": "text"
+								},
+								{
+									"key": "secret_key",
+									"value": "{{secret_key}}",
+									"type": "text"
 								}
-							}
+							]
 						},
 						"url": {
 							"raw": "{{url}}/tokens",
@@ -42,6 +48,18 @@
 							],
 							"path": [
 								"tokens"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
 							]
 						}
 					},
@@ -720,7 +738,8 @@
 							"script": {
 								"exec": [
 									"postman.setEnvironmentVariable(\"raw_amount\", JSON.parse(responseBody).raw_amount);",
-									"postman.setEnvironmentVariable(\"transaction_unique\", JSON.parse(responseBody).transaction_unique);"
+									"postman.setEnvironmentVariable(\"transaction_unique\", JSON.parse(responseBody).transaction_unique);",
+									"postman.setEnvironmentVariable(\"merchant_id\", JSON.parse(responseBody).merchant_id);"
 								],
 								"type": "text/javascript"
 							}
@@ -736,13 +755,14 @@
 							}
 						],
 						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"payment_intent\": \"{{payment_intent}}\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "payment_intent",
+									"value": "{{payment_intent}}",
+									"type": "text"
 								}
-							}
+							]
 						},
 						"url": {
 							"raw": "{{url}}/elements",
@@ -843,10 +863,10 @@
 			]
 		},
 		{
-			"name": "CreditCards",
+			"name": "Process Credit Card",
 			"item": [
 				{
-					"name": "payment_tokens",
+					"name": "payment_token",
 					"event": [
 						{
 							"listen": "test",
@@ -990,7 +1010,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"payment_intent\": \"{{payment_intent}}\",\n    \"paymentToken\": \"{{paymentToken}}\",\n    \"type\": 1,\n    \"raw_amount\": \"{{raw_amount}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"transaction_unique\": \"{{transaction_unique}}\",\n    \"device_timezone\": \"-330\",\n    \"device_capabilities\": \"javascript\",\n    \"device_accept_language\": \"en-GB\",\n    \"device_screen_resolution\": \"1366x768x24\",\n    \"remote_address\": \"123.123.123.123\"\n}",
+							"raw": "{\n    \"payment_intent\": \"{{payment_intent}}\",\n    \"paymentToken\": \"{{paymentToken}}\",\n    \"type\": 1,\n    \"raw_amount\" : \"{{raw_amount}}\",\n    \"customer_email\" : \"{{$randomEmail}}\",\n    \"customer_name\" : \"{{$randomFullName}}\",\n    \"transaction_unique\" : \"{{transaction_unique}}\",\n    \"device_timezone\" : \"-330\",\n    \"device_capabilities\" : \"javascript\",\n    \"device_accept_language\" : \"en-GB\",\n    \"device_screen_resolution\" : \"1366x768x24\",\n    \"remote_address\" : \"123.123.123.123\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1009,19 +1029,24 @@
 					},
 					"response": [
 						{
-							"name": "Process Payment (non 3DS)",
+							"name": "creditcards (ECOM 3DS)",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJtZXJjaGFudF9pZCI6NTg2LCJzZWNyZXRfa2V5IjoiMTNkYjI0NGI1MWRhMDRhMWZmMGNkMWFhNzQwZjNhZmQ5Njk3NjIzNjYzMWFkOTdhMTYzN2RkMTJmNTk3NTEzOSIsImV4cCI6MTY3NTQzMjIzOX0.7PZdzN5ZJ1J3Jq9kspGt1ghmeKROcZYwj9o2DwN6PbQ",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									},
+									{
+										"key": "Accept-Charset",
+										"value": "\"\"",
 										"type": "text"
 									}
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"merchant_id\":140841,\n    \"payment_intent\" : \"pi_tp3G9jULwpzcQXRCgE3qKBksgCvyZ9FHa2e0ZUg8z9RqKNMVtHioVoqaC6BxLkn40HLe1OQnP_EhVXhl5q8nOiZYg4FBuLygHfteuH_sTkI\",\n    \"paymentToken\" : \"eyJwYXltZW50VG9rZW4iOnsibWV0aG9kIjoiY2FyZCIsInJlc291cmNlIjoic3RvcmUiLCJpZCI6MTY3NTc5NH19\",\n    \"raw_amount\" : \"1.1\",\n    \"customer_email\" : \"sainita@capitalnumbers.com\",\n    \"customer_name\" : \"sainitaM\",\n    \"transaction_unique\" : \"pFzBTSYpPQyu\",\n    \"type\" : 2\n}",
+									"raw": "{\n    \"payment_intent\": \"{{payment_intent}}\",\n    \"paymentToken\": \"{{paymentToken}}\",\n    \"type\": 1,\n    \"raw_amount\" : \"{{raw_amount}}\",\n    \"customer_email\" : \"{{$randomEmail}}\",\n    \"customer_name\" : \"{{$randomFullName}}\",\n    \"transaction_unique\" : \"{{transaction_unique}}\",\n    \"device_timezone\" : \"-330\",\n    \"device_capabilities\" : \"javascript\",\n    \"device_accept_language\" : \"en-GB\",\n    \"device_screen_resolution\" : \"1366x768x24\",\n    \"remote_address\" : \"123.123.123.123\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1029,13 +1054,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{url}}/cc/process",
+									"raw": "{{url}}/creditcards",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
-										"cc",
-										"process"
+										"creditcards"
 									]
 								}
 							},
@@ -1045,7 +1069,7 @@
 							"header": [
 								{
 									"key": "Date",
-									"value": "Fri, 03 Feb 2023 13:28:24 GMT"
+									"value": "Wed, 22 Mar 2023 15:31:03 GMT"
 								},
 								{
 									"key": "Server",
@@ -1089,7 +1113,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"url\": \"https://683f-150-129-110-21.in.ngrok.io/return?res=QkwtMTZVMTc2UERSWA%3D%3D\"\n}"
+							"body": "{\n    \"acsform\": \"<form id=\\\"form3ds22\\\" method=\\\"post\\\" action=\\\"https://acs.3ds-pit.com/\\\"><input type=\\\"hidden\\\" name=\\\"creq\\\" value=\\\"eyJtZXNzYWdlVHlwZSI6IkNSZXEiLCJtZXNzYWdlVmVyc2lvbiI6IjIuMS4wIiwidGhyZWVEU1NlcnZlclRyYW5zSUQiOiJiYWFkYWNlMy1kMzYwLTRhZDAtYWMxYy1iZDQ3ZGM4MGUwMjgiLCJhY3NUcmFuc0lEIjoiYzNhNmNkNmItNTNjZi00OTE5LThkYjktZjEyN2U2MGI1YWI3IiwibWVzc2FnZUV4dGVuc2lvbiI6W3sibmFtZSI6InAzLTNkcy1jb250ZXh0IiwiaWQiOiJwMy0zZHMtY29udGV4dCIsImNyaXRpY2FsaXR5SW5kaWNhdG9yIjpmYWxzZSwiZGF0YSI6eyJhcmVxIjp7InRocmVlRFNSZXF1ZXN0b3JJRCI6IjEyMzQ1Njc4IiwidGhyZWVEU1JlcXVlc3Rvck5hbWUiOiJCbGluayB0ZXN0IDEvOSIsInRocmVlRFNSZXF1ZXN0b3JVUkwiOiJodHRwczovL3d3dy5ibGlua3BheW1lbnQuY28udWsiLCJ0aHJlZURTU2VydmVyUmVmTnVtYmVyIjoiM0RTX0xPQV9TRVJfTlNPRl8wMjAyMDBfMDAyMDMiLCJ0aHJlZURTU2VydmVyVHJhbnNJRCI6ImJhYWRhY2UzLWQzNjAtNGFkMC1hYzFjLWJkNDdkYzgwZTAyOCIsImFjY3ROdW1iZXIiOiI0MTExMTExMTExMTExMTExIiwiY2FyZEV4cGlyeURhdGUiOiIyMzEyIiwidGhyZWVEU1NlcnZlck9wZXJhdG9ySUQiOiJURVNULU9QRVJBVE9SIiwiYWNxdWlyZXJCSU4iOiIxMjM0NTYiLCJhY3F1aXJlck1lcmNoYW50SUQiOiIwMDAwMDAwMDAwMDAwMDAiLCJtZXJjaGFudE5hbWUiOiJCbGluayB0ZXN0IDEvOSIsImVtYWlsIjoiR2VuZXNpc19GZXJyeTY0QGdtYWlsLmNvbSIsImNhcmRob2xkZXJOYW1lIjoiVGhlbG1hIE1hY0d5dmVyIiwibWNjIjoiMDc0MiIsIm1lcmNoYW50Q291bnRyeUNvZGUiOiI4MjYiLCJtZXNzYWdlQ2F0ZWdvcnkiOiIwMSIsIm1lc3NhZ2VUeXBlIjoiQVJlcSIsIm1lc3NhZ2VWZXJzaW9uIjoiMi4xLjAiLCJ0aHJlZURTU2VydmVyVVJMIjoiaHR0cHM6Ly9nYXRld2F5LmZpZGVsaXBheS5jby51ay9wdXNoL25vdGlmaWNhdGlvbi8_X3FzXz14THlBdzhSVlYwQ3AiLCJ0aHJlZURTUmVxdWVzdG9yQXV0aGVudGljYXRpb25JbmQiOiIwMSIsInRocmVlRFNSZXF1ZXN0b3JDaGFsbGVuZ2VJbmQiOiIwMSIsInB1cmNoYXNlQW1vdW50IjoiMTEwIiwicHVyY2hhc2VDdXJyZW5jeSI6IjgyNiIsInB1cmNoYXNlRXhwb25lbnQiOiIyIiwicHVyY2hhc2VEYXRlIjoiMjAyMzAzMjIxNTMxMDQiLCJ0cmFuc1R5cGUiOiIwMSIsInRocmVlRFNDb21wSW5kIjoiWSIsImJyb3dzZXJBY2NlcHRIZWFkZXIiOiIqLyoiLCJicm93c2VySVAiOiIxMjMuMTIzLjEyMy4xMjMiLCJkZXZpY2VDaGFubmVsIjoiMDIiLCJub3RpZmljYXRpb25VUkwiOiJodHRwczovL2Rldi5ibGlua3BheW1lbnQuY28udWsvYXBpL3BheS92MS9jb2RhdGRldi8zZHNfMl8yL2FlNzljZTE4LWVhZTYtNDUyYi1hOTdkLTI5N2Y2ZGUyNjYxYT9hY3M9MSZ0aHJlZURTQWNzUmVzcG9uc2U9Y2hhbGxlbmdlIiwiYnJvd3Nlckxhbmd1YWdlIjoiZW4tR0IiLCJicm93c2VySmF2YUVuYWJsZWQiOmZhbHNlLCJicm93c2VyQ29sb3JEZXB0aCI6IjI0IiwiYnJvd3NlclNjcmVlbkhlaWdodCI6Ijc2OCIsImJyb3dzZXJTY3JlZW5XaWR0aCI6IjEzNjYiLCJicm93c2VyVFoiOiItMzMwIiwiYnJvd3NlclVzZXJBZ2VudCI6IlBvc3RtYW5SdW50aW1lLzcuMzEuMyJ9LCJhcmVzIjp7InRocmVlRFNTZXJ2ZXJUcmFuc0lEIjoiYmFhZGFjZTMtZDM2MC00YWQwLWFjMWMtYmQ0N2RjODBlMDI4IiwiYWNzQ2hhbGxlbmdlTWFuZGF0ZWQiOiJOIiwiYWNzRGVjQ29uSW5kIjoiTiIsImFjc09wZXJhdG9ySUQiOiJBY3NPcElkIDY0MWIxZjM5MzNlODYiLCJhY3NSZWZlcmVuY2VOdW1iZXIiOiIzRFNfTE9BX1NFUl9OU09GXzAyMDEwMF8wMDA1MSIsImFjc1JlbmRlcmluZ1R5cGUiOnsiYWNzSW50ZXJmYWNlIjoiMDIiLCJhY3NVaVRlbXBsYXRlIjoiMDUifSwiYWNzVHJhbnNJRCI6ImMzYTZjZDZiLTUzY2YtNDkxOS04ZGI5LWYxMjdlNjBiNWFiNyIsImFjc1VSTCI6Imh0dHBzOi8vYWNzLjNkcy1waXQuY29tLyIsImF1dGhlbnRpY2F0aW9uVHlwZSI6IjAxIiwiZHNSZWZlcmVuY2VOdW1iZXIiOiIzRFNfTE9BX1NFUl9OU09GXzAyMDEwMF8wMDA1MSIsImRzVHJhbnNJRCI6IjI0YzIyOGU1LTBiMjYtNDQxNy1iMTJhLWQ3NGNlNWU0M2U5ZiIsIm1lc3NhZ2VUeXBlIjoiQVJlcyIsIm1lc3NhZ2VWZXJzaW9uIjoiMi4xLjAiLCJ0cmFuc1N0YXR1cyI6IkMiLCJtZXNzYWdlRXh0ZW5zaW9uIjpbeyJuYW1lIjoiQUNTIERhdGEiLCJpZCI6IkEwMDAwMDAwMDQtYWNzRGF0YSIsImNyaXRpY2FsaXR5SW5kaWNhdG9yIjpmYWxzZSwiZGF0YSI6eyJBMDAwMDAwMDA0LWFjc0RhdGEiOnsid2hpdGVsaXN0U3RhdHVzIjoiWSJ9fX1dfX19XSwiY2hhbGxlbmdlV2luZG93U2l6ZSI6IjAyIn0\\\"><input type=\\\"hidden\\\" name=\\\"threeDSPageSessions[ae79ce18-eae6-452b-a97d-297f6de2661a][bfreq]\\\" value=\\\"eyJtZXNzYWdlVHlwZSI6IkNSZXEiLCJtZXNzYWdlVmVyc2lvbiI6IjIuMS4wIiwidGhyZWVEU1NlcnZlclRyYW5zSUQiOiJiYWFkYWNlMy1kMzYwLTRhZDAtYWMxYy1iZDQ3ZGM4MGUwMjgiLCJhY3NUcmFuc0lEIjoiYzNhNmNkNmItNTNjZi00OTE5LThkYjktZjEyN2U2MGI1YWI3IiwibWVzc2FnZUV4dGVuc2lvbiI6W3sibmFtZSI6InAzLTNkcy1jb250ZXh0IiwiaWQiOiJwMy0zZHMtY29udGV4dCIsImNyaXRpY2FsaXR5SW5kaWNhdG9yIjpmYWxzZSwiZGF0YSI6eyJhcmVxIjp7InRocmVlRFNSZXF1ZXN0b3JJRCI6IjEyMzQ1Njc4IiwidGhyZWVEU1JlcXVlc3Rvck5hbWUiOiJCbGluayB0ZXN0IDEvOSIsInRocmVlRFNSZXF1ZXN0b3JVUkwiOiJodHRwczovL3d3dy5ibGlua3BheW1lbnQuY28udWsiLCJ0aHJlZURTU2VydmVyUmVmTnVtYmVyIjoiM0RTX0xPQV9TRVJfTlNPRl8wMjAyMDBfMDAyMDMiLCJ0aHJlZURTU2VydmVyVHJhbnNJRCI6ImJhYWRhY2UzLWQzNjAtNGFkMC1hYzFjLWJkNDdkYzgwZTAyOCIsImFjY3ROdW1iZXIiOiI0MTExMTExMTExMTExMTExIiwiY2FyZEV4cGlyeURhdGUiOiIyMzEyIiwidGhyZWVEU1NlcnZlck9wZXJhdG9ySUQiOiJURVNULU9QRVJBVE9SIiwiYWNxdWlyZXJCSU4iOiIxMjM0NTYiLCJhY3F1aXJlck1lcmNoYW50SUQiOiIwMDAwMDAwMDAwMDAwMDAiLCJtZXJjaGFudE5hbWUiOiJCbGluayB0ZXN0IDEvOSIsImVtYWlsIjoiR2VuZXNpc19GZXJyeTY0QGdtYWlsLmNvbSIsImNhcmRob2xkZXJOYW1lIjoiVGhlbG1hIE1hY0d5dmVyIiwibWNjIjoiMDc0MiIsIm1lcmNoYW50Q291bnRyeUNvZGUiOiI4MjYiLCJtZXNzYWdlQ2F0ZWdvcnkiOiIwMSIsIm1lc3NhZ2VUeXBlIjoiQVJlcSIsIm1lc3NhZ2VWZXJzaW9uIjoiMi4xLjAiLCJ0aHJlZURTU2VydmVyVVJMIjoiaHR0cHM6Ly9nYXRld2F5LmZpZGVsaXBheS5jby51ay9wdXNoL25vdGlmaWNhdGlvbi8_X3FzXz14THlBdzhSVlYwQ3AiLCJ0aHJlZURTUmVxdWVzdG9yQXV0aGVudGljYXRpb25JbmQiOiIwMSIsInRocmVlRFNSZXF1ZXN0b3JDaGFsbGVuZ2VJbmQiOiIwMSIsInB1cmNoYXNlQW1vdW50IjoiMTEwIiwicHVyY2hhc2VDdXJyZW5jeSI6IjgyNiIsInB1cmNoYXNlRXhwb25lbnQiOiIyIiwicHVyY2hhc2VEYXRlIjoiMjAyMzAzMjIxNTMxMDQiLCJ0cmFuc1R5cGUiOiIwMSIsInRocmVlRFNDb21wSW5kIjoiWSIsImJyb3dzZXJBY2NlcHRIZWFkZXIiOiIqLyoiLCJicm93c2VySVAiOiIxMjMuMTIzLjEyMy4xMjMiLCJkZXZpY2VDaGFubmVsIjoiMDIiLCJub3RpZmljYXRpb25VUkwiOiJodHRwczovL2Rldi5ibGlua3BheW1lbnQuY28udWsvYXBpL3BheS92MS9jb2RhdGRldi8zZHNfMl8yL2FlNzljZTE4LWVhZTYtNDUyYi1hOTdkLTI5N2Y2ZGUyNjYxYT9hY3M9MSZ0aHJlZURTQWNzUmVzcG9uc2U9Y2hhbGxlbmdlIiwiYnJvd3Nlckxhbmd1YWdlIjoiZW4tR0IiLCJicm93c2VySmF2YUVuYWJsZWQiOmZhbHNlLCJicm93c2VyQ29sb3JEZXB0aCI6IjI0IiwiYnJvd3NlclNjcmVlbkhlaWdodCI6Ijc2OCIsImJyb3dzZXJTY3JlZW5XaWR0aCI6IjEzNjYiLCJicm93c2VyVFoiOiItMzMwIiwiYnJvd3NlclVzZXJBZ2VudCI6IlBvc3RtYW5SdW50aW1lLzcuMzEuMyJ9LCJhcmVzIjp7InRocmVlRFNTZXJ2ZXJUcmFuc0lEIjoiYmFhZGFjZTMtZDM2MC00YWQwLWFjMWMtYmQ0N2RjODBlMDI4IiwiYWNzQ2hhbGxlbmdlTWFuZGF0ZWQiOiJOIiwiYWNzRGVjQ29uSW5kIjoiTiIsImFjc09wZXJhdG9ySUQiOiJBY3NPcElkIDY0MWIxZjM5MzNlODYiLCJhY3NSZWZlcmVuY2VOdW1iZXIiOiIzRFNfTE9BX1NFUl9OU09GXzAyMDEwMF8wMDA1MSIsImFjc1JlbmRlcmluZ1R5cGUiOnsiYWNzSW50ZXJmYWNlIjoiMDIiLCJhY3NVaVRlbXBsYXRlIjoiMDUifSwiYWNzVHJhbnNJRCI6ImMzYTZjZDZiLTUzY2YtNDkxOS04ZGI5LWYxMjdlNjBiNWFiNyIsImFjc1VSTCI6Imh0dHBzOi8vYWNzLjNkcy1waXQuY29tLyIsImF1dGhlbnRpY2F0aW9uVHlwZSI6IjAxIiwiZHNSZWZlcmVuY2VOdW1iZXIiOiIzRFNfTE9BX1NFUl9OU09GXzAyMDEwMF8wMDA1MSIsImRzVHJhbnNJRCI6IjI0YzIyOGU1LTBiMjYtNDQxNy1iMTJhLWQ3NGNlNWU0M2U5ZiIsIm1lc3NhZ2VUeXBlIjoiQVJlcyIsIm1lc3NhZ2VWZXJzaW9uIjoiMi4xLjAiLCJ0cmFuc1N0YXR1cyI6IkMiLCJtZXNzYWdlRXh0ZW5zaW9uIjpbeyJuYW1lIjoiQUNTIERhdGEiLCJpZCI6IkEwMDAwMDAwMDQtYWNzRGF0YSIsImNyaXRpY2FsaXR5SW5kaWNhdG9yIjpmYWxzZSwiZGF0YSI6eyJBMDAwMDAwMDA0LWFjc0RhdGEiOnsid2hpdGVsaXN0U3RhdHVzIjoiWSJ9fX1dfX19XSwiY2hhbGxlbmdlV2luZG93U2l6ZSI6IjAyIn0\\\"><input type=\\\"hidden\\\" name=\\\"threeDSPageSessions[ae79ce18-eae6-452b-a97d-297f6de2661a][threeDSRef]\\\" value=\\\"eyJtZXNzYWdlVHlwZSI6IkNSZXEiLCJtZXNzYWdlVmVyc2lvbiI6IjIuMS4wIiwidGhyZWVEU1NlcnZlclRyYW5zSUQiOiJiYWFkYWNlMy1kMzYwLTRhZDAtYWMxYy1iZDQ3ZGM4MGUwMjgiLCJhY3NUcmFuc0lEIjoiYzNhNmNkNmItNTNjZi00OTE5LThkYjktZjEyN2U2MGI1YWI3IiwibWVzc2FnZUV4dGVuc2lvbiI6W3sibmFtZSI6InAzLTNkcy1jb250ZXh0IiwiaWQiOiJwMy0zZHMtY29udGV4dCIsImNyaXRpY2FsaXR5SW5kaWNhdG9yIjpmYWxzZSwiZGF0YSI6eyJhcmVxIjp7InRocmVlRFNSZXF1ZXN0b3JJRCI6IjEyMzQ1Njc4IiwidGhyZWVEU1JlcXVlc3Rvck5hbWUiOiJCbGluayB0ZXN0IDEvOSIsInRocmVlRFNSZXF1ZXN0b3JVUkwiOiJodHRwczovL3d3dy5ibGlua3BheW1lbnQuY28udWsiLCJ0aHJlZURTU2VydmVyUmVmTnVtYmVyIjoiM0RTX0xPQV9TRVJfTlNPRl8wMjAyMDBfMDAyMDMiLCJ0aHJlZURTU2VydmVyVHJhbnNJRCI6ImJhYWRhY2UzLWQzNjAtNGFkMC1hYzFjLWJkNDdkYzgwZTAyOCIsImFjY3ROdW1iZXIiOiI0MTExMTExMTExMTExMTExIiwiY2FyZEV4cGlyeURhdGUiOiIyMzEyIiwidGhyZWVEU1NlcnZlck9wZXJhdG9ySUQiOiJURVNULU9QRVJBVE9SIiwiYWNxdWlyZXJCSU4iOiIxMjM0NTYiLCJhY3F1aXJlck1lcmNoYW50SUQiOiIwMDAwMDAwMDAwMDAwMDAiLCJtZXJjaGFudE5hbWUiOiJCbGluayB0ZXN0IDEvOSIsImVtYWlsIjoiR2VuZXNpc19GZXJyeTY0QGdtYWlsLmNvbSIsImNhcmRob2xkZXJOYW1lIjoiVGhlbG1hIE1hY0d5dmVyIiwibWNjIjoiMDc0MiIsIm1lcmNoYW50Q291bnRyeUNvZGUiOiI4MjYiLCJtZXNzYWdlQ2F0ZWdvcnkiOiIwMSIsIm1lc3NhZ2VUeXBlIjoiQVJlcSIsIm1lc3NhZ2VWZXJzaW9uIjoiMi4xLjAiLCJ0aHJlZURTU2VydmVyVVJMIjoiaHR0cHM6Ly9nYXRld2F5LmZpZGVsaXBheS5jby51ay9wdXNoL25vdGlmaWNhdGlvbi8_X3FzXz14THlBdzhSVlYwQ3AiLCJ0aHJlZURTUmVxdWVzdG9yQXV0aGVudGljYXRpb25JbmQiOiIwMSIsInRocmVlRFNSZXF1ZXN0b3JDaGFsbGVuZ2VJbmQiOiIwMSIsInB1cmNoYXNlQW1vdW50IjoiMTEwIiwicHVyY2hhc2VDdXJyZW5jeSI6IjgyNiIsInB1cmNoYXNlRXhwb25lbnQiOiIyIiwicHVyY2hhc2VEYXRlIjoiMjAyMzAzMjIxNTMxMDQiLCJ0cmFuc1R5cGUiOiIwMSIsInRocmVlRFNDb21wSW5kIjoiWSIsImJyb3dzZXJBY2NlcHRIZWFkZXIiOiIqLyoiLCJicm93c2VySVAiOiIxMjMuMTIzLjEyMy4xMjMiLCJkZXZpY2VDaGFubmVsIjoiMDIiLCJub3RpZmljYXRpb25VUkwiOiJodHRwczovL2Rldi5ibGlua3BheW1lbnQuY28udWsvYXBpL3BheS92MS9jb2RhdGRldi8zZHNfMl8yL2FlNzljZTE4LWVhZTYtNDUyYi1hOTdkLTI5N2Y2ZGUyNjYxYT9hY3M9MSZ0aHJlZURTQWNzUmVzcG9uc2U9Y2hhbGxlbmdlIiwiYnJvd3Nlckxhbmd1YWdlIjoiZW4tR0IiLCJicm93c2VySmF2YUVuYWJsZWQiOmZhbHNlLCJicm93c2VyQ29sb3JEZXB0aCI6IjI0IiwiYnJvd3NlclNjcmVlbkhlaWdodCI6Ijc2OCIsImJyb3dzZXJTY3JlZW5XaWR0aCI6IjEzNjYiLCJicm93c2VyVFoiOiItMzMwIiwiYnJvd3NlclVzZXJBZ2VudCI6IlBvc3RtYW5SdW50aW1lLzcuMzEuMyJ9LCJhcmVzIjp7InRocmVlRFNTZXJ2ZXJUcmFuc0lEIjoiYmFhZGFjZTMtZDM2MC00YWQwLWFjMWMtYmQ0N2RjODBlMDI4IiwiYWNzQ2hhbGxlbmdlTWFuZGF0ZWQiOiJOIiwiYWNzRGVjQ29uSW5kIjoiTiIsImFjc09wZXJhdG9ySUQiOiJBY3NPcElkIDY0MWIxZjM5MzNlODYiLCJhY3NSZWZlcmVuY2VOdW1iZXIiOiIzRFNfTE9BX1NFUl9OU09GXzAyMDEwMF8wMDA1MSIsImFjc1JlbmRlcmluZ1R5cGUiOnsiYWNzSW50ZXJmYWNlIjoiMDIiLCJhY3NVaVRlbXBsYXRlIjoiMDUifSwiYWNzVHJhbnNJRCI6ImMzYTZjZDZiLTUzY2YtNDkxOS04ZGI5LWYxMjdlNjBiNWFiNyIsImFjc1VSTCI6Imh0dHBzOi8vYWNzLjNkcy1waXQuY29tLyIsImF1dGhlbnRpY2F0aW9uVHlwZSI6IjAxIiwiZHNSZWZlcmVuY2VOdW1iZXIiOiIzRFNfTE9BX1NFUl9OU09GXzAyMDEwMF8wMDA1MSIsImRzVHJhbnNJRCI6IjI0YzIyOGU1LTBiMjYtNDQxNy1iMTJhLWQ3NGNlNWU0M2U5ZiIsIm1lc3NhZ2VUeXBlIjoiQVJlcyIsIm1lc3NhZ2VWZXJzaW9uIjoiMi4xLjAiLCJ0cmFuc1N0YXR1cyI6IkMiLCJtZXNzYWdlRXh0ZW5zaW9uIjpbeyJuYW1lIjoiQUNTIERhdGEiLCJpZCI6IkEwMDAwMDAwMDQtYWNzRGF0YSIsImNyaXRpY2FsaXR5SW5kaWNhdG9yIjpmYWxzZSwiZGF0YSI6eyJBMDAwMDAwMDA0LWFjc0RhdGEiOnsid2hpdGVsaXN0U3RhdHVzIjoiWSJ9fX1dfX19XSwiY2hhbGxlbmdlV2luZG93U2l6ZSI6IjAyIn0\\\"><input id=\\\"btnSubmit\\\" type=\\\"submit\\\" class=\\\"button expanded btn btn-primary\\\" value=\\\"Please Wait...\\\"></form>\"\n}"
 						}
 					]
 				},
@@ -1106,7 +1130,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"payment_intent\": \"{{payment_intent}}\",\n    \"paymentToken\": \"{{paymentToken}}\",\n    \"raw_amount\": \"{{raw_amount}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"transaction_unique\": \"{{transaction_unique}}\",\n    \"type\": 2\n}",
+							"raw": "{\n    \"payment_intent\" : \"{{payment_intent}}\",\n    \"paymentToken\" : \"{{paymentToken}}\",\n    \"raw_amount\" : \"{{raw_amount}}\",\n    \"customer_email\" : \"{{$randomEmail}}\",\n    \"customer_name\" : \"{{$randomFullName}}\",\n    \"transaction_unique\" : \"{{transaction_unique}}\",\n    \"type\": 2\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1125,19 +1149,19 @@
 					},
 					"response": [
 						{
-							"name": "Process Payment (non 3DS)",
+							"name": "creditcards (MOTO)",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJtZXJjaGFudF9pZCI6NTg2LCJzZWNyZXRfa2V5IjoiMTNkYjI0NGI1MWRhMDRhMWZmMGNkMWFhNzQwZjNhZmQ5Njk3NjIzNjYzMWFkOTdhMTYzN2RkMTJmNTk3NTEzOSIsImV4cCI6MTY3NTQzMjIzOX0.7PZdzN5ZJ1J3Jq9kspGt1ghmeKROcZYwj9o2DwN6PbQ",
+										"value": "Bearer {{access_token}}",
 										"type": "text"
 									}
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"merchant_id\":140841,\n    \"payment_intent\" : \"pi_tp3G9jULwpzcQXRCgE3qKBksgCvyZ9FHa2e0ZUg8z9RqKNMVtHioVoqaC6BxLkn40HLe1OQnP_EhVXhl5q8nOiZYg4FBuLygHfteuH_sTkI\",\n    \"paymentToken\" : \"eyJwYXltZW50VG9rZW4iOnsibWV0aG9kIjoiY2FyZCIsInJlc291cmNlIjoic3RvcmUiLCJpZCI6MTY3NTc5NH19\",\n    \"raw_amount\" : \"1.1\",\n    \"customer_email\" : \"sainita@capitalnumbers.com\",\n    \"customer_name\" : \"sainitaM\",\n    \"transaction_unique\" : \"pFzBTSYpPQyu\",\n    \"type\" : 2\n}",
+									"raw": "{\n    \"payment_intent\" : \"{{payment_intent}}\",\n    \"paymentToken\" : \"{{paymentToken}}\",\n    \"raw_amount\" : \"{{raw_amount}}\",\n    \"customer_email\" : \"{{$randomEmail}}\",\n    \"customer_name\" : \"{{$randomFullName}}\",\n    \"transaction_unique\" : \"{{transaction_unique}}\",\n    \"type\": 2\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1145,13 +1169,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{url}}/cc/process",
+									"raw": "{{url}}/creditcards",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
-										"cc",
-										"process"
+										"creditcards"
 									]
 								}
 							},
@@ -1161,7 +1184,7 @@
 							"header": [
 								{
 									"key": "Date",
-									"value": "Fri, 03 Feb 2023 13:28:24 GMT"
+									"value": "Wed, 22 Mar 2023 15:38:36 GMT"
 								},
 								{
 									"key": "Server",
@@ -1205,14 +1228,14 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"url\": \"https://683f-150-129-110-21.in.ngrok.io/return?res=QkwtMTZVMTc2UERSWA%3D%3D\"\n}"
+							"body": "{\n    \"url\": \"https://api-demo-php.blinkpayment.co.uk/return?res=QkwtRFJVWDlZNzU3Sw%3D%3D\"\n}"
 						}
 					]
 				}
 			]
 		},
 		{
-			"name": "OpenBankings",
+			"name": "Process Open Banking",
 			"item": [
 				{
 					"name": "openbankings",
@@ -1365,7 +1388,7 @@
 			]
 		},
 		{
-			"name": "DirectDebits",
+			"name": "Process Direct Debit",
 			"item": [
 				{
 					"name": "directdebits",
@@ -1439,13 +1462,13 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/transaction/BL-16U176PDRX",
+									"raw": "{{url}}/transactions/BL-DRUX9Y757K",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
-										"transaction",
-										"BL-16U176PDRX"
+										"transactions",
+										"BL-DRUX9Y757K"
 									]
 								}
 							},
@@ -1513,12 +1536,12 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}/transaction/BL-0023C7F155",
+									"raw": "{{url}}/transactions/BL-0023C7F155",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
-										"transaction",
+										"transactions",
 										"BL-0023C7F155"
 									]
 								}
