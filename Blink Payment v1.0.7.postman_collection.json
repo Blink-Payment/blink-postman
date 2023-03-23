@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "d7574ac6-e896-459e-ac8d-5c1d11f2189d",
-		"name": "Blink Payment v1.0.6",
+		"_postman_id": "2e275cc1-75e9-46a1-899b-bdf4074338a6",
+		"name": "Blink Payment v1.0.7",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7767584"
 	},
@@ -991,7 +991,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"payment_intent\": \"{{payment_intent}}\",\n    \"paymentToken\": \"{{paymentToken}}\",\n    \"type\": 1,\n    \"raw_amount\": \"{{raw_amount}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"transaction_unique\": \"{{transaction_unique}}\",\n    \"device_timezone\": \"-330\",\n    \"device_capabilities\": \"javascript\",\n    \"device_accept_language\": \"en-GB\",\n    \"device_screen_resolution\": \"1366x768x24\",\n    \"remote_address\": \"123.123.123.123\"\n}",
+							"raw": "{\n    \"payment_intent\": \"{{payment_intent}}\",\n    \"paymentToken\": \"{{paymentToken}}\",\n    \"type\": 1,\n    \"raw_amount\": \"{{raw_amount}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"transaction_unique\": \"{{transaction_unique}}\",\n    \"merchant_data\": \"{\\\"order_id\\\": \\\"12345678\\\"}\",\n    \"device_timezone\": \"-330\",\n    \"device_capabilities\": \"javascript\",\n    \"device_accept_language\": \"en-GB\",\n    \"device_screen_resolution\": \"1366x768x24\",\n    \"remote_address\": \"123.123.123.123\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1107,7 +1107,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"payment_intent\": \"{{payment_intent}}\",\n    \"paymentToken\": \"{{paymentToken}}\",\n    \"raw_amount\": \"{{raw_amount}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"transaction_unique\": \"{{transaction_unique}}\",\n    \"type\": 2\n}",
+							"raw": "{\n    \"payment_intent\": \"{{payment_intent}}\",\n    \"paymentToken\": \"{{paymentToken}}\",\n    \"raw_amount\": \"{{raw_amount}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"transaction_unique\": \"{{transaction_unique}}\",\n    \"type\": 2,\n    \"merchant_data\": \"{\\\"order_id\\\": \\\"12345678\\\"}\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
