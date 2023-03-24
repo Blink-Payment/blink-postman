@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "2e275cc1-75e9-46a1-899b-bdf4074338a6",
-		"name": "Blink Payment v1.0.7",
+		"_postman_id": "2b518a9a-cf1e-48a1-a368-909d33f00d87",
+		"name": "Blink Payment v1.0.8",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7767584"
 	},
@@ -358,7 +358,8 @@
 								"exec": [
 									"postman.setEnvironmentVariable(\"payment_intent\", JSON.parse(responseBody).payment_intent);",
 									"postman.setEnvironmentVariable(\"intent_id\", JSON.parse(responseBody).id);",
-									""
+									"postman.setEnvironmentVariable(\"merchant_id\", JSON.parse(responseBody).merchant_id);",
+									"postman.setEnvironmentVariable(\"transaction_unique\", JSON.parse(responseBody).transaction_unique);"
 								],
 								"type": "text/javascript"
 							}
@@ -394,13 +395,13 @@
 					},
 					"response": [
 						{
-							"name": "Create Payment Intent",
+							"name": "intents",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJtZXJjaGFudF9pZCI6NTg2LCJzZWNyZXRfa2V5IjoiMTNkYjI0NGI1MWRhMDRhMWZmMGNkMWFhNzQwZjNhZmQ5Njk3NjIzNjYzMWFkOTdhMTYzN2RkMTJmNTk3NTEzOSIsImV4cCI6MTY3NjQ0NjIwNH0.TIgd8sORsWib9qnXmSURArA1AaCSwhg1TzMBWepHdRU",
+										"value": "Bearer {{access_token}}",
 										"type": "text"
 									}
 								],
@@ -414,12 +415,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{url}}/intent",
+									"raw": "{{url}}/intents",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
-										"intent"
+										"intents"
 									]
 								}
 							},
@@ -429,7 +430,7 @@
 							"header": [
 								{
 									"key": "Date",
-									"value": "Wed, 15 Feb 2023 07:00:44 GMT"
+									"value": "Fri, 24 Mar 2023 10:06:43 GMT"
 								},
 								{
 									"key": "Server",
@@ -473,7 +474,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"id\": 1558,\n    \"payment_intent\": \"pi_2xoFLwklPS1IhrwKtYUwtw3RkxuQhBttCwA6HxzKVfYFVYk5F4VIYB8Dn5Zqejf7v5_YB06ZuzooRQYiFCsCTL2tb9lQ2GE2QMdPMSdB5kE\",\n    \"expired_on\": \"2023-02-15T07:30:44Z\",\n    \"amount\": \"1.1\",\n    \"currency\": \"GBP\",\n    \"payment_type\": \"credit-card\",\n    \"return_url\": \"https://api-demo-php.blinkpayment.co.uk/return\",\n    \"notification_url\": \"https://api-demo-php.blinkpayment.co.uk/notification\"\n}"
+							"body": "{\n    \"id\": 2551,\n    \"payment_intent\": \"pi_BOA0LnyKL0rwkZsc_M4DTrLA_YwyA7WmejTqdmQaNbP0dZjflAx3kxv7Kvn-HAnR2wTm_UxJjqQlxGK-5zL0HHSwHBUBuXSzcq3iixkHldU\",\n    \"amount\": \"1.1\",\n    \"currency\": \"GBP\",\n    \"payment_type\": \"credit-card\",\n    \"return_url\": \"https://api-demo-php.blinkpayment.co.uk/return\",\n    \"notification_url\": \"https://api-demo-php.blinkpayment.co.uk/notification\",\n    \"element\": {\n        \"ccElement\": \"<input type=\\\"hidden\\\" name=\\\"merchantID\\\" value=\\\"140841\\\"/>\\n              <input type=\\\"hidden\\\" name=\\\"payment_intent\\\" value=\\\"pi_BOA0LnyKL0rwkZsc_M4DTrLA_YwyA7WmejTqdmQaNbP0dZjflAx3kxv7Kvn-HAnR2wTm_UxJjqQlxGK-5zL0HHSwHBUBuXSzcq3iixkHldU\\\"/>\\n              <input type=\\\"text\\\" name=\\\"customer_name\\\" value=\\\"\\\" placeholder=\\\"Name on card\\\" /></br>\\n              <input type=\\\"text\\\" name=\\\"customer_email\\\" value=\\\"\\\" placeholder=\\\"Email\\\"/></br><input type=\\\"text\\\" placeholder=\\\"Address\\\" name=\\\"customer_address\\\" value=\\\"\\\" /><br>\\n                  <input type=\\\"text\\\" placeholder=\\\"Postcode\\\" name=\\\"customer_postcode\\\" value=\\\"\\\" /><br><input type=\\\"hostedfield:cardNumber\\\" placeholder=\\\"1234 1234 1234 1234\\\"/><br>\\n               <input type=\\\"hostedfield:cardExpiryDate\\\" placeholder=\\\"MM/YY\\\"/><br>\\n               <input type=\\\"hostedfield:cardCVV\\\" placeholder=\\\"CVV\\\"/>\",\n        \"ddElement\": \"<input type=\\\"hidden\\\" name=\\\"payment_intent\\\" value=\\\"pi_BOA0LnyKL0rwkZsc_M4DTrLA_YwyA7WmejTqdmQaNbP0dZjflAx3kxv7Kvn-HAnR2wTm_UxJjqQlxGK-5zL0HHSwHBUBuXSzcq3iixkHldU\\\"/>\\n              <input type=\\\"hidden\\\" name=\\\"unique_transaction\\\" value=\\\"LAnDechnQtHb\\\"/>\\n              <input type=\\\"text\\\" placeholder=\\\"Given Name\\\" name=\\\"given_name\\\"/><br>\\n              <input type=\\\"text\\\" placeholder=\\\"Family Name\\\" name=\\\"family_name\\\"/><br>\\n              <input type=\\\"text\\\" placeholder=\\\"Company Name\\\" name=\\\"company_name\\\"/><br>\\n              <input type=\\\"text\\\" placeholder=\\\"Email\\\" name=\\\"email\\\"/><br><input type=\\\"text\\\" placeholder=\\\"Address\\\" name=\\\"customer_address\\\" value=\\\"\\\" /><br>\\n                  <input type=\\\"text\\\" placeholder=\\\"Postcode\\\" name=\\\"customer_postcode\\\" value=\\\"\\\" /><br><input type=\\\"text\\\" placeholder=\\\"Account Holder Name\\\" name=\\\"account_holder_name\\\"/><br/>\\n              <input type=\\\"text\\\" placeholder=\\\"Branch Code\\\" name=\\\"branch_code\\\"/><br/>\\n              <input type=\\\"text\\\" placeholder=\\\"Bank Account Number\\\" name=\\\"account_number\\\"/>\",\n        \"obElement\": \"<input type=\\\"hidden\\\" name=\\\"merchant_id\\\" value=\\\"140841\\\"/>\\n              <input type=\\\"hidden\\\" name=\\\"payment_intent\\\" value=\\\"pi_BOA0LnyKL0rwkZsc_M4DTrLA_YwyA7WmejTqdmQaNbP0dZjflAx3kxv7Kvn-HAnR2wTm_UxJjqQlxGK-5zL0HHSwHBUBuXSzcq3iixkHldU\\\"/>\\n              <input type=\\\"text\\\" name=\\\"user_name\\\" value=\\\"\\\" placeholder=\\\"Name on card\\\" /><br>\\n              <input type=\\\"text\\\" name=\\\"user_email\\\" value=\\\"\\\" placeholder=\\\"Email\\\"/><br><input type=\\\"text\\\" placeholder=\\\"Address\\\" name=\\\"customer_address\\\" value=\\\"\\\" /><br>\\n                  <input type=\\\"text\\\" placeholder=\\\"Postcode\\\" name=\\\"customer_postcode\\\" value=\\\"\\\" /><br>\"\n    },\n    \"merchant_id\": 140841,\n    \"transaction_unique\": \"LAnDechnQtHb\"\n}"
 						}
 					]
 				},
@@ -501,24 +502,24 @@
 					},
 					"response": [
 						{
-							"name": "Get Payment Intent",
+							"name": "intents/{id}",
 							"originalRequest": {
 								"method": "GET",
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJtZXJjaGFudF9pZCI6NTg2LCJzZWNyZXRfa2V5IjoiMTNkYjI0NGI1MWRhMDRhMWZmMGNkMWFhNzQwZjNhZmQ5Njk3NjIzNjYzMWFkOTdhMTYzN2RkMTJmNTk3NTEzOSIsImV4cCI6MTY3NDQ4NDA2M30.C199t0_fpFNML1QHyX0FZbAkuPTInQ28bMpmgPDetyY",
+										"value": "Bearer {{access_token}}",
 										"type": "text"
 									}
 								],
 								"url": {
-									"raw": "{{url}}/intent/123",
+									"raw": "{{url}}/intents/{{intent_id}}",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
-										"intent",
-										"123"
+										"intents",
+										"{{intent_id}}"
 									]
 								}
 							},
@@ -528,7 +529,7 @@
 							"header": [
 								{
 									"key": "Date",
-									"value": "Mon, 23 Jan 2023 13:59:22 GMT"
+									"value": "Fri, 24 Mar 2023 10:07:07 GMT"
 								},
 								{
 									"key": "Server",
@@ -572,7 +573,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"id\": 123,\n    \"payment_intent\": \"pi_QDmmzFCvg8Ry166rcz7MsTS1ANSospUo5sJXjm-Grub5erwBgSUmOsBZQjMXB7KpoIeLAwUo48PcWDZ5-2pi9vR8BtpEpUl7DvN9v9bK3UM\",\n    \"expiry_date\": \"2023-01-23T14:28:21Z\",\n    \"status\": \"active\",\n    \"payment_type\": \"credit_card,direct_debit\",\n    \"currency\": \"GBP\",\n    \"amount\": 100,\n    \"return_url\": \"http://www.test.com\",\n    \"notification_url\": \"http://www.test.com\",\n    \"item_metadata\": null,\n    \"user_metadata\": null\n}"
+							"body": "{\n    \"id\": 2551,\n    \"payment_intent\": \"pi_BOA0LnyKL0rwkZsc_M4DTrLA_YwyA7WmejTqdmQaNbP0dZjflAx3kxv7Kvn-HAnR2wTm_UxJjqQlxGK-5zL0HHSwHBUBuXSzcq3iixkHldU\",\n    \"status\": \"active\",\n    \"payment_type\": \"credit-card\",\n    \"currency\": \"GBP\",\n    \"amount\": 1.1,\n    \"return_url\": \"https://api-demo-php.blinkpayment.co.uk/return\",\n    \"notification_url\": \"https://api-demo-php.blinkpayment.co.uk/notification\",\n    \"element\": {\n        \"ccElement\": \"<input type=\\\"hidden\\\" name=\\\"merchantID\\\" value=\\\"140841\\\"/>\\n              <input type=\\\"hidden\\\" name=\\\"payment_intent\\\" value=\\\"pi_BOA0LnyKL0rwkZsc_M4DTrLA_YwyA7WmejTqdmQaNbP0dZjflAx3kxv7Kvn-HAnR2wTm_UxJjqQlxGK-5zL0HHSwHBUBuXSzcq3iixkHldU\\\"/>\\n              <input type=\\\"text\\\" name=\\\"customer_name\\\" value=\\\"\\\" placeholder=\\\"Name on card\\\" /></br>\\n              <input type=\\\"text\\\" name=\\\"customer_email\\\" value=\\\"\\\" placeholder=\\\"Email\\\"/></br><input type=\\\"text\\\" placeholder=\\\"Address\\\" name=\\\"customer_address\\\" value=\\\"\\\" /><br>\\n                  <input type=\\\"text\\\" placeholder=\\\"Postcode\\\" name=\\\"customer_postcode\\\" value=\\\"\\\" /><br><input type=\\\"hostedfield:cardNumber\\\" placeholder=\\\"1234 1234 1234 1234\\\"/><br>\\n               <input type=\\\"hostedfield:cardExpiryDate\\\" placeholder=\\\"MM/YY\\\"/><br>\\n               <input type=\\\"hostedfield:cardCVV\\\" placeholder=\\\"CVV\\\"/>\",\n        \"ddElement\": \"<input type=\\\"hidden\\\" name=\\\"payment_intent\\\" value=\\\"pi_BOA0LnyKL0rwkZsc_M4DTrLA_YwyA7WmejTqdmQaNbP0dZjflAx3kxv7Kvn-HAnR2wTm_UxJjqQlxGK-5zL0HHSwHBUBuXSzcq3iixkHldU\\\"/>\\n              <input type=\\\"hidden\\\" name=\\\"unique_transaction\\\" value=\\\"LAnDechnQtHb\\\"/>\\n              <input type=\\\"text\\\" placeholder=\\\"Given Name\\\" name=\\\"given_name\\\"/><br>\\n              <input type=\\\"text\\\" placeholder=\\\"Family Name\\\" name=\\\"family_name\\\"/><br>\\n              <input type=\\\"text\\\" placeholder=\\\"Company Name\\\" name=\\\"company_name\\\"/><br>\\n              <input type=\\\"text\\\" placeholder=\\\"Email\\\" name=\\\"email\\\"/><br><input type=\\\"text\\\" placeholder=\\\"Address\\\" name=\\\"customer_address\\\" value=\\\"\\\" /><br>\\n                  <input type=\\\"text\\\" placeholder=\\\"Postcode\\\" name=\\\"customer_postcode\\\" value=\\\"\\\" /><br><input type=\\\"text\\\" placeholder=\\\"Account Holder Name\\\" name=\\\"account_holder_name\\\"/><br/>\\n              <input type=\\\"text\\\" placeholder=\\\"Branch Code\\\" name=\\\"branch_code\\\"/><br/>\\n              <input type=\\\"text\\\" placeholder=\\\"Bank Account Number\\\" name=\\\"account_number\\\"/>\",\n        \"obElement\": \"<input type=\\\"hidden\\\" name=\\\"merchant_id\\\" value=\\\"140841\\\"/>\\n              <input type=\\\"hidden\\\" name=\\\"payment_intent\\\" value=\\\"pi_BOA0LnyKL0rwkZsc_M4DTrLA_YwyA7WmejTqdmQaNbP0dZjflAx3kxv7Kvn-HAnR2wTm_UxJjqQlxGK-5zL0HHSwHBUBuXSzcq3iixkHldU\\\"/>\\n              <input type=\\\"text\\\" name=\\\"user_name\\\" value=\\\"\\\" placeholder=\\\"Name on card\\\" /><br>\\n              <input type=\\\"text\\\" name=\\\"user_email\\\" value=\\\"\\\" placeholder=\\\"Email\\\"/><br><input type=\\\"text\\\" placeholder=\\\"Address\\\" name=\\\"customer_address\\\" value=\\\"\\\" /><br>\\n                  <input type=\\\"text\\\" placeholder=\\\"Postcode\\\" name=\\\"customer_postcode\\\" value=\\\"\\\" /><br>\"\n    },\n    \"merchant_id\": 140841,\n    \"transaction_unique\": \"LAnDechnQtHb\"\n}"
 						}
 					]
 				},
@@ -659,7 +660,7 @@
 							"header": [
 								{
 									"key": "Date",
-									"value": "Wed, 22 Mar 2023 15:06:59 GMT"
+									"value": "Fri, 24 Mar 2023 10:07:23 GMT"
 								},
 								{
 									"key": "Server",
@@ -687,7 +688,7 @@
 								},
 								{
 									"key": "X-RateLimit-Remaining",
-									"value": "59"
+									"value": "58"
 								},
 								{
 									"key": "Keep-Alive",
@@ -703,141 +704,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"id\": 2433,\n    \"payment_intent\": \"pi_7rXlCI4tkp-5vBx3xa97eWwfBgQhhSILDTKzDQN1ROQWL33Aw_7w395nDyOVeewBXwS6c9_k-TBD6sA9njkYiJJTZk6veGk6ul8jG7y0JcU\",\n    \"status\": \"active\",\n    \"payment_type\": \"credit-card\",\n    \"currency\": \"GBP\",\n    \"amount\": 1.1,\n    \"return_url\": \"https://api-demo-php.blinkpayment.co.uk/return\",\n    \"notification_url\": \"https://api-demo-php.blinkpayment.co.uk/notification\"\n}"
-						}
-					]
-				}
-			]
-		},
-		{
-			"name": "Elements",
-			"item": [
-				{
-					"name": "elements",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"postman.setEnvironmentVariable(\"merchant_id\", JSON.parse(responseBody).merchant_id);",
-									"postman.setEnvironmentVariable(\"raw_amount\", JSON.parse(responseBody).raw_amount);",
-									"postman.setEnvironmentVariable(\"transaction_unique\", JSON.parse(responseBody).transaction_unique);"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{access_token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"payment_intent\": \"{{payment_intent}}\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{url}}/elements",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"elements"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "Create Element",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJtZXJjaGFudF9pZCI6NTg2LCJzZWNyZXRfa2V5IjoiMTNkYjI0NGI1MWRhMDRhMWZmMGNkMWFhNzQwZjNhZmQ5Njk3NjIzNjYzMWFkOTdhMTYzN2RkMTJmNTk3NTEzOSIsImV4cCI6MTY3NDQ4NDA2M30.C199t0_fpFNML1QHyX0FZbAkuPTInQ28bMpmgPDetyY",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "payment_intent",
-											"value": "pi_QDmmzFCvg8Ry166rcz7MsTS1ANSospUo5sJXjm-Grub5erwBgSUmOsBZQjMXB7KpoIeLAwUo48PcWDZ5-2pi9vR8BtpEpUl7DvN9v9bK3UM",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{url}}/element",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"element"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Date",
-									"value": "Mon, 23 Jan 2023 14:02:07 GMT"
-								},
-								{
-									"key": "Server",
-									"value": "Apache/2.4.54 () OpenSSL/1.0.2k-fips"
-								},
-								{
-									"key": "Vary",
-									"value": "Authorization"
-								},
-								{
-									"key": "Upgrade",
-									"value": "h2,h2c"
-								},
-								{
-									"key": "Connection",
-									"value": "Upgrade, Keep-Alive"
-								},
-								{
-									"key": "Cache-Control",
-									"value": "no-cache, private"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "60"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "59"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5, max=100"
-								},
-								{
-									"key": "Transfer-Encoding",
-									"value": "chunked"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"element\": {\n        \"ccElement\": \"<input type=\\\"hidden\\\" name=\\\"merchantID\\\" value=\\\"140841\\\"/>\\n              <input type=\\\"hidden\\\" name=\\\"payment_intent\\\" value=\\\"pi_QDmmzFCvg8Ry166rcz7MsTS1ANSospUo5sJXjm-Grub5erwBgSUmOsBZQjMXB7KpoIeLAwUo48PcWDZ5-2pi9vR8BtpEpUl7DvN9v9bK3UM\\\"/>\\n              <input type=\\\"text\\\" name=\\\"user_name\\\" value=\\\"SainitaM\\\" placeholder=\\\"Name on card\\\" /></br>\\n              <input type=\\\"text\\\" name=\\\"user_email\\\" value=\\\"sainita@capitalnumbers.com\\\" placeholder=\\\"Email\\\"/></br>\\n               <input type=\\\"hostedfield:cardNumber\\\" placeholder=\\\"1234 1234 1234 1234\\\"/><br>\\n               <input type=\\\"hostedfield:cardExpiryDate\\\" placeholder=\\\"MM/YY\\\"/><br>\\n               <input type=\\\"hostedfield:cardCVV\\\" placeholder=\\\"CVV\\\"/><br>\\n               <br><br>\",\n        \"ddElement\": \"<input type=\\\"hidden\\\" name=\\\"payment_intent\\\" value=\\\"pi_QDmmzFCvg8Ry166rcz7MsTS1ANSospUo5sJXjm-Grub5erwBgSUmOsBZQjMXB7KpoIeLAwUo48PcWDZ5-2pi9vR8BtpEpUl7DvN9v9bK3UM\\\"/>\\n              <input type=\\\"hidden\\\" name=\\\"unique_transaction\\\" value=\\\"7UlvjucsMXDO\\\"/>\\n              <input type=\\\"text\\\" placeholder=\\\"Given Name\\\" name=\\\"given_name\\\"/><br>\\n              <input type=\\\"text\\\" placeholder=\\\"Family Name\\\" name=\\\"family_name\\\"/><br>\\n              <input type=\\\"text\\\" placeholder=\\\"Company Name\\\" name=\\\"company_name\\\"/><br>\\n              <input type=\\\"text\\\" placeholder=\\\"Email\\\" name=\\\"email\\\"/><br>\\n              <input type=\\\"text\\\" placeholder=\\\"Account Holder Name\\\" name=\\\"account_holder_name\\\"/><br/>\\n              <input type=\\\"text\\\" placeholder=\\\"Branch Code\\\" name=\\\"branch_code\\\"/><br/>\\n              <input type=\\\"text\\\" placeholder=\\\"Bank Account Number\\\" name=\\\"account_number\\\"/><br/>\\n               <br><br>\"\n    },\n    \"raw_amount\": 100,\n    \"customer_email\": \"sainita@capitalnumbers.com\",\n    \"customer_name\": \"SainitaM\",\n    \"transaction_unique\": \"7UlvjucsMXDO\"\n}"
+							"body": "{\n    \"id\": 2551,\n    \"payment_intent\": \"pi_BOA0LnyKL0rwkZsc_M4DTrLA_YwyA7WmejTqdmQaNbP0dZjflAx3kxv7Kvn-HAnR2wTm_UxJjqQlxGK-5zL0HHSwHBUBuXSzcq3iixkHldU\",\n    \"status\": \"active\",\n    \"payment_type\": \"credit-card\",\n    \"currency\": \"GBP\",\n    \"amount\": 1.1,\n    \"return_url\": \"https://api-demo-php.blinkpayment.co.uk/return\",\n    \"notification_url\": \"https://api-demo-php.blinkpayment.co.uk/notification\",\n    \"element\": {\n        \"ccElement\": \"<input type=\\\"hidden\\\" name=\\\"merchantID\\\" value=\\\"140841\\\"/>\\n              <input type=\\\"hidden\\\" name=\\\"payment_intent\\\" value=\\\"pi_BOA0LnyKL0rwkZsc_M4DTrLA_YwyA7WmejTqdmQaNbP0dZjflAx3kxv7Kvn-HAnR2wTm_UxJjqQlxGK-5zL0HHSwHBUBuXSzcq3iixkHldU\\\"/>\\n              <input type=\\\"text\\\" name=\\\"customer_name\\\" value=\\\"Test User\\\" placeholder=\\\"Name on card\\\" /></br>\\n              <input type=\\\"text\\\" name=\\\"customer_email\\\" value=\\\"\\\" placeholder=\\\"Email\\\"/></br><input type=\\\"text\\\" placeholder=\\\"Address\\\" name=\\\"customer_address\\\" value=\\\"\\\" /><br>\\n                  <input type=\\\"text\\\" placeholder=\\\"Postcode\\\" name=\\\"customer_postcode\\\" value=\\\"\\\" /><br><input type=\\\"hostedfield:cardNumber\\\" placeholder=\\\"1234 1234 1234 1234\\\"/><br>\\n               <input type=\\\"hostedfield:cardExpiryDate\\\" placeholder=\\\"MM/YY\\\"/><br>\\n               <input type=\\\"hostedfield:cardCVV\\\" placeholder=\\\"CVV\\\"/>\",\n        \"ddElement\": \"<input type=\\\"hidden\\\" name=\\\"payment_intent\\\" value=\\\"pi_BOA0LnyKL0rwkZsc_M4DTrLA_YwyA7WmejTqdmQaNbP0dZjflAx3kxv7Kvn-HAnR2wTm_UxJjqQlxGK-5zL0HHSwHBUBuXSzcq3iixkHldU\\\"/>\\n              <input type=\\\"hidden\\\" name=\\\"unique_transaction\\\" value=\\\"LAnDechnQtHb\\\"/>\\n              <input type=\\\"text\\\" placeholder=\\\"Given Name\\\" name=\\\"given_name\\\"/><br>\\n              <input type=\\\"text\\\" placeholder=\\\"Family Name\\\" name=\\\"family_name\\\"/><br>\\n              <input type=\\\"text\\\" placeholder=\\\"Company Name\\\" name=\\\"company_name\\\"/><br>\\n              <input type=\\\"text\\\" placeholder=\\\"Email\\\" name=\\\"email\\\"/><br><input type=\\\"text\\\" placeholder=\\\"Address\\\" name=\\\"customer_address\\\" value=\\\"\\\" /><br>\\n                  <input type=\\\"text\\\" placeholder=\\\"Postcode\\\" name=\\\"customer_postcode\\\" value=\\\"\\\" /><br><input type=\\\"text\\\" placeholder=\\\"Account Holder Name\\\" name=\\\"account_holder_name\\\"/><br/>\\n              <input type=\\\"text\\\" placeholder=\\\"Branch Code\\\" name=\\\"branch_code\\\"/><br/>\\n              <input type=\\\"text\\\" placeholder=\\\"Bank Account Number\\\" name=\\\"account_number\\\"/>\",\n        \"obElement\": \"<input type=\\\"hidden\\\" name=\\\"merchant_id\\\" value=\\\"140841\\\"/>\\n              <input type=\\\"hidden\\\" name=\\\"payment_intent\\\" value=\\\"pi_BOA0LnyKL0rwkZsc_M4DTrLA_YwyA7WmejTqdmQaNbP0dZjflAx3kxv7Kvn-HAnR2wTm_UxJjqQlxGK-5zL0HHSwHBUBuXSzcq3iixkHldU\\\"/>\\n              <input type=\\\"text\\\" name=\\\"user_name\\\" value=\\\"Test User\\\" placeholder=\\\"Name on card\\\" /><br>\\n              <input type=\\\"text\\\" name=\\\"user_email\\\" value=\\\"\\\" placeholder=\\\"Email\\\"/><br><input type=\\\"text\\\" placeholder=\\\"Address\\\" name=\\\"customer_address\\\" value=\\\"\\\" /><br>\\n                  <input type=\\\"text\\\" placeholder=\\\"Postcode\\\" name=\\\"customer_postcode\\\" value=\\\"\\\" /><br>\"\n    },\n    \"merchant_id\": 140841,\n    \"transaction_unique\": \"LAnDechnQtHb\"\n}"
 						}
 					]
 				}
@@ -991,7 +858,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"payment_intent\": \"{{payment_intent}}\",\n    \"paymentToken\": \"{{paymentToken}}\",\n    \"type\": 1,\n    \"raw_amount\": \"{{raw_amount}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"transaction_unique\": \"{{transaction_unique}}\",\n    \"merchant_data\": \"{\\\"order_id\\\": \\\"12345678\\\"}\",\n    \"device_timezone\": \"-330\",\n    \"device_capabilities\": \"javascript\",\n    \"device_accept_language\": \"en-GB\",\n    \"device_screen_resolution\": \"1366x768x24\",\n    \"remote_address\": \"123.123.123.123\"\n}",
+							"raw": "{\n    \"payment_intent\": \"{{payment_intent}}\",\n    \"paymentToken\": \"{{paymentToken}}\",\n    \"type\": 1,\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"transaction_unique\": \"{{transaction_unique}}\",\n    \"merchant_data\": \"{\\\"order_id\\\": \\\"12345678\\\"}\",\n    \"device_timezone\": \"-330\",\n    \"device_capabilities\": \"javascript\",\n    \"device_accept_language\": \"en-GB\",\n    \"device_screen_resolution\": \"1366x768x24\",\n    \"remote_address\": \"123.123.123.123\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1107,7 +974,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"payment_intent\": \"{{payment_intent}}\",\n    \"paymentToken\": \"{{paymentToken}}\",\n    \"raw_amount\": \"{{raw_amount}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"transaction_unique\": \"{{transaction_unique}}\",\n    \"type\": 2,\n    \"merchant_data\": \"{\\\"order_id\\\": \\\"12345678\\\"}\"\n}",
+							"raw": "{\n    \"payment_intent\": \"{{payment_intent}}\",\n    \"paymentToken\": \"{{paymentToken}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"transaction_unique\": \"{{transaction_unique}}\",\n    \"type\": 2,\n    \"merchant_data\": \"{\\\"order_id\\\": \\\"12345678\\\"}\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
