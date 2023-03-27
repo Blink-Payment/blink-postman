@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "2b518a9a-cf1e-48a1-a368-909d33f00d87",
-		"name": "Blink Payment v1.0.8",
+		"name": "Blink Payment v1.0.9",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7767584"
 	},
@@ -858,7 +858,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"payment_intent\": \"{{payment_intent}}\",\n    \"paymentToken\": \"{{paymentToken}}\",\n    \"type\": 1,\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"transaction_unique\": \"{{transaction_unique}}\",\n    \"merchant_data\": \"{\\\"order_id\\\": \\\"12345678\\\"}\",\n    \"device_timezone\": \"-330\",\n    \"device_capabilities\": \"javascript\",\n    \"device_accept_language\": \"en-GB\",\n    \"device_screen_resolution\": \"1366x768x24\",\n    \"remote_address\": \"123.123.123.123\"\n}",
+							"raw": "{\n    \"payment_intent\": \"{{payment_intent}}\",\n    \"paymentToken\": \"{{paymentToken}}\",\n    \"type\": 1,\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"transaction_unique\": \"{{transaction_unique}}\",\n    \"merchant_data\": \"{\\\"order_id\\\": \\\"cc-12345678\\\"}\",\n    \"device_timezone\": \"-330\",\n    \"device_capabilities\": \"javascript\",\n    \"device_accept_language\": \"en-GB\",\n    \"device_screen_resolution\": \"1366x768x24\",\n    \"remote_address\": \"123.123.123.123\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -974,7 +974,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"payment_intent\": \"{{payment_intent}}\",\n    \"paymentToken\": \"{{paymentToken}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"transaction_unique\": \"{{transaction_unique}}\",\n    \"type\": 2,\n    \"merchant_data\": \"{\\\"order_id\\\": \\\"12345678\\\"}\"\n}",
+							"raw": "{\n    \"payment_intent\": \"{{payment_intent}}\",\n    \"paymentToken\": \"{{paymentToken}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"transaction_unique\": \"{{transaction_unique}}\",\n    \"type\": 2,\n    \"merchant_data\": \"{\\\"order_id\\\": \\\"cc-12345678\\\"}\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1115,6 +1115,11 @@
 									"key": "user_email",
 									"value": "{{$randomEmail}}",
 									"type": "text"
+								},
+								{
+									"key": "merchant_data",
+									"value": "{\"order_id\" : \"ob-12345678\"}",
+									"type": "text"
 								}
 							]
 						},
@@ -1248,7 +1253,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"payment_intent\": \"{{payment_intent}}\",\n    \"given_name\": \"{{$randomFirstName}}\",\n    \"family_name\": \"{{$randomLastName}}\",\n    \"company_name\": null,\n    \"email\": \"{{$randomEmail}}\",\n    \"country_code\": \"GB\",\n    \"account_holder_name\": \"{{$randomFullName}}\",\n    \"branch_code\": \"200000\",\n    \"account_number\": \"55779911\",\n    \"iban\": null\n}",
+							"raw": "{\n    \"payment_intent\": \"{{payment_intent}}\",\n    \"given_name\": \"{{$randomFirstName}}\",\n    \"family_name\": \"{{$randomLastName}}\",\n    \"company_name\": null,\n    \"email\": \"{{$randomEmail}}\",\n    \"country_code\": \"GB\",\n    \"account_holder_name\": \"{{$randomFullName}}\",\n    \"branch_code\": \"200000\",\n    \"account_number\": \"55779911\",\n    \"iban\": null,\n    \"merchant_data\": \"{\\\"order_id\\\": \\\"dd-12345678\\\"}\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1296,24 +1301,24 @@
 					},
 					"response": [
 						{
-							"name": "Get Transaction Details --CC",
+							"name": "Transaction details - CC",
 							"originalRequest": {
 								"method": "GET",
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJtZXJjaGFudF9pZCI6NTg2LCJzZWNyZXRfa2V5IjoiMTNkYjI0NGI1MWRhMDRhMWZmMGNkMWFhNzQwZjNhZmQ5Njk3NjIzNjYzMWFkOTdhMTYzN2RkMTJmNTk3NTEzOSIsImV4cCI6MTY3NTQzMjIzOX0.7PZdzN5ZJ1J3Jq9kspGt1ghmeKROcZYwj9o2DwN6PbQ",
+										"value": "Bearer {{access_token}}",
 										"type": "text"
 									}
 								],
 								"url": {
-									"raw": "{{url}}/transaction/BL-16U176PDRX",
+									"raw": "{{url}}/transactions/{{transaction_id}}",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
-										"transaction",
-										"BL-16U176PDRX"
+										"transactions",
+										"{{transaction_id}}"
 									]
 								}
 							},
@@ -1323,7 +1328,7 @@
 							"header": [
 								{
 									"key": "Date",
-									"value": "Fri, 03 Feb 2023 13:47:25 GMT"
+									"value": "Mon, 27 Mar 2023 08:46:50 GMT"
 								},
 								{
 									"key": "Server",
@@ -1367,27 +1372,27 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"data\": {\n        \"transaction_id\": \"BL-16U176PDRX\",\n        \"status\": \"Captured\",\n        \"amount\": 1.1,\n        \"currency\": \"GBP\",\n        \"payment_source\": \"Visa Credit Card\",\n        \"customer_name\": \"sainitaM\",\n        \"customer_email\": \"sainita@capitalnumbers.com\"\n    }\n}"
+							"body": "{\n    \"data\": {\n        \"transaction_id\": \"BL-54URV6DLR5\",\n        \"status\": \"Captured\",\n        \"message\": \"Payment Successful\",\n        \"amount\": 1.1,\n        \"currency\": \"GBP\",\n        \"payment_source\": \"Visa Credit Card\",\n        \"customer_name\": \"Miss Olivia Treutel\",\n        \"customer_email\": \"Fausto0@gmail.com\",\n        \"merchant_data\": \"{\\\"order_id\\\": \\\"12345678\\\"}\"\n    }\n}"
 						},
 						{
-							"name": "Get Transaction Details-- DD",
+							"name": "Transaction details - DD",
 							"originalRequest": {
 								"method": "GET",
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJtZXJjaGFudF9pZCI6NTg2LCJzZWNyZXRfa2V5IjoiMTNkYjI0NGI1MWRhMDRhMWZmMGNkMWFhNzQwZjNhZmQ5Njk3NjIzNjYzMWFkOTdhMTYzN2RkMTJmNTk3NTEzOSIsImV4cCI6MTY3NjQ0NzgwOX0.dmk6L91FcAKq_c8vkR6zqfh3fyACSSL1cBppAUlYcMQ",
+										"value": "Bearer {{access_token}}",
 										"type": "text"
 									}
 								],
 								"url": {
-									"raw": "{{url}}/transaction/BL-0023C7F155",
+									"raw": "{{url}}/transactions/{{transaction_id}}",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
-										"transaction",
-										"BL-0023C7F155"
+										"transactions",
+										"{{transaction_id}}"
 									]
 								}
 							},
@@ -1397,7 +1402,7 @@
 							"header": [
 								{
 									"key": "Date",
-									"value": "Wed, 15 Feb 2023 07:30:10 GMT"
+									"value": "Mon, 27 Mar 2023 10:00:48 GMT"
 								},
 								{
 									"key": "Server",
@@ -1441,7 +1446,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"data\": {\n        \"transaction_id\": \"BL-0023C7F155\",\n        \"status\": \"Pending Submission\",\n        \"message\": \"Pending Submission\",\n        \"amount\": 1.1,\n        \"currency\": \"GBP\",\n        \"payment_source\": \"Direct Debit\",\n        \"customer_name\": \"Test User\",\n        \"customer_email\": \"testuser77888@yopmail.com\"\n    }\n}"
+							"body": "{\n    \"data\": {\n        \"transaction_id\": \"BL-0056F27B6A\",\n        \"status\": \"Pending Submission\",\n        \"message\": \"Pending Submission\",\n        \"amount\": 1.1,\n        \"currency\": \"GBP\",\n        \"payment_source\": \"Direct Debit\",\n        \"customer_name\": \"Jermaine Ernser\",\n        \"customer_email\": \"Devan.Price40@yahoo.com\",\n        \"merchant_data\": \"{\\\"order_id\\\": \\\"dd-12345678\\\"}\"\n    }\n}"
 						}
 					]
 				}
