@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "2b518a9a-cf1e-48a1-a368-909d33f00d87",
-		"name": "Blink Payment v1.0.9",
+		"_postman_id": "d19f0523-32fc-4d52-9d8c-e982eaa4cd1a",
+		"name": "Blink Payment v1.0.10",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7767584"
 	},
@@ -1447,6 +1447,113 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"data\": {\n        \"transaction_id\": \"BL-0056F27B6A\",\n        \"status\": \"Pending Submission\",\n        \"message\": \"Pending Submission\",\n        \"amount\": 1.1,\n        \"currency\": \"GBP\",\n        \"payment_source\": \"Direct Debit\",\n        \"customer_name\": \"Jermaine Ernser\",\n        \"customer_email\": \"Devan.Price40@yahoo.com\",\n        \"merchant_data\": \"{\\\"order_id\\\": \\\"dd-12345678\\\"}\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "PaymentTypes",
+			"item": [
+				{
+					"name": "payment-types",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"api_key\": \"{{api_key}}\",\n    \"secret_key\": \"{{secret_key}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/payment-types",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"payment-types"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "payment-types",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"api_key\": \"{{api_key}}\",\n    \"secret_key\": \"{{secret_key}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/payment-types",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"payment-types"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 28 Mar 2023 06:52:51 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.54 () OpenSSL/1.0.2k-fips"
+								},
+								{
+									"key": "Upgrade",
+									"value": "h2,h2c"
+								},
+								{
+									"key": "Connection",
+									"value": "Upgrade, Keep-Alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"payment_types\": [\n        \"credit-card\",\n        \"open-banking\",\n        \"direct-debit\"\n    ]\n}"
 						}
 					]
 				}
