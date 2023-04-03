@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "6241ac51-4a3d-44c6-a869-d81bd692a59c",
-		"name": "Blink Payment v1.0.12",
+		"_postman_id": "9b516db6-5bfb-4811-aeb4-9975771dca81",
+		"name": "Blink Payment v1.0.13",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7767584"
 	},
@@ -942,11 +942,6 @@
 							"mode": "formdata",
 							"formdata": [
 								{
-									"key": "merchant_id",
-									"value": "{{merchant_id}}",
-									"type": "text"
-								},
-								{
 									"key": "payment_intent",
 									"value": "{{payment_intent}}",
 									"type": "text"
@@ -980,13 +975,13 @@
 					},
 					"response": [
 						{
-							"name": "ob/process",
+							"name": "openbankings",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJtZXJjaGFudF9pZCI6NTg2LCJzZWNyZXRfa2V5IjoiMTNkYjI0NGI1MWRhMDRhMWZmMGNkMWFhNzQwZjNhZmQ5Njk3NjIzNjYzMWFkOTdhMTYzN2RkMTJmNTk3NTEzOSIsImV4cCI6MTY3NjQ0ODQ1NX0.fdezys3LxUtsIHx2-UD8JsCBO-nn9rZqjSVEVmPHgQg",
+										"value": "Bearer {{access_token}}",
 										"type": "text"
 									}
 								],
@@ -994,35 +989,34 @@
 									"mode": "formdata",
 									"formdata": [
 										{
-											"key": "merchant_id",
-											"value": "140841",
-											"type": "text"
-										},
-										{
 											"key": "payment_intent",
-											"value": "pi_gWYadu9rWZPqG6YG8Gzh3lwSZZWlTlI3eQYzbEd7a_iTitg87dMAbYfCoD6D6K0zScf8pw_MwKo0DiV1OZpFD4V5bctAQMwQF1h9eiv1ANs",
+											"value": "{{payment_intent}}",
 											"type": "text"
 										},
 										{
 											"key": "user_name",
-											"value": "Test User",
+											"value": "{{$randomFullName}}",
 											"type": "text"
 										},
 										{
 											"key": "user_email",
-											"value": "testuser567@yopmail.com",
+											"value": "{{$randomEmail}}",
+											"type": "text"
+										},
+										{
+											"key": "merchant_data",
+											"value": "{\"order_id\" : \"ob-12345678\"}",
 											"type": "text"
 										}
 									]
 								},
 								"url": {
-									"raw": "{{url}}/ob/process",
+									"raw": "{{url}}/openbankings",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
-										"ob",
-										"process"
+										"openbankings"
 									]
 								}
 							},
@@ -1032,7 +1026,7 @@
 							"header": [
 								{
 									"key": "Date",
-									"value": "Wed, 15 Feb 2023 07:40:33 GMT"
+									"value": "Mon, 03 Apr 2023 10:27:54 GMT"
 								},
 								{
 									"key": "Server",
@@ -1076,7 +1070,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"redirect_url\": \"https://fidelitygate.devandops.com/tobp-gateway/hppcallredirect/63ec8c710f10d467a07cae91\"\n}"
+							"body": "{\n    \"redirect_url\": \"https://fidelitygate.devandops.com/tobp-gateway/hppcallredirect/642aaa2c0f10d48508f3ddf8\"\n}"
 						}
 					]
 				}
@@ -1093,8 +1087,11 @@
 							"script": {
 								"exec": [
 									"let url = JSON.parse(responseBody).url;",
+									"if(url) {",
 									"let param = url.split('res=');",
-									"postman.setEnvironmentVariable(\"transaction_id\", param[1]);"
+									"postman.setEnvironmentVariable(\"transaction_id\", param[1]);",
+									"}",
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -1305,113 +1302,6 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"data\": {\n        \"transaction_id\": \"BL-0056F27B6A\",\n        \"status\": \"Pending Submission\",\n        \"message\": \"Pending Submission\",\n        \"amount\": 1.1,\n        \"currency\": \"GBP\",\n        \"payment_source\": \"Direct Debit\",\n        \"customer_name\": \"Jermaine Ernser\",\n        \"customer_email\": \"Devan.Price40@yahoo.com\",\n        \"merchant_data\": \"{\\\"order_id\\\": \\\"dd-12345678\\\"}\"\n    }\n}"
-						}
-					]
-				}
-			]
-		},
-		{
-			"name": "PaymentTypes",
-			"item": [
-				{
-					"name": "payment-types",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"api_key\": \"{{api_key}}\",\n    \"secret_key\": \"{{secret_key}}\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{url}}/payment-types",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"payment-types"
-							]
-						}
-					},
-					"response": [
-						{
-							"name": "payment-types",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"api_key\": \"{{api_key}}\",\n    \"secret_key\": \"{{secret_key}}\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/payment-types",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"payment-types"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Date",
-									"value": "Tue, 28 Mar 2023 06:52:51 GMT"
-								},
-								{
-									"key": "Server",
-									"value": "Apache/2.4.54 () OpenSSL/1.0.2k-fips"
-								},
-								{
-									"key": "Upgrade",
-									"value": "h2,h2c"
-								},
-								{
-									"key": "Connection",
-									"value": "Upgrade, Keep-Alive"
-								},
-								{
-									"key": "Cache-Control",
-									"value": "no-cache, private"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "60"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "59"
-								},
-								{
-									"key": "Keep-Alive",
-									"value": "timeout=5, max=100"
-								},
-								{
-									"key": "Transfer-Encoding",
-									"value": "chunked"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"payment_types\": [\n        \"credit-card\",\n        \"open-banking\",\n        \"direct-debit\"\n    ]\n}"
 						}
 					]
 				}
