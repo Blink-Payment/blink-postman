@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "b1a7d079-a281-4ab5-b8dd-2ee7fb4f7827",
-		"name": "Blink Payment v1.0.14",
+		"_postman_id": "7ca6952e-a842-4cb7-911b-fc93e0dd8d14",
+		"name": "Blink Payment v1.0.15",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7767584"
 	},
@@ -1471,6 +1471,530 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"data\": {\n        \"transaction_id\": \"BL-0056F27B6A\",\n        \"status\": \"Pending Submission\",\n        \"message\": \"Pending Submission\",\n        \"amount\": 1.1,\n        \"currency\": \"GBP\",\n        \"payment_source\": \"Direct Debit\",\n        \"customer_name\": \"Jermaine Ernser\",\n        \"customer_email\": \"Devan.Price40@yahoo.com\",\n        \"merchant_data\": \"{\\\"order_id\\\": \\\"dd-12345678\\\"}\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Paylink",
+			"item": [
+				{
+					"name": "Create Paylink",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"payment_method\": [\"credit-card\",\"open-banking\"],\n    \"transaction_type\": \"SALE\",\n    \"full_name\": \"Test Developer\",\n    \"email\": \"testdeveloper890@yopmail.com\",\n    \"mobile_number\": \"9123908567\",\n    \"transaction_unique\": \"fyr7898906\",\n    \"is_decide_amount\": true,\n    \"amount\": 1.00,\n    \"reminder\": true,\n    \"reminder_interval_count\": 2,\n    \"reminder_interval_frequency\": \"days\",\n    \"notes\": \"test note\",\n    \"notification_url\": \"https://mydomain.com/notification\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{paylink_url}}/paylinks",
+							"host": [
+								"{{paylink_url}}"
+							],
+							"path": [
+								"paylinks"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Paylink",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"payment_method\": [\"credit-card\",\"open-banking\"],\n    \"transaction_type\": \"SALE\",\n    \"full_name\": \"Test Developer\",\n    \"email\": \"testdeveloper89@gmail.com\",\n    \"mobile_number\": \"9123908567\",\n    \"transaction_unique\": \"fyr789506\",\n    \"is_decide_amount\": true,\n    \"amount\": 1.00,\n    \"reminder\": true,\n    \"reminder_interval_count\": 2,\n    \"reminder_interval_frequency\": \"days\",\n    \"notes\": \"test note\",\n    \"notification_url\": \"https://mydomain.com/notification\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/paylinks",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"paylinks"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 18 May 2023 15:06:29 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 () OpenSSL/1.0.2k-fips"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "Upgrade",
+									"value": "h2,h2c"
+								},
+								{
+									"key": "Connection",
+									"value": "Upgrade, Keep-Alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 3890,\n    \"paylink_url\": \"https://dev.blinkpayment.co.uk/codatdev/l/XOylFqb\",\n    \"transaction_unique\": \"fyr789506\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Paylink (With Id)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{paylink_url}}/paylinks/3906",
+							"host": [
+								"{{paylink_url}}"
+							],
+							"path": [
+								"paylinks",
+								"3906"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Paylink (With Id)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/paylinks/3899",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"paylinks",
+										"3899"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 19 May 2023 11:42:03 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 () OpenSSL/1.0.2k-fips"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "Upgrade",
+									"value": "h2,h2c"
+								},
+								{
+									"key": "Connection",
+									"value": "Upgrade, Keep-Alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 3899,\n    \"status\": \"Unpaid\",\n    \"created_by\": \"Blinktest123\",\n    \"amount\": \"1.00\",\n    \"currency\": \"GBP\",\n    \"transaction_type\": \"Sale\",\n    \"customer_name\": \"Test Developer\",\n    \"customer_email\": \"testdeveloper89@gmail.com\",\n    \"phone_number\": \"9123908567\",\n    \"payment_method\": [\n        \"card_payment\",\n        \"open_banking\"\n    ],\n    \"is_decide_amount\": true,\n    \"notes\": \"test note\"\n}"
+						}
+					]
+				},
+				{
+					"name": "get Pylink w/o Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/paylinks",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"paylinks"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "get Pylink w/o Id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/paylinks",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"paylinks"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 19 May 2023 12:41:15 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 () OpenSSL/1.0.2k-fips"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "Upgrade",
+									"value": "h2,h2c"
+								},
+								{
+									"key": "Connection",
+									"value": "Upgrade, Keep-Alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 3427,\n        \"status\": \"Paid\",\n        \"created_by\": \"Blinktest123\",\n        \"amount\": \"0.01\",\n        \"currency\": \"GBP\",\n        \"transaction_type\": \"Sale\",\n        \"customer_name\": \"Shalom Moise\",\n        \"customer_email\": \"s.moise@blinkpayment.co.uk\",\n        \"phone_number\": \"447743031462\",\n        \"payment_method\": [\n            \"card_payment\",\n            \"direct_debit\",\n            \"open_banking\"\n        ],\n        \"is_decide_amount\": false,\n        \"notes\": null\n    },\n    {\n        \"id\": 3428,\n        \"status\": \"Paid\",\n        \"created_by\": \"Blinktest123\",\n        \"amount\": \"1.80\",\n        \"currency\": \"GBP\",\n        \"transaction_type\": \"Sale\",\n        \"customer_name\": \"Shalom Moise\",\n        \"customer_email\": \"s.moise@blinkpayment.co.uk\",\n        \"phone_number\": \"447743031462\",\n        \"payment_method\": [\n            \"card_payment\",\n            \"direct_debit\",\n            \"open_banking\"\n        ],\n        \"is_decide_amount\": false,\n        \"notes\": null\n    },\n    {\n        \"id\": 3435,\n        \"status\": \"Paid\",\n        \"created_by\": \"Blinktest123\",\n        \"amount\": \"6.00\",\n        \"currency\": \"GBP\",\n        \"transaction_type\": \"Sale\",\n        \"customer_name\": \"Shalom Moise\",\n        \"customer_email\": \"s.moise@blinkpayment.co.uk\",\n        \"phone_number\": \"447743031462\",\n        \"payment_method\": [\n            \"card_payment\",\n            \"direct_debit\",\n            \"open_banking\"\n        ],\n        \"is_decide_amount\": false,\n        \"notes\": null\n    },\n    {\n        \"id\": 3608,\n        \"status\": \"Paid\",\n        \"created_by\": \"Blinktest123\",\n        \"amount\": \"5.00\",\n        \"currency\": \"GBP\",\n        \"transaction_type\": \"Sale\",\n        \"customer_name\": \"Shalom Moise\",\n        \"customer_email\": \"s.moise@blinkpayment.co.uk\",\n        \"phone_number\": \"447743031462\",\n        \"payment_method\": [\n            \"card_payment\",\n            \"direct_debit\",\n            \"open_banking\"\n        ],\n        \"is_decide_amount\": false,\n        \"notes\": null\n    },\n    {\n        \"id\": 3609,\n        \"status\": \"Paid\",\n        \"created_by\": \"Blinktest123\",\n        \"amount\": \"2.00\",\n        \"currency\": \"GBP\",\n        \"transaction_type\": \"Sale\",\n        \"customer_name\": \"Sandip Nandy\",\n        \"customer_email\": \"sandipn@capitalnumbers.com\",\n        \"phone_number\": null,\n        \"payment_method\": [\n            \"card_payment\",\n            \"direct_debit\",\n            \"open_banking\"\n        ],\n        \"is_decide_amount\": false,\n        \"notes\": null\n    },\n    {\n        \"id\": 3610,\n        \"status\": \"Paid\",\n        \"created_by\": \"Blinktest123\",\n        \"amount\": \"3.00\",\n        \"currency\": \"GBP\",\n        \"transaction_type\": \"Sale\",\n        \"customer_name\": \"Sandip Nandy\",\n        \"customer_email\": \"sandipn@capitalnumbers.com\",\n        \"phone_number\": null,\n        \"payment_method\": [\n            \"card_payment\",\n            \"direct_debit\",\n            \"open_banking\"\n        ],\n        \"is_decide_amount\": false,\n        \"notes\": null\n    },\n    {\n        \"id\": 3611,\n        \"status\": \"Paid\",\n        \"created_by\": \"Blinktest123\",\n        \"amount\": \"1.02\",\n        \"currency\": \"GBP\",\n        \"transaction_type\": \"Sale\",\n        \"customer_name\": \"Sandip Nandy\",\n        \"customer_email\": \"sandipn@capitalnumbers.com\",\n        \"phone_number\": null,\n        \"payment_method\": [\n            \"card_payment\",\n            \"direct_debit\",\n            \"open_banking\"\n        ],\n        \"is_decide_amount\": false,\n        \"notes\": null\n    },\n    {\n        \"id\": 3612,\n        \"status\": \"Paid\",\n        \"created_by\": \"Blinktest123\",\n        \"amount\": \"2.00\",\n        \"currency\": \"GBP\",\n        \"transaction_type\": \"Sale\",\n        \"customer_name\": \"Sandip Nandy\",\n        \"customer_email\": \"sandipn@capitalnumbers.com\",\n        \"phone_number\": null,\n        \"payment_method\": [\n            \"card_payment\",\n            \"direct_debit\",\n            \"open_banking\"\n        ],\n        \"is_decide_amount\": false,\n        \"notes\": null\n    },\n    {\n        \"id\": 3613,\n        \"status\": \"Paid\",\n        \"created_by\": \"Blinktest123\",\n        \"amount\": \"5.00\",\n        \"currency\": \"GBP\",\n        \"transaction_type\": \"Sale\",\n        \"customer_name\": \"Sandip Nandy\",\n        \"customer_email\": \"sandipn@capitalnumbers.com\",\n        \"phone_number\": null,\n        \"payment_method\": [\n            \"direct_debit\"\n        ],\n        \"is_decide_amount\": false,\n        \"notes\": null\n    },\n    {\n        \"id\": 3626,\n        \"status\": \"Paid\",\n        \"created_by\": \"Blinktest123\",\n        \"amount\": \"5.00\",\n        \"currency\": \"GBP\",\n        \"transaction_type\": \"Sale\",\n        \"customer_name\": \"Gourab Kirtania\",\n        \"customer_email\": \"gourab@capitalnumbers.com\",\n        \"phone_number\": null,\n        \"payment_method\": [\n            \"direct_debit\"\n        ],\n        \"is_decide_amount\": false,\n        \"notes\": null\n    },\n    {\n        \"id\": 3630,\n        \"status\": \"Paid\",\n        \"created_by\": \"Blinktest123\",\n        \"amount\": \"5.00\",\n        \"currency\": \"GBP\",\n        \"transaction_type\": \"Sale\",\n        \"customer_name\": \"gourab\",\n        \"customer_email\": \"gourab+3@capitalnumbers.com\",\n        \"phone_number\": null,\n        \"payment_method\": [\n            \"direct_debit\"\n        ],\n        \"is_decide_amount\": false,\n        \"notes\": null\n    },\n    {\n        \"id\": 3886,\n        \"status\": \"Paid\",\n        \"created_by\": \"Blinktest123\",\n        \"amount\": \"1.00\",\n        \"currency\": \"GBP\",\n        \"transaction_type\": \"Sale\",\n        \"customer_name\": \"Test Developer\",\n        \"customer_email\": \"testdeveloper@gmail.com\",\n        \"phone_number\": \"9123908567\",\n        \"payment_method\": [\n            \"card_payment\",\n            \"open_banking\"\n        ],\n        \"is_decide_amount\": true,\n        \"notes\": \"test note\"\n    },\n    {\n        \"id\": 3887,\n        \"status\": \"Paid\",\n        \"created_by\": \"Blinktest123\",\n        \"amount\": \"1.00\",\n        \"currency\": \"GBP\",\n        \"transaction_type\": \"Sale\",\n        \"customer_name\": \"Test Developer\",\n        \"customer_email\": \"testdeveloper@gmail.com\",\n        \"phone_number\": \"9123908567\",\n        \"payment_method\": [\n            \"card_payment\",\n            \"open_banking\"\n        ],\n        \"is_decide_amount\": true,\n        \"notes\": \"test note\"\n    },\n    {\n        \"id\": 3890,\n        \"status\": \"Paid\",\n        \"created_by\": \"Blinktest123\",\n        \"amount\": \"1.00\",\n        \"currency\": \"GBP\",\n        \"transaction_type\": \"Sale\",\n        \"customer_name\": \"Test Developer\",\n        \"customer_email\": \"testdeveloper89@gmail.com\",\n        \"phone_number\": \"9123908567\",\n        \"payment_method\": [\n            \"card_payment\",\n            \"open_banking\"\n        ],\n        \"is_decide_amount\": true,\n        \"notes\": \"test note\"\n    },\n    {\n        \"id\": 3891,\n        \"status\": \"Paid\",\n        \"created_by\": \"Blinktest123\",\n        \"amount\": \"1.00\",\n        \"currency\": \"GBP\",\n        \"transaction_type\": \"Sale\",\n        \"customer_name\": \"Test Developer\",\n        \"customer_email\": \"testdeveloper89@gmail.com\",\n        \"phone_number\": \"9123908567\",\n        \"payment_method\": [\n            \"card_payment\",\n            \"open_banking\"\n        ],\n        \"is_decide_amount\": true,\n        \"notes\": \"test note\"\n    },\n    {\n        \"id\": 3631,\n        \"status\": \"Unpaid\",\n        \"created_by\": \"Blinktest123\",\n        \"amount\": \"5.00\",\n        \"currency\": \"GBP\",\n        \"transaction_type\": \"Sale\",\n        \"customer_name\": \"gourab\",\n        \"customer_email\": \"gourab+4@capitalnumbers.com\",\n        \"phone_number\": null,\n        \"payment_method\": [\n            \"direct_debit\"\n        ],\n        \"is_decide_amount\": false,\n        \"notes\": null\n    },\n    {\n        \"id\": 3688,\n        \"status\": \"Unpaid\",\n        \"created_by\": \"Blinktest123\",\n        \"amount\": \"1.00\",\n        \"currency\": \"GBP\",\n        \"transaction_type\": \"Sale\",\n        \"customer_name\": \"sainita mukherjee\",\n        \"customer_email\": \"sainita@capitalnumbers.com\",\n        \"phone_number\": null,\n        \"payment_method\": [\n            \"open_banking\"\n        ],\n        \"is_decide_amount\": false,\n        \"notes\": null\n    },\n    {\n        \"id\": 3706,\n        \"status\": \"Unpaid\",\n        \"created_by\": \"Blinktest123\",\n        \"amount\": \"0.01\",\n        \"currency\": \"GBP\",\n        \"transaction_type\": \"Sale\",\n        \"customer_name\": \"Shalom Moise\",\n        \"customer_email\": \"s.moise@fidelitypayment.co.uk\",\n        \"phone_number\": \"447743031462\",\n        \"payment_method\": [\n            \"card_payment\",\n            \"direct_debit\",\n            \"open_banking\"\n        ],\n        \"is_decide_amount\": false,\n        \"notes\": null\n    },\n    {\n        \"id\": 3850,\n        \"status\": \"Unpaid\",\n        \"created_by\": \"Blinktest123\",\n        \"amount\": \"0.01\",\n        \"currency\": \"GBP\",\n        \"transaction_type\": \"Sale\",\n        \"customer_name\": \"test\",\n        \"customer_email\": \"n.berkovits@blinkpayment.co.uk\",\n        \"phone_number\": null,\n        \"payment_method\": [\n            \"card_payment\",\n            \"direct_debit\",\n            \"open_banking\"\n        ],\n        \"is_decide_amount\": false,\n        \"notes\": null\n    },\n    {\n        \"id\": 3889,\n        \"status\": \"Unpaid\",\n        \"created_by\": \"Blinktest123\",\n        \"amount\": \"1.00\",\n        \"currency\": \"GBP\",\n        \"transaction_type\": \"Sale\",\n        \"customer_name\": \"Test Developer\",\n        \"customer_email\": \"testdeveloper@gmail.com\",\n        \"phone_number\": \"9123908567\",\n        \"payment_method\": [\n            \"card_payment\",\n            \"open_banking\"\n        ],\n        \"is_decide_amount\": true,\n        \"notes\": \"test note\"\n    },\n    {\n        \"id\": 3892,\n        \"status\": \"Unpaid\",\n        \"created_by\": \"Blinktest123\",\n        \"amount\": \"1.00\",\n        \"currency\": \"GBP\",\n        \"transaction_type\": \"Sale\",\n        \"customer_name\": \"Test Developer\",\n        \"customer_email\": \"testdeveloper89@gmail.com\",\n        \"phone_number\": \"9123908567\",\n        \"payment_method\": [\n            \"card_payment\",\n            \"open_banking\"\n        ],\n        \"is_decide_amount\": true,\n        \"notes\": \"test note\"\n    },\n    {\n        \"id\": 3899,\n        \"status\": \"Unpaid\",\n        \"created_by\": \"Blinktest123\",\n        \"amount\": \"1.00\",\n        \"currency\": \"GBP\",\n        \"transaction_type\": \"Sale\",\n        \"customer_name\": \"Test Developer\",\n        \"customer_email\": \"testdeveloper89@gmail.com\",\n        \"phone_number\": \"9123908567\",\n        \"payment_method\": [\n            \"card_payment\",\n            \"open_banking\"\n        ],\n        \"is_decide_amount\": true,\n        \"notes\": \"test note\"\n    },\n    {\n        \"id\": 3629,\n        \"status\": \"Cancelled\",\n        \"created_by\": \"Blinktest123\",\n        \"amount\": \"5.00\",\n        \"currency\": \"GBP\",\n        \"transaction_type\": \"Sale\",\n        \"customer_name\": \"Gourab Direct Debit 2\",\n        \"customer_email\": \"gourab+2@capitalnumbers.com\",\n        \"phone_number\": null,\n        \"payment_method\": [\n            \"direct_debit\"\n        ],\n        \"is_decide_amount\": false,\n        \"notes\": null\n    },\n    {\n        \"id\": 3897,\n        \"status\": \"Payment Attempted\",\n        \"created_by\": \"Blinktest123\",\n        \"amount\": \"1.00\",\n        \"currency\": \"GBP\",\n        \"transaction_type\": \"Sale\",\n        \"customer_name\": \"Test Developer\",\n        \"customer_email\": \"testdeveloper89@gmail.com\",\n        \"phone_number\": \"9123908567\",\n        \"payment_method\": [\n            \"card_payment\",\n            \"open_banking\"\n        ],\n        \"is_decide_amount\": true,\n        \"notes\": \"test note\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Update Paylink",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"amount\": \"1.02\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{paylink_url}}/paylinks/3906",
+							"host": [
+								"{{paylink_url}}"
+							],
+							"path": [
+								"paylinks",
+								"3906"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Paylink",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"payment_method\": [\"credit-card\",\"open-banking\",\"direct-debit\"],\n    \"full_name\": \"Test Developer Account\",\n    \"notification_url\": \"https://mydomain.com/notification/webhook\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/paylinks/390",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"paylinks",
+										"390"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 22 May 2023 12:40:56 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 () OpenSSL/1.0.2k-fips"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "Upgrade",
+									"value": "h2,h2c"
+								},
+								{
+									"key": "Connection",
+									"value": "Upgrade, Keep-Alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 3904,\n    \"status\": \"Unpaid\",\n    \"created_by\": \"Blinktest123\",\n    \"amount\": \"1.00\",\n    \"currency\": \"GBP\",\n    \"transaction_type\": \"Sale\",\n    \"customer_name\": \"Test Developer Account\",\n    \"customer_email\": \"testdeveloper890@yopmail.com\",\n    \"phone_number\": \"9123908567\",\n    \"payment_method\": [\n        \"card_payment\",\n        \"open_banking\",\n        \"direct_debit\"\n    ],\n    \"is_decide_amount\": true,\n    \"notes\": \"test note\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Paylink",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{paylink_url}}/paylinks/3909",
+							"host": [
+								"{{paylink_url}}"
+							],
+							"path": [
+								"paylinks",
+								"3909"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Paylink",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{paylink_url}}/paylinks/3909",
+									"host": [
+										"{{paylink_url}}"
+									],
+									"path": [
+										"paylinks",
+										"3909"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 23 May 2023 11:08:49 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.56 () OpenSSL/1.0.2k-fips"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "Upgrade",
+									"value": "h2,h2c"
+								},
+								{
+									"key": "Connection",
+									"value": "Upgrade, Keep-Alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								}
+							],
+							"cookie": [],
+							"body": null
 						}
 					]
 				}
