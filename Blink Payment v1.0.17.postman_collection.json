@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "08ab6685-8e11-4027-a086-7fb7e608aefd",
-		"name": "Blink Payment v1.0.16",
+		"_postman_id": "d9b2ec89-614f-4329-afd4-cf47133d2508",
+		"name": "Blink Payment v1.0.17",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7767584"
 	},
@@ -28,7 +28,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"api_key\": \"{{api_key}}\",\n    \"secret_key\": \"{{secret_key}}\"\n}",
+							"raw": "{\n    \"api_key\": \"{{api_key}}\",\n    \"secret_key\": \"{{secret_key}}\",\n    \"payment_api_status\": true,\n    \"send_blink_receipt\": true,\n    \"address_postcode_required\": true,\n    \"enable_moto_payments\": true,\n    \"card_layout\": \"single_line\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
