@@ -1,10 +1,9 @@
 {
 	"info": {
-		"_postman_id": "389dc827-27bf-495c-b15b-09639faf479f",
-		"name": "Blink Payment v1.0.19",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
-		"_exporter_id": "21463868",
-		"_collection_link": "https://lively-astronaut-344324.postman.co/workspace/f990d8bb-1ce9-42e3-8bd2-88965c3543dc/collection/21463868-389dc827-27bf-495c-b15b-09639faf479f?action=share&creator=21463868&source=collection_link"
+		"_postman_id": "2bd73c6a-167c-4021-b16c-0f942dac2f2e",
+		"name": "Blink Payment v1.0.20",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7767584"
 	},
 	"item": [
 		{
@@ -36,7 +35,15 @@
 								}
 							}
 						},
-						"url": "{{url}}/tokens"
+						"url": {
+							"raw": "{{url}}/tokens",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"tokens"
+							]
+						}
 					},
 					"response": [
 						{
@@ -53,7 +60,15 @@
 										}
 									}
 								},
-								"url": "{{url}}/tokens"
+								"url": {
+									"raw": "{{url}}/tokens",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"tokens"
+									]
+								}
 							},
 							"status": "Created",
 							"code": 201,
@@ -108,7 +123,15 @@
 									"mode": "formdata",
 									"formdata": []
 								},
-								"url": "{{url}}/token"
+								"url": {
+									"raw": "{{url}}/token",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"token"
+									]
+								}
 							},
 							"status": "OK",
 							"code": 200,
@@ -173,7 +196,15 @@
 										}
 									]
 								},
-								"url": "{{url}}/token"
+								"url": {
+									"raw": "{{url}}/token",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"token"
+									]
+								}
 							},
 							"status": "OK",
 							"code": 200,
@@ -243,7 +274,15 @@
 										}
 									]
 								},
-								"url": "{{url}}/token"
+								"url": {
+									"raw": "{{url}}/token",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"token"
+									]
+								}
 							},
 							"status": "OK",
 							"code": 200,
@@ -334,7 +373,15 @@
 								}
 							}
 						},
-						"url": "{{url}}/intents"
+						"url": {
+							"raw": "{{url}}/intents",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"intents"
+							]
+						}
 					},
 					"response": [
 						{
@@ -357,7 +404,15 @@
 										}
 									}
 								},
-								"url": "{{url}}/intents"
+								"url": {
+									"raw": "{{url}}/intents",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"intents"
+									]
+								}
 							},
 							"status": "Created",
 							"code": 201,
@@ -420,7 +475,16 @@
 								"type": "text"
 							}
 						],
-						"url": "{{url}}/intents/{{intent_id}}"
+						"url": {
+							"raw": "{{url}}/intents/{{intent_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"intents",
+								"{{intent_id}}"
+							]
+						}
 					},
 					"response": [
 						{
@@ -434,7 +498,16 @@
 										"type": "text"
 									}
 								],
-								"url": "{{url}}/intents/{{intent_id}}"
+								"url": {
+									"raw": "{{url}}/intents/{{intent_id}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"intents",
+										"{{intent_id}}"
+									]
+								}
 							},
 							"status": "OK",
 							"code": 200,
@@ -517,7 +590,16 @@
 								}
 							]
 						},
-						"url": "{{url}}/intents/{{intent_id}}"
+						"url": {
+							"raw": "{{url}}/intents/{{intent_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"intents",
+								"{{intent_id}}"
+							]
+						}
 					},
 					"response": [
 						{
@@ -547,7 +629,16 @@
 										}
 									]
 								},
-								"url": "{{url}}/intents/{{intent_id}}"
+								"url": {
+									"raw": "{{url}}/intents/{{intent_id}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"intents",
+										"{{intent_id}}"
+									]
+								}
 							},
 							"status": "OK",
 							"code": 200,
@@ -659,7 +750,19 @@
 								}
 							]
 						},
-						"url": "https://gateway2.blinkpayment.co.uk/paymentform"
+						"url": {
+							"raw": "https://gateway2.blinkpayment.co.uk/paymentform",
+							"protocol": "https",
+							"host": [
+								"gateway2",
+								"blinkpayment",
+								"co",
+								"uk"
+							],
+							"path": [
+								"paymentform"
+							]
+						}
 					},
 					"response": [
 						{
@@ -702,7 +805,19 @@
 										}
 									]
 								},
-								"url": "https://gateway2.blinkpayment.co.uk/paymentform"
+								"url": {
+									"raw": "https://gateway2.blinkpayment.co.uk/paymentform",
+									"protocol": "https",
+									"host": [
+										"gateway2",
+										"blinkpayment",
+										"co",
+										"uk"
+									],
+									"path": [
+										"paymentform"
+									]
+								}
 							},
 							"_postman_previewlanguage": "Text",
 							"header": [],
@@ -749,7 +864,19 @@
 										}
 									]
 								},
-								"url": "https://gateway2.blinkpayment.co.uk/paymentform"
+								"url": {
+									"raw": "https://gateway2.blinkpayment.co.uk/paymentform",
+									"protocol": "https",
+									"host": [
+										"gateway2",
+										"blinkpayment",
+										"co",
+										"uk"
+									],
+									"path": [
+										"paymentform"
+									]
+								}
 							},
 							"status": "OK",
 							"code": 200,
@@ -830,7 +957,15 @@
 								}
 							}
 						},
-						"url": "{{url}}/creditcards"
+						"url": {
+							"raw": "{{url}}/creditcards",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"creditcards"
+							]
+						}
 					},
 					"response": []
 				},
@@ -870,7 +1005,15 @@
 								}
 							}
 						},
-						"url": "{{url}}/creditcards"
+						"url": {
+							"raw": "{{url}}/creditcards",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"creditcards"
+							]
+						}
 					},
 					"response": [
 						{
@@ -893,7 +1036,15 @@
 										}
 									}
 								},
-								"url": "{{url}}/creditcards"
+								"url": {
+									"raw": "{{url}}/creditcards",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"creditcards"
+									]
+								}
 							},
 							"status": "OK",
 							"code": 200,
@@ -990,7 +1141,15 @@
 								}
 							]
 						},
-						"url": "{{url}}/openbankings"
+						"url": {
+							"raw": "{{url}}/openbankings",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"openbankings"
+							]
+						}
 					},
 					"response": [
 						{
@@ -1029,7 +1188,15 @@
 										}
 									]
 								},
-								"url": "{{url}}/openbankings"
+								"url": {
+									"raw": "{{url}}/openbankings",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"openbankings"
+									]
+								}
 							},
 							"status": "OK",
 							"code": 200,
@@ -1126,7 +1293,15 @@
 								}
 							}
 						},
-						"url": "{{url}}/directdebits"
+						"url": {
+							"raw": "{{url}}/directdebits",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"directdebits"
+							]
+						}
 					},
 					"response": [
 						{
@@ -1149,7 +1324,15 @@
 										}
 									}
 								},
-								"url": "{{url}}/directdebits"
+								"url": {
+									"raw": "{{url}}/directdebits",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"directdebits"
+									]
+								}
 							},
 							"status": "OK",
 							"code": 200,
@@ -1221,7 +1404,16 @@
 								"type": "text"
 							}
 						],
-						"url": "{{url}}/transactions/{{transaction_id}}"
+						"url": {
+							"raw": "{{url}}/transactions/{{transaction_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"transactions",
+								"{{transaction_id}}"
+							]
+						}
 					},
 					"response": [
 						{
@@ -1235,7 +1427,16 @@
 										"type": "text"
 									}
 								],
-								"url": "{{url}}/transactions/{{transaction_id}}"
+								"url": {
+									"raw": "{{url}}/transactions/{{transaction_id}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"transactions",
+										"{{transaction_id}}"
+									]
+								}
 							},
 							"status": "OK",
 							"code": 200,
@@ -1300,7 +1501,16 @@
 										"type": "text"
 									}
 								],
-								"url": "{{url}}/transactions/{{transaction_id}}"
+								"url": {
+									"raw": "{{url}}/transactions/{{transaction_id}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"transactions",
+										"{{transaction_id}}"
+									]
+								}
 							},
 							"status": "OK",
 							"code": 200,
@@ -1365,7 +1575,16 @@
 										"type": "text"
 									}
 								],
-								"url": "{{url}}/transactions/BL-00C902BB94"
+								"url": {
+									"raw": "{{url}}/transactions/BL-00C902BB94",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"transactions",
+										"BL-00C902BB94"
+									]
+								}
 							},
 							"status": "OK",
 							"code": 200,
@@ -1453,7 +1672,15 @@
 								}
 							}
 						},
-						"url": "{{paylink_url}}/paylinks"
+						"url": {
+							"raw": "{{paylink_url}}/paylinks",
+							"host": [
+								"{{paylink_url}}"
+							],
+							"path": [
+								"paylinks"
+							]
+						}
 					},
 					"response": [
 						{
@@ -1476,7 +1703,15 @@
 										}
 									}
 								},
-								"url": "{{paylink_url}}/paylinks"
+								"url": {
+									"raw": "{{paylink_url}}/paylinks",
+									"host": [
+										"{{paylink_url}}"
+									],
+									"path": [
+										"paylinks"
+									]
+								}
 							},
 							"status": "Created",
 							"code": 201,
@@ -1559,7 +1794,15 @@
 								}
 							}
 						},
-						"url": "{{paylink_url}}/paylinks"
+						"url": {
+							"raw": "{{paylink_url}}/paylinks",
+							"host": [
+								"{{paylink_url}}"
+							],
+							"path": [
+								"paylinks"
+							]
+						}
 					},
 					"response": [
 						{
@@ -1582,7 +1825,15 @@
 										}
 									}
 								},
-								"url": "{{paylink_url}}/paylinks"
+								"url": {
+									"raw": "{{paylink_url}}/paylinks",
+									"host": [
+										"{{paylink_url}}"
+									],
+									"path": [
+										"paylinks"
+									]
+								}
 							},
 							"status": "Created",
 							"code": 201,
@@ -1649,7 +1900,16 @@
 								"type": "text"
 							}
 						],
-						"url": "{{paylink_url}}/paylinks/{{paylink_id}}"
+						"url": {
+							"raw": "{{paylink_url}}/paylinks/{{paylink_id}}",
+							"host": [
+								"{{paylink_url}}"
+							],
+							"path": [
+								"paylinks",
+								"{{paylink_id}}"
+							]
+						}
 					},
 					"response": [
 						{
@@ -1663,7 +1923,16 @@
 										"type": "text"
 									}
 								],
-								"url": "{{paylink_url}}/paylinks/{{paylink_id}}"
+								"url": {
+									"raw": "{{paylink_url}}/paylinks/{{paylink_id}}",
+									"host": [
+										"{{paylink_url}}"
+									],
+									"path": [
+										"paylinks",
+										"{{paylink_id}}"
+									]
+								}
 							},
 							"status": "OK",
 							"code": 200,
@@ -1856,7 +2125,16 @@
 								}
 							}
 						},
-						"url": "{{paylink_url}}/paylinks/{{paylink_id}}"
+						"url": {
+							"raw": "{{paylink_url}}/paylinks/{{paylink_id}}",
+							"host": [
+								"{{paylink_url}}"
+							],
+							"path": [
+								"paylinks",
+								"{{paylink_id}}"
+							]
+						}
 					},
 					"response": [
 						{
@@ -1879,7 +2157,16 @@
 										}
 									}
 								},
-								"url": "{{paylink_url}}/paylinks/{{paylink_id}}"
+								"url": {
+									"raw": "{{paylink_url}}/paylinks/{{paylink_id}}",
+									"host": [
+										"{{paylink_url}}"
+									],
+									"path": [
+										"paylinks",
+										"{{paylink_id}}"
+									]
+								}
 							},
 							"status": "OK",
 							"code": 200,
@@ -1955,7 +2242,17 @@
 								}
 							}
 						},
-						"url": "{{paylink_url}}/paylinks/{{paylink_id}}/notifications"
+						"url": {
+							"raw": "{{paylink_url}}/paylinks/{{paylink_id}}/notifications",
+							"host": [
+								"{{paylink_url}}"
+							],
+							"path": [
+								"paylinks",
+								"{{paylink_id}}",
+								"notifications"
+							]
+						}
 					},
 					"response": [
 						{
@@ -1978,7 +2275,17 @@
 										}
 									}
 								},
-								"url": "{{paylink_url}}/paylinks/{{paylink_id}}/notifications"
+								"url": {
+									"raw": "{{paylink_url}}/paylinks/{{paylink_id}}/notifications",
+									"host": [
+										"{{paylink_url}}"
+									],
+									"path": [
+										"paylinks",
+										"{{paylink_id}}",
+										"notifications"
+									]
+								}
 							},
 							"status": "OK",
 							"code": 200,
@@ -2033,6 +2340,234 @@
 							"body": "{\n    \"message\": \"Notification sent\"\n}"
 						}
 					]
+				}
+			]
+		},
+		{
+			"name": "Cancel transaction",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/transactions/{{transaction_id}}/cancels",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"transactions",
+						"{{transaction_id}}",
+						"cancels"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Cancel transaction",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/transactions/{{transaction_id}}/cancels",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"transactions",
+								"{{transaction_id}}",
+								"cancels"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 07 Sep 2023 10:00:19 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.57 () OpenSSL/1.0.2k-fips PHP/8.2.3"
+						},
+						{
+							"key": "Vary",
+							"value": "Authorization"
+						},
+						{
+							"key": "Upgrade",
+							"value": "h2,h2c"
+						},
+						{
+							"key": "Connection",
+							"value": "Upgrade, Keep-Alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.3"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Cancelled successfully\",\n    \"amount\": 1,\n    \"reference\": \"Cancel Transaction\",\n    \"transaction_id\": \"BL-NRU413VWJW\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Refund transaction",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{access_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"partial_refund\": true,\n    \"amount\": 1.00\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/transactions/{{transaction_id}}/refunds",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"transactions",
+						"{{transaction_id}}",
+						"refunds"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Refund transaction",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"partial_refund\": true,\n    \"amount\": 1.00\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/transactions/BL-63U4P14ZR5/refunds",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"transactions",
+								"BL-63U4P14ZR5",
+								"refunds"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 07 Sep 2023 10:05:33 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "Apache/2.4.57 () OpenSSL/1.0.2k-fips PHP/8.2.3"
+						},
+						{
+							"key": "Vary",
+							"value": "Authorization"
+						},
+						{
+							"key": "Upgrade",
+							"value": "h2,h2c"
+						},
+						{
+							"key": "Connection",
+							"value": "Upgrade, Keep-Alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.3"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5, max=100"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Refunded successfully\",\n    \"amount\": 1,\n    \"reference\": \"Refund Transaction at 07-09-23 10:05:35\",\n    \"transaction_id\": \"BL-63U4P14ZR5\"\n}"
 				}
 			]
 		}
