@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "2f616939-b185-4e34-bd67-2a5bf03ed1e4",
-		"name": "Blink Payment v1.0.22",
+		"_postman_id": "d7bc1624-bb2a-4755-bec2-9a551f6a9bbf",
+		"name": "Blink Payment v1.0.23",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7767584"
 	},
@@ -596,7 +596,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"amount\": \"1.01\",\n    \"transaction_type\": \"SALE\",\n\t\"payment_type\": \"credit-card\",\n\t\"currency\": \"GBP\",\n\t\"return_url\": \"https://api-demo-php.blinkpayment.co.uk/return\",\n\t\"notification_url\": \"https://api-demo-php.blinkpayment.co.uk/notification\",\n    \"card_layout\": \"single-line\",\n    \"delay_capture_days\": 2\n}",
+							"raw": "{\n    \"transaction_type\": \"SALE\",\n\t\"payment_type\": \"credit-card\",\n\t\"currency\": \"GBP\",\n\t\"return_url\": \"https://demo-app.blinkpayment.co.uk/return\",\n\t\"notification_url\": \"https://demo-app.blinkpayment.co.uk/notification\",\n    \"card_layout\": \"single-line\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3731,7 +3731,7 @@
 			"name": "Repeat Payment",
 			"item": [
 				{
-					"name": "Fixed repeat payment",
+					"name": "Fixed repeat payment (ECOM)",
 					"event": [
 						{
 							"listen": "test",
@@ -3754,7 +3754,141 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"payment_type\": \"fixed_schedule\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"reference\": \"{{$randomPhrase}}\",\n    \"frequency\": \"days\",\n    \"frequency_duration\": 2,\n    \"first_amount\": 11.00,\n    \"recurring_amount\": 13.01,\n    \"is_limited_installments\": true,\n    \"installments\": 10\n}",
+							"raw": "{\n    \"payment_type\": \"fixed_schedule\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"reference\": \"{{$randomPhrase}}\",\n    \"frequency\": \"days\",\n    \"frequency_duration\": 2,\n    \"first_amount\": 9.00,\n    \"recurring_amount\": 10.01,\n    \"is_limited_installments\": true,\n    \"installments\": 3,\n    \"paymentToken\": \"{{paymentToken}}\",\n    \"payment_intent\": \"{{payment_intent}}\",\n    \"device_timezone\": \"-330\",\n    \"device_capabilities\": \"javascript\",\n    \"device_accept_language\": \"en-GB\",\n    \"device_screen_resolution\": \"1366x768x24\",\n    \"remote_address\": \"123.123.123.123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/repeat-payments",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"repeat-payments"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Fixed repeat payment",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"payment_type\": \"fixed_schedule\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"reference\": \"{{$randomPhrase}}\",\n    \"frequency\": \"days\",\n    \"frequency_duration\": 2,\n    \"first_amount\": 12.00,\n    \"recurring_amount\": 10.01,\n    \"is_limited_installments\": true,\n    \"installments\": 10,\n    \"start_payment_date\": \"2023-10-30\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/repeat-payments",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"repeat-payments"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 19 Sep 2023 07:37:49 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.57 () OpenSSL/1.0.2k-fips PHP/8.2.9"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "Upgrade",
+									"value": "h2"
+								},
+								{
+									"key": "Connection",
+									"value": "Upgrade, Keep-Alive"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.2.9"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"status\": \"Success\",\n    \"card_element\": \"<input type=\\\"hidden\\\" name=\\\"payment_id\\\" value=\\\"1\\\"/>\\n        <input type=\\\"hidden\\\" name=\\\"merchantID\\\" value=\\\"140841\\\"/><label class=\\\"field-label\\\">Card information</label>\\n      <div class=\\\"fieldgroup-container relative no-wrap mb-4\\\">\\n          <input type=\\\"hostedfield:cardNumber\\\" placeholder=\\\"1234 1234 1234 1234\\\" />\\n          <input type=\\\"hostedfield:cardExpiryDate\\\" placeholder=\\\"MM/YY\\\" />\\n          <input type=\\\"hostedfield:cardCVV\\\" placeholder=\\\"CVV\\\" />\\n      </div>\",\n    \"reference\": \"We need to synthesize the mobile TCP bus!\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Fixed repeat payment (MOTO)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"postman.setEnvironmentVariable(\"payment_id\", JSON.parse(responseBody).id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"payment_type\": \"fixed_schedule\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"reference\": \"{{$randomPhrase}}\",\n    \"frequency\": \"days\",\n    \"frequency_duration\": 2,\n    \"first_amount\": 9.00,\n    \"recurring_amount\": 10.01,\n    \"is_limited_installments\": true,\n    \"installments\": 3,\n    \"paymentToken\": \"{{paymentToken}}\",\n    \"payment_intent\": \"{{payment_intent}}\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4006,7 +4140,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"payment_type\": \"fixed_schedule\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"recurring_id\": 161,\n    \"recurring_amount\": 28.03\n}",
+							"raw": "{\n    \"payment_type\": \"fixed_schedule\",\n    \"card_token\": \"{{card_token}}\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
