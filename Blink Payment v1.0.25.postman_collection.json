@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "16b7b978-87cd-4642-8c66-5b4766d9da3f",
-		"name": "Blink Payment v1.0.24",
+		"_postman_id": "025d9b4f-2849-4852-b154-ae60650c47c1",
+		"name": "Blink Payment v1.0.25",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7767584"
 	},
@@ -3770,7 +3770,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"payment_type\": \"fixed_schedule\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"reference\": \"{{$randomPhrase}}\",\n    \"frequency\": \"days\",\n    \"frequency_duration\": 2,\n    \"first_amount\": 9.00,\n    \"recurring_amount\": 10.01,\n    \"is_limited_installments\": true,\n    \"installments\": 3,\n    \"paymentToken\": \"{{paymentToken}}\",\n    \"payment_intent\": \"{{payment_intent}}\",\n    \"device_timezone\": \"-330\",\n    \"device_capabilities\": \"javascript\",\n    \"device_accept_language\": \"en-GB\",\n    \"device_screen_resolution\": \"1366x768x24\",\n    \"remote_address\": \"123.123.123.123\"\n}",
+							"raw": "{\n    \"payment_type\": \"fixed_schedule\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"reference\": \"{{$randomPhrase}}\",\n    \"currency\": \"GBP\",\n    \"frequency\": \"days\",\n    \"frequency_duration\": 2,\n    \"first_amount\": 9.00,\n    \"recurring_amount\": 10.01,\n    \"is_limited_installments\": true,\n    \"installments\": 3,\n    \"paymentToken\": \"{{paymentToken}}\",\n    \"payment_intent\": \"{{payment_intent}}\",\n    \"device_timezone\": \"-330\",\n    \"device_capabilities\": \"javascript\",\n    \"device_accept_language\": \"en-GB\",\n    \"device_screen_resolution\": \"1366x768x24\",\n    \"remote_address\": \"123.123.123.123\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3789,7 +3789,7 @@
 					},
 					"response": [
 						{
-							"name": "Fixed repeat payment",
+							"name": "Fixed repeat payment (ECOM)",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
@@ -3801,7 +3801,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"payment_type\": \"fixed_schedule\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"reference\": \"{{$randomPhrase}}\",\n    \"frequency\": \"days\",\n    \"frequency_duration\": 2,\n    \"first_amount\": 12.00,\n    \"recurring_amount\": 10.01,\n    \"is_limited_installments\": true,\n    \"installments\": 10,\n    \"start_payment_date\": \"2023-10-30\"\n}",
+									"raw": "{\n    \"payment_type\": \"fixed_schedule\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"reference\": \"{{$randomPhrase}}\",\n    \"currency\": \"GBP\",\n    \"frequency\": \"days\",\n    \"frequency_duration\": 2,\n    \"first_amount\": 9.00,\n    \"recurring_amount\": 10.01,\n    \"is_limited_installments\": true,\n    \"installments\": 3,\n    \"paymentToken\": \"{{paymentToken}}\",\n    \"payment_intent\": \"{{payment_intent}}\",\n    \"device_timezone\": \"-330\",\n    \"device_capabilities\": \"javascript\",\n    \"device_accept_language\": \"en-GB\",\n    \"device_screen_resolution\": \"1366x768x24\",\n    \"remote_address\": \"123.123.123.123\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -3818,17 +3818,17 @@
 									]
 								}
 							},
-							"status": "Created",
-							"code": 201,
+							"status": "OK",
+							"code": 200,
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
 									"key": "Date",
-									"value": "Tue, 19 Sep 2023 07:37:49 GMT"
+									"value": "Tue, 30 Jan 2024 13:00:00 GMT"
 								},
 								{
 									"key": "Server",
-									"value": "Apache/2.4.57 () OpenSSL/1.0.2k-fips PHP/8.2.9"
+									"value": "Apache"
 								},
 								{
 									"key": "Strict-Transport-Security",
@@ -3847,10 +3847,6 @@
 									"value": "Upgrade, Keep-Alive"
 								},
 								{
-									"key": "X-Powered-By",
-									"value": "PHP/8.2.9"
-								},
-								{
 									"key": "Cache-Control",
 									"value": "no-cache, private"
 								},
@@ -3860,7 +3856,7 @@
 								},
 								{
 									"key": "X-RateLimit-Remaining",
-									"value": "58"
+									"value": "59"
 								},
 								{
 									"key": "Keep-Alive",
@@ -3876,7 +3872,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"id\": 1,\n    \"status\": \"Success\",\n    \"card_element\": \"<input type=\\\"hidden\\\" name=\\\"payment_id\\\" value=\\\"1\\\"/>\\n        <input type=\\\"hidden\\\" name=\\\"merchantID\\\" value=\\\"140841\\\"/><label class=\\\"field-label\\\">Card information</label>\\n      <div class=\\\"fieldgroup-container relative no-wrap mb-4\\\">\\n          <input type=\\\"hostedfield:cardNumber\\\" placeholder=\\\"1234 1234 1234 1234\\\" />\\n          <input type=\\\"hostedfield:cardExpiryDate\\\" placeholder=\\\"MM/YY\\\" />\\n          <input type=\\\"hostedfield:cardCVV\\\" placeholder=\\\"CVV\\\" />\\n      </div>\",\n    \"reference\": \"We need to synthesize the mobile TCP bus!\"\n}"
+							"body": "{\n    \"acsform\": \"<form id=\\\"form3ds\\\" method=\\\"post\\\" action=\\\"https://acs.3ds-pit.com/\\\"><input type=\\\"hidden\\\" name=\\\"creq\\\" value=\\\"eyJtZXNzYWdlVHlwZSI6IkNSZXEiLCJtZXNzYWdlVmVyc2lvbiI6IjIuMS4wIiwidGhyZWVEU1NlcnZlclRyYW5zSUQiOiJlMDczMmE5Ny02NGUzLTRiZWUtODExOC0xYjg4MmMxMjc1OTYiLCJhY3NUcmFuc0lEIjoiMTVhYjdiNzgtMDViZi00M2ZiLTkyYTUtMThmY2FmMmY1OTZkIiwibWVzc2FnZUV4dGVuc2lvbiI6W3sibmFtZSI6InAzLTNkcy1jb250ZXh0IiwiaWQiOiJwMy0zZHMtY29udGV4dCIsImNyaXRpY2FsaXR5SW5kaWNhdG9yIjpmYWxzZSwiZGF0YSI6eyJhcmVxIjp7InRocmVlRFNSZXF1ZXN0b3JJRCI6IjEyMzQ1Njc4IiwidGhyZWVEU1JlcXVlc3Rvck5hbWUiOiJCbGluayB0ZXN0IDEvOSIsInRocmVlRFNSZXF1ZXN0b3JVUkwiOiJodHRwczovL3d3dy5ibGlua3BheW1lbnQuY28udWsiLCJ0aHJlZURTU2VydmVyUmVmTnVtYmVyIjoiM0RTX0xPQV9TRVJfTlNPRl8wMjAyMDBfMDA0MTYiLCJ0aHJlZURTU2VydmVyVHJhbnNJRCI6ImUwNzMyYTk3LTY0ZTMtNGJlZS04MTE4LTFiODgyYzEyNzU5NiIsImFjY3ROdW1iZXIiOiI0MTExMTExMTExMTExMTExIiwiY2FyZEV4cGlyeURhdGUiOiIyMzEyIiwidGhyZWVEU1NlcnZlck9wZXJhdG9ySUQiOiJURVNULU9QRVJBVE9SIiwiYWNxdWlyZXJCSU4iOiIxMjM0NTYiLCJhY3F1aXJlck1lcmNoYW50SUQiOiIwMDAwOTkyIiwibWVyY2hhbnROYW1lIjoiQmxpbmsgdGVzdCAxLzkiLCJlbWFpbCI6IkNvcmRpYS5XZWJlckBnbWFpbC5jb20iLCJjYXJkaG9sZGVyTmFtZSI6IkphbWllIExlYW5ub24iLCJtY2MiOiIwNzQyIiwibWVyY2hhbnRDb3VudHJ5Q29kZSI6IjgyNiIsIm1lc3NhZ2VDYXRlZ29yeSI6IjAxIiwibWVzc2FnZVR5cGUiOiJBUmVxIiwibWVzc2FnZVZlcnNpb24iOiIyLjEuMCIsInRocmVlRFNTZXJ2ZXJVUkwiOiJodHRwczovL2dhdGV3YXkuZmlkZWxpcGF5LmNvLnVrL3B1c2gvbm90aWZpY2F0aW9uLz9fcXNfPXhCa1BlS05OWjdxOCIsInRocmVlRFNSZXF1ZXN0b3JBdXRoZW50aWNhdGlvbkluZCI6IjAyIiwidGhyZWVEU1JlcXVlc3RvckNoYWxsZW5nZUluZCI6IjAxIiwicHVyY2hhc2VBbW91bnQiOiI5MDAiLCJwdXJjaGFzZUN1cnJlbmN5IjoiODI2IiwicHVyY2hhc2VFeHBvbmVudCI6IjIiLCJwdXJjaGFzZURhdGUiOiIyMDI0MDEzMDEzMDAwMyIsInRyYW5zVHlwZSI6IjAxIiwicmVjdXJyaW5nRXhwaXJ5IjoiOTk5OTEyMDEiLCJyZWN1cnJpbmdGcmVxdWVuY3kiOiIwMDAxIiwidGhyZWVEU0NvbXBJbmQiOiJZIiwiYnJvd3NlckFjY2VwdEhlYWRlciI6IiovKiIsImJyb3dzZXJJUCI6IjEyMy4xMjMuMTIzLjEyMyIsImRldmljZUNoYW5uZWwiOiIwMiIsIm5vdGlmaWNhdGlvblVSTCI6Imh0dHBzOi8vZGV2LmJsaW5rcGF5bWVudC5jby51ay9hcGkvcmVwZWF0LXBheW1lbnQvdjEvY29kYXRkZXYvM2RzXzJfMi8wMmEzMzhiNi1iM2EwLTQ3MjgtYTZjMi0wOTg3MWRmYWYzZTYvc2FsZT9hY3M9MSZ0aHJlZURTQWNzUmVzcG9uc2U9Y2hhbGxlbmdlIiwiYnJvd3Nlckxhbmd1YWdlIjoiZW4tR0IiLCJicm93c2VySmF2YUVuYWJsZWQiOmZhbHNlLCJicm93c2VyQ29sb3JEZXB0aCI6IjI0IiwiYnJvd3NlclNjcmVlbkhlaWdodCI6Ijc2OCIsImJyb3dzZXJTY3JlZW5XaWR0aCI6IjEzNjYiLCJicm93c2VyVFoiOiItMzMwIiwiYnJvd3NlclVzZXJBZ2VudCI6IlBvc3RtYW5SdW50aW1lLzcuMzUuMCJ9LCJhcmVzIjp7InRocmVlRFNTZXJ2ZXJUcmFuc0lEIjoiZTA3MzJhOTctNjRlMy00YmVlLTgxMTgtMWI4ODJjMTI3NTk2IiwiYWNzQ2hhbGxlbmdlTWFuZGF0ZWQiOiJOIiwiYWNzRGVjQ29uSW5kIjoiTiIsImFjc09wZXJhdG9ySUQiOiJBY3NPcElkIDY1YjhmMmQ0NTJhZGYiLCJhY3NSZWZlcmVuY2VOdW1iZXIiOiIzRFNfTE9BX1NFUl9OU09GXzAyMDEwMF8wMDA1MSIsImFjc1JlbmRlcmluZ1R5cGUiOnsiYWNzSW50ZXJmYWNlIjoiMDIiLCJhY3NVaVRlbXBsYXRlIjoiMDUifSwiYWNzVHJhbnNJRCI6IjE1YWI3Yjc4LTA1YmYtNDNmYi05MmE1LTE4ZmNhZjJmNTk2ZCIsImFjc1VSTCI6Imh0dHBzOi8vYWNzLjNkcy1waXQuY29tLyIsImF1dGhlbnRpY2F0aW9uVHlwZSI6IjAxIiwiZHNSZWZlcmVuY2VOdW1iZXIiOiIzRFNfTE9BX1NFUl9OU09GXzAyMDEwMF8wMDA1MSIsImRzVHJhbnNJRCI6IjBjOWIwM2IxLTAyMWUtNGY1Zi04NGViLTUxZjEwNWQ3N2ZhZCIsIm1lc3NhZ2VUeXBlIjoiQVJlcyIsIm1lc3NhZ2VWZXJzaW9uIjoiMi4xLjAiLCJ0cmFuc1N0YXR1cyI6IkMiLCJtZXNzYWdlRXh0ZW5zaW9uIjpbeyJuYW1lIjoiQUNTIERhdGEiLCJpZCI6IkEwMDAwMDAwMDQtYWNzRGF0YSIsImNyaXRpY2FsaXR5SW5kaWNhdG9yIjpmYWxzZSwiZGF0YSI6eyJBMDAwMDAwMDA0LWFjc0RhdGEiOnsid2hpdGVsaXN0U3RhdHVzIjoiWSJ9fX1dfX19XSwiY2hhbGxlbmdlV2luZG93U2l6ZSI6IjAyIn0\\\"><input type=\\\"hidden\\\" name=\\\"threeDSPageSessions[02a338b6-b3a0-4728-a6c2-09871dfaf3e6][bfreq]\\\" value=\\\"1429\\\"><input type=\\\"hidden\\\" name=\\\"threeDSPageSessions[02a338b6-b3a0-4728-a6c2-09871dfaf3e6][threeDSRef]\\\" value=\\\"UDNLRVk6dHJhbnNhY3Rpb25JRD0zMDA1NTEwNDAmbWVyY2hhbnRJRD0xNDA4NDEmX19saWZlX189MTcwNjYyMTQwMg==\\\"><input id=\\\"btnSubmit\\\" type=\\\"submit\\\" class=\\\"button expanded btn btn-primary\\\" value=\\\"Please Wait...\\\"></form>\"\n}"
 						}
 					]
 				},
@@ -3904,7 +3900,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"payment_type\": \"fixed_schedule\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"reference\": \"{{$randomPhrase}}\",\n    \"frequency\": \"days\",\n    \"frequency_duration\": 2,\n    \"first_amount\": 9.00,\n    \"recurring_amount\": 10.01,\n    \"is_limited_installments\": true,\n    \"installments\": 3,\n    \"paymentToken\": \"{{paymentToken}}\",\n    \"payment_intent\": \"{{payment_intent}}\"\n}",
+							"raw": "{\n    \"payment_type\": \"fixed_schedule\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"reference\": \"{{$randomPhrase}}\",\n    \"currency\": \"GBP\",\n    \"frequency\": \"days\",\n    \"frequency_duration\": 2,\n    \"first_amount\": 9.00,\n    \"recurring_amount\": 10.01,\n    \"is_limited_installments\": true,\n    \"installments\": 3,\n    \"paymentToken\": \"{{paymentToken}}\",\n    \"payment_intent\": \"{{payment_intent}}\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3923,7 +3919,7 @@
 					},
 					"response": [
 						{
-							"name": "Fixed repeat payment",
+							"name": "Fixed repeat payment (MOTO)",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
@@ -3935,7 +3931,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"payment_type\": \"fixed_schedule\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"reference\": \"{{$randomPhrase}}\",\n    \"frequency\": \"days\",\n    \"frequency_duration\": 2,\n    \"first_amount\": 12.00,\n    \"recurring_amount\": 10.01,\n    \"is_limited_installments\": true,\n    \"installments\": 10,\n    \"start_payment_date\": \"2023-10-30\"\n}",
+									"raw": "{\n    \"payment_type\": \"fixed_schedule\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"reference\": \"{{$randomPhrase}}\",\n    \"currency\": \"GBP\",\n    \"frequency\": \"days\",\n    \"frequency_duration\": 2,\n    \"first_amount\": 9.00,\n    \"recurring_amount\": 10.01,\n    \"is_limited_installments\": true,\n    \"installments\": 3,\n    \"paymentToken\": \"{{paymentToken}}\",\n    \"payment_intent\": \"{{payment_intent}}\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -3958,11 +3954,11 @@
 							"header": [
 								{
 									"key": "Date",
-									"value": "Tue, 19 Sep 2023 07:37:49 GMT"
+									"value": "Tue, 30 Jan 2024 13:01:01 GMT"
 								},
 								{
 									"key": "Server",
-									"value": "Apache/2.4.57 () OpenSSL/1.0.2k-fips PHP/8.2.9"
+									"value": "Apache"
 								},
 								{
 									"key": "Strict-Transport-Security",
@@ -3981,10 +3977,6 @@
 									"value": "Upgrade, Keep-Alive"
 								},
 								{
-									"key": "X-Powered-By",
-									"value": "PHP/8.2.9"
-								},
-								{
 									"key": "Cache-Control",
 									"value": "no-cache, private"
 								},
@@ -3994,7 +3986,7 @@
 								},
 								{
 									"key": "X-RateLimit-Remaining",
-									"value": "58"
+									"value": "59"
 								},
 								{
 									"key": "Keep-Alive",
@@ -4010,12 +4002,12 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"id\": 1,\n    \"status\": \"Success\",\n    \"card_element\": \"<input type=\\\"hidden\\\" name=\\\"payment_id\\\" value=\\\"1\\\"/>\\n        <input type=\\\"hidden\\\" name=\\\"merchantID\\\" value=\\\"140841\\\"/><label class=\\\"field-label\\\">Card information</label>\\n      <div class=\\\"fieldgroup-container relative no-wrap mb-4\\\">\\n          <input type=\\\"hostedfield:cardNumber\\\" placeholder=\\\"1234 1234 1234 1234\\\" />\\n          <input type=\\\"hostedfield:cardExpiryDate\\\" placeholder=\\\"MM/YY\\\" />\\n          <input type=\\\"hostedfield:cardCVV\\\" placeholder=\\\"CVV\\\" />\\n      </div>\",\n    \"reference\": \"We need to synthesize the mobile TCP bus!\"\n}"
+							"body": "{\n    \"id\": 273,\n    \"payment_type\": \"fixed_schedule\",\n    \"status\": \"Active\",\n    \"customer_name\": \"Mr. Gerard Kessler\",\n    \"customer_email\": \"Maurine71@yahoo.com\",\n    \"reference\": \"The PNG firewall is down, hack the bluetooth circuit so we can transmit the THX sensor!\",\n    \"address\": null,\n    \"postcode\": null,\n    \"currency\": \"GBP\",\n    \"start_payment_date\": \"30-01-2024\",\n    \"final_payment_date\": \"03-02-2024\",\n    \"recurring_amount\": \"10.01\",\n    \"is_limited_installments\": true,\n    \"installments\": 3,\n    \"is_active\": true,\n    \"recurring_data\": [\n        {\n            \"recurring_id\": 1430,\n            \"payment_date\": \"2024-01-30\",\n            \"processed_amount\": \"9.00\",\n            \"is_processed\": true,\n            \"xref\": \"24013013VX01NV35FB13TYZ\"\n        },\n        {\n            \"recurring_id\": 1431,\n            \"payment_date\": \"2024-02-01\",\n            \"processed_amount\": \"10.01\",\n            \"is_processed\": false,\n            \"xref\": \"24013013VX01NV35FB13TYZ\"\n        },\n        {\n            \"recurring_id\": 1432,\n            \"payment_date\": \"2024-02-03\",\n            \"processed_amount\": \"10.01\",\n            \"is_processed\": false,\n            \"xref\": \"24013013VX01NV35FB13TYZ\"\n        }\n    ]\n}"
 						}
 					]
 				},
 				{
-					"name": "Variable repeat payment",
+					"name": "Fixed repeat payment (Existing transaction))",
 					"event": [
 						{
 							"listen": "test",
@@ -4038,7 +4030,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"payment_type\": \"variable_schedule\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"reference\": \"{{$randomPhrase}}\",\n    \"schedule_set\": {\n\t\t\"19-03-2024\": 21.02,\n        \"18-03-2024\": 22.02,\n        \"20-03-2024\": 23.02\n\t}\n}",
+							"raw": "{\n    \"payment_type\": \"fixed_schedule\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"reference\": \"{{$randomPhrase}}\",\n    \"currency\": \"GBP\",\n    \"frequency\": \"days\",\n    \"frequency_duration\": 2,\n    \"first_amount\": 9.00,\n    \"recurring_amount\": 10.01,\n    \"is_limited_installments\": true,\n    \"installments\": 3,\n    \"transaction_id\": \"BL-2MUXDEW3E3\",\n    \"payment_intent\": \"{{payment_intent}}\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4057,7 +4049,7 @@
 					},
 					"response": [
 						{
-							"name": "Variable repeat payment",
+							"name": "Fixed repeat payment (Existing transaction))",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
@@ -4069,7 +4061,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"payment_type\": \"variable_schedule\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"reference\": \"{{$randomPhrase}}\",\n    \"schedule_set\": {\n\t\t\"13-02-2024\": 20.02,\n\t\t\"16-02-2024\": 22.02,\n\t\t\"19-02-2024\": 30.02,\n\t\t\"25-02-2024\": 26.02\n\t}\n}",
+									"raw": "{\n    \"payment_type\": \"fixed_schedule\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"reference\": \"{{$randomPhrase}}\",\n    \"currency\": \"GBP\",\n    \"frequency\": \"days\",\n    \"frequency_duration\": 2,\n    \"first_amount\": 9.00,\n    \"recurring_amount\": 10.01,\n    \"is_limited_installments\": true,\n    \"installments\": 3,\n    \"transaction_id\": \"BL-2MUXDEW3E3\",\n    \"payment_intent\": \"{{payment_intent}}\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4091,32 +4083,32 @@
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
-									"key": "Host",
-									"value": "127.0.0.1:8000"
+									"key": "Date",
+									"value": "Tue, 30 Jan 2024 13:14:38 GMT"
 								},
 								{
-									"key": "Date",
-									"value": "Tue, 19 Sep 2023 13:45:12 GMT"
+									"key": "Server",
+									"value": "Apache"
 								},
 								{
-									"key": "Date",
-									"value": "Tue, 19 Sep 2023 13:45:12 GMT"
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "Upgrade",
+									"value": "h2"
 								},
 								{
 									"key": "Connection",
-									"value": "close"
-								},
-								{
-									"key": "X-Powered-By",
-									"value": "PHP/8.2.10"
+									"value": "Upgrade, Keep-Alive"
 								},
 								{
 									"key": "Cache-Control",
 									"value": "no-cache, private"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
 								},
 								{
 									"key": "X-RateLimit-Limit",
@@ -4125,10 +4117,412 @@
 								{
 									"key": "X-RateLimit-Remaining",
 									"value": "59"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"id\": 4,\n    \"status\": \"Success\",\n    \"card_element\": \"<input type=\\\"hidden\\\" name=\\\"payment_id\\\" value=\\\"4\\\"/>\\n        <input type=\\\"hidden\\\" name=\\\"merchantID\\\" value=\\\"140841\\\"/><label class=\\\"field-label\\\">Card information</label>\\n      <div class=\\\"fieldgroup-container relative no-wrap mb-4\\\">\\n          <input type=\\\"hostedfield:cardNumber\\\" placeholder=\\\"1234 1234 1234 1234\\\" />\\n          <input type=\\\"hostedfield:cardExpiryDate\\\" placeholder=\\\"MM/YY\\\" />\\n          <input type=\\\"hostedfield:cardCVV\\\" placeholder=\\\"CVV\\\" />\\n      </div>\",\n    \"reference\": \"I'll calculate the redundant SMS capacitor, that should application the SAS protocol!\"\n}"
+							"body": "{\n    \"id\": 274,\n    \"payment_type\": \"fixed_schedule\",\n    \"status\": \"Active\",\n    \"customer_name\": \"Kristen Sipes\",\n    \"customer_email\": \"Jace23@hotmail.com\",\n    \"reference\": \"If we generate the protocol, we can get to the RSS panel through the haptic RSS port!\",\n    \"address\": null,\n    \"postcode\": null,\n    \"currency\": \"GBP\",\n    \"start_payment_date\": \"30-01-2024\",\n    \"final_payment_date\": \"03-02-2024\",\n    \"recurring_amount\": \"10.01\",\n    \"is_limited_installments\": true,\n    \"installments\": 3,\n    \"is_active\": true,\n    \"recurring_data\": [\n        {\n            \"recurring_id\": 1433,\n            \"payment_date\": \"2024-01-30\",\n            \"processed_amount\": \"9.00\",\n            \"is_processed\": true,\n            \"xref\": \"24013013VW14QP39ZG76FFT\"\n        },\n        {\n            \"recurring_id\": 1434,\n            \"payment_date\": \"2024-02-01\",\n            \"processed_amount\": \"10.01\",\n            \"is_processed\": false,\n            \"xref\": \"24013013QS05NF06LC37BNN\"\n        },\n        {\n            \"recurring_id\": 1435,\n            \"payment_date\": \"2024-02-03\",\n            \"processed_amount\": \"10.01\",\n            \"is_processed\": false,\n            \"xref\": \"24013013QS05NF06LC37BNN\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Variable repeat payment (MOTO)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"postman.setEnvironmentVariable(\"payment_id\", JSON.parse(responseBody).id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"payment_type\": \"variable_schedule\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"reference\": \"{{$randomPhrase}}\",\n    \"currency\": \"GBP\",\n    \"schedule_set\": {\n\t\t\"19-03-2024\": 21.02,\n        \"18-03-2024\": 22.02,\n        \"20-03-2024\": 23.02\n\t},\n    \"paymentToken\": \"{{paymentToken}}\",\n    \"payment_intent\": \"{{payment_intent}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/repeat-payments",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"repeat-payments"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Variable repeat payment (MOTO)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"payment_type\": \"variable_schedule\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"reference\": \"{{$randomPhrase}}\",\n    \"currency\": \"GBP\",\n    \"schedule_set\": {\n\t\t\"19-03-2024\": 21.02,\n        \"18-03-2024\": 22.02,\n        \"20-03-2024\": 23.02\n\t},\n    \"paymentToken\": \"{{paymentToken}}\",\n    \"payment_intent\": \"{{payment_intent}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/repeat-payments",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"repeat-payments"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 30 Jan 2024 13:33:47 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "Upgrade",
+									"value": "h2"
+								},
+								{
+									"key": "Connection",
+									"value": "Upgrade, Keep-Alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 127,\n    \"payment_type\": \"variable_schedule\",\n    \"status\": \"Pending\",\n    \"customer_name\": \"Marcella O'Reilly\",\n    \"customer_email\": \"Rylee.Treutel1@yahoo.com\",\n    \"reference\": \"Try to parse the SSL application, maybe it will hack the neural microchip!\",\n    \"address\": null,\n    \"postcode\": null,\n    \"currency\": \"GBP\",\n    \"start_payment_date\": \"19-03-2024\",\n    \"final_payment_date\": \"20-03-2024\",\n    \"recurring_amount\": null,\n    \"is_limited_installments\": false,\n    \"installments\": null,\n    \"is_active\": true,\n    \"recurring_data\": [\n        {\n            \"recurring_id\": 1436,\n            \"payment_date\": \"2024-03-19\",\n            \"processed_amount\": \"21.02\",\n            \"is_processed\": false,\n            \"xref\": null\n        },\n        {\n            \"recurring_id\": 1437,\n            \"payment_date\": \"2024-03-18\",\n            \"processed_amount\": \"22.02\",\n            \"is_processed\": false,\n            \"xref\": null\n        },\n        {\n            \"recurring_id\": 1438,\n            \"payment_date\": \"2024-03-20\",\n            \"processed_amount\": \"23.02\",\n            \"is_processed\": false,\n            \"xref\": null\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Variable repeat payment (Existing transaction)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"postman.setEnvironmentVariable(\"payment_id\", JSON.parse(responseBody).id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"payment_type\": \"variable_schedule\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"reference\": \"{{$randomPhrase}}\",\n    \"currency\": \"GBP\",\n    \"schedule_set\": {\n\t\t\"19-03-2024\": 21.02,\n        \"18-03-2024\": 22.02,\n        \"20-03-2024\": 23.02\n\t},\n    \"payment_intent\": \"{{payment_intent}}\",\n    \"transaction_id\": \"BL-2MUXDEW3E3\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/repeat-payments",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"repeat-payments"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Variable repeat payment (Existing transaction)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"payment_type\": \"variable_schedule\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"reference\": \"{{$randomPhrase}}\",\n    \"currency\": \"GBP\",\n    \"schedule_set\": {\n\t\t\"19-03-2024\": 21.02,\n        \"18-03-2024\": 22.02,\n        \"20-03-2024\": 23.02\n\t},\n    \"payment_intent\": \"{{payment_intent}}\",\n    \"transaction_id\": \"BL-2MUXDEW3E3\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/repeat-payments",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"repeat-payments"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 30 Jan 2024 14:52:53 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "Upgrade",
+									"value": "h2"
+								},
+								{
+									"key": "Connection",
+									"value": "Upgrade, Keep-Alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 148,\n    \"payment_type\": \"variable_schedule\",\n    \"status\": \"Pending\",\n    \"customer_name\": \"Irma Kuphal\",\n    \"customer_email\": \"Arnold29@hotmail.com\",\n    \"reference\": \"hacking the circuit won't do anything, we need to override the digital SMTP monitor!\",\n    \"address\": null,\n    \"postcode\": null,\n    \"currency\": \"GBP\",\n    \"start_payment_date\": \"19-03-2024\",\n    \"final_payment_date\": \"20-03-2024\",\n    \"recurring_amount\": null,\n    \"is_limited_installments\": false,\n    \"installments\": null,\n    \"is_active\": true,\n    \"recurring_data\": [\n        {\n            \"recurring_id\": 1470,\n            \"payment_date\": \"2024-03-19\",\n            \"processed_amount\": \"21.02\",\n            \"is_processed\": false,\n            \"xref\": \"24013013QS05NF06LC37BNN\"\n        },\n        {\n            \"recurring_id\": 1471,\n            \"payment_date\": \"2024-03-18\",\n            \"processed_amount\": \"22.02\",\n            \"is_processed\": false,\n            \"xref\": \"24013013QS05NF06LC37BNN\"\n        },\n        {\n            \"recurring_id\": 1472,\n            \"payment_date\": \"2024-03-20\",\n            \"processed_amount\": \"23.02\",\n            \"is_processed\": false,\n            \"xref\": \"24013013QS05NF06LC37BNN\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Variable repeat payment (ECOM)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"postman.setEnvironmentVariable(\"payment_id\", JSON.parse(responseBody).id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"payment_type\": \"variable_schedule\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"reference\": \"{{$randomPhrase}}\",\n    \"currency\": \"GBP\",\n    \"schedule_set\": {\n\t\t\"2024-03-19\": 21.02,\n        \"2024-03-18\": 22.02,\n        \"2024-03-20\": 23.02\n\t},\n    \"paymentToken\": \"{{paymentToken}}\",\n    \"payment_intent\": \"{{payment_intent}}\",\n    \"device_timezone\": \"-330\",\n    \"device_capabilities\": \"javascript\",\n    \"device_accept_language\": \"en-GB\",\n    \"device_screen_resolution\": \"1366x768x24\",\n    \"remote_address\": \"123.123.123.123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/repeat-payments",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"repeat-payments"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Variable repeat payment (ECOM)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"payment_type\": \"variable_schedule\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"reference\": \"{{$randomPhrase}}\",\n    \"currency\": \"GBP\",\n    \"schedule_set\": {\n\t\t\"2024-03-19\": 21.02,\n        \"2024-03-18\": 22.02,\n        \"2024-03-20\": 23.02\n\t},\n    \"paymentToken\": \"{{paymentToken}}\",\n    \"payment_intent\": \"{{payment_intent}}\",\n    \"device_timezone\": \"-330\",\n    \"device_capabilities\": \"javascript\",\n    \"device_accept_language\": \"en-GB\",\n    \"device_screen_resolution\": \"1366x768x24\",\n    \"remote_address\": \"123.123.123.123\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/repeat-payments",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"repeat-payments"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 30 Jan 2024 14:48:54 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "Upgrade",
+									"value": "h2"
+								},
+								{
+									"key": "Connection",
+									"value": "Upgrade, Keep-Alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"acsform\": \"<form id=\\\"form3ds\\\" method=\\\"post\\\" action=\\\"https://acs.3ds-pit.com/\\\"><input type=\\\"hidden\\\" name=\\\"creq\\\" value=\\\"eyJtZXNzYWdlVHlwZSI6IkNSZXEiLCJtZXNzYWdlVmVyc2lvbiI6IjIuMS4wIiwidGhyZWVEU1NlcnZlclRyYW5zSUQiOiI2ZjRlZGIzZC0xOTIwLTQyODYtODhkOS1lOTFkY2ExYWIwMDYiLCJhY3NUcmFuc0lEIjoiM2ZhYTM0MjUtNmFjMC00YWMxLWE4NzAtMzI2YTQ5ODYwMWI2IiwibWVzc2FnZUV4dGVuc2lvbiI6W3sibmFtZSI6InAzLTNkcy1jb250ZXh0IiwiaWQiOiJwMy0zZHMtY29udGV4dCIsImNyaXRpY2FsaXR5SW5kaWNhdG9yIjpmYWxzZSwiZGF0YSI6eyJhcmVxIjp7InRocmVlRFNSZXF1ZXN0b3JJRCI6IjEyMzQ1Njc4IiwidGhyZWVEU1JlcXVlc3Rvck5hbWUiOiJCbGluayB0ZXN0IDEvOSIsInRocmVlRFNSZXF1ZXN0b3JVUkwiOiJodHRwczovL3d3dy5ibGlua3BheW1lbnQuY28udWsiLCJ0aHJlZURTU2VydmVyUmVmTnVtYmVyIjoiM0RTX0xPQV9TRVJfTlNPRl8wMjAyMDBfMDA0MTYiLCJ0aHJlZURTU2VydmVyVHJhbnNJRCI6IjZmNGVkYjNkLTE5MjAtNDI4Ni04OGQ5LWU5MWRjYTFhYjAwNiIsImFjY3ROdW1iZXIiOiI0MTExMTExMTExMTExMTExIiwiY2FyZEV4cGlyeURhdGUiOiIyMzEyIiwidGhyZWVEU1NlcnZlck9wZXJhdG9ySUQiOiJURVNULU9QRVJBVE9SIiwiYWNxdWlyZXJCSU4iOiIxMjM0NTYiLCJhY3F1aXJlck1lcmNoYW50SUQiOiIwMDAwOTkyIiwibWVyY2hhbnROYW1lIjoiQmxpbmsgdGVzdCAxLzkiLCJlbWFpbCI6IlN5bHZhbi5VbGxyaWNoQGhvdG1haWwuY29tIiwiY2FyZGhvbGRlck5hbWUiOiJHYXlsZSBWYW5kZXJ2b3J0IiwibWNjIjoiMDc0MiIsIm1lcmNoYW50Q291bnRyeUNvZGUiOiI4MjYiLCJtZXNzYWdlQ2F0ZWdvcnkiOiIwMSIsIm1lc3NhZ2VUeXBlIjoiQVJlcSIsIm1lc3NhZ2VWZXJzaW9uIjoiMi4xLjAiLCJ0aHJlZURTU2VydmVyVVJMIjoiaHR0cHM6Ly9nYXRld2F5LmZpZGVsaXBheS5jby51ay9wdXNoL25vdGlmaWNhdGlvbi8_X3FzXz14N2duOUQ0M2hRS1EiLCJ0aHJlZURTUmVxdWVzdG9yQXV0aGVudGljYXRpb25JbmQiOiIwMyIsInRocmVlRFNSZXF1ZXN0b3JDaGFsbGVuZ2VJbmQiOiIwMSIsInB1cmNoYXNlSW5zdGFsRGF0YSI6Ijk5OSIsInB1cmNoYXNlQW1vdW50IjoiMjEwMiIsInB1cmNoYXNlQ3VycmVuY3kiOiI4MjYiLCJwdXJjaGFzZUV4cG9uZW50IjoiMiIsInB1cmNoYXNlRGF0ZSI6IjIwMjQwMTMwMTQ0ODU2IiwidHJhbnNUeXBlIjoiMDEiLCJyZWN1cnJpbmdFeHBpcnkiOiI5OTk5MTIwMSIsInJlY3VycmluZ0ZyZXF1ZW5jeSI6IjAwMDEiLCJ0aHJlZURTQ29tcEluZCI6IlkiLCJicm93c2VyQWNjZXB0SGVhZGVyIjoiKi8qIiwiYnJvd3NlcklQIjoiMTIzLjEyMy4xMjMuMTIzIiwiZGV2aWNlQ2hhbm5lbCI6IjAyIiwibm90aWZpY2F0aW9uVVJMIjoiaHR0cHM6Ly9kZXYuYmxpbmtwYXltZW50LmNvLnVrL2FwaS9yZXBlYXQtcGF5bWVudC92MS9jb2RhdGRldi8zZHNfMl8yLzExNzUxZDNmLTMwM2ItNGU4OS1hNzEzLWQyMmFmNzI0YjQzZS9wcmVhdXRoP2Fjcz0xJnRocmVlRFNBY3NSZXNwb25zZT1jaGFsbGVuZ2UiLCJicm93c2VyTGFuZ3VhZ2UiOiJlbi1HQiIsImJyb3dzZXJKYXZhRW5hYmxlZCI6ZmFsc2UsImJyb3dzZXJDb2xvckRlcHRoIjoiMjQiLCJicm93c2VyU2NyZWVuSGVpZ2h0IjoiNzY4IiwiYnJvd3NlclNjcmVlbldpZHRoIjoiMTM2NiIsImJyb3dzZXJUWiI6Ii0zMzAiLCJicm93c2VyVXNlckFnZW50IjoiUG9zdG1hblJ1bnRpbWUvNy4zNS4wIn0sImFyZXMiOnsidGhyZWVEU1NlcnZlclRyYW5zSUQiOiI2ZjRlZGIzZC0xOTIwLTQyODYtODhkOS1lOTFkY2ExYWIwMDYiLCJhY3NDaGFsbGVuZ2VNYW5kYXRlZCI6Ik4iLCJhY3NEZWNDb25JbmQiOiJOIiwiYWNzT3BlcmF0b3JJRCI6IkFjc09wSWQgNjViOTBjNTg1NDc1MCIsImFjc1JlZmVyZW5jZU51bWJlciI6IjNEU19MT0FfU0VSX05TT0ZfMDIwMTAwXzAwMDUxIiwiYWNzUmVuZGVyaW5nVHlwZSI6eyJhY3NJbnRlcmZhY2UiOiIwMiIsImFjc1VpVGVtcGxhdGUiOiIwNSJ9LCJhY3NUcmFuc0lEIjoiM2ZhYTM0MjUtNmFjMC00YWMxLWE4NzAtMzI2YTQ5ODYwMWI2IiwiYWNzVVJMIjoiaHR0cHM6Ly9hY3MuM2RzLXBpdC5jb20vIiwiYXV0aGVudGljYXRpb25UeXBlIjoiMDEiLCJkc1JlZmVyZW5jZU51bWJlciI6IjNEU19MT0FfU0VSX05TT0ZfMDIwMTAwXzAwMDUxIiwiZHNUcmFuc0lEIjoiNTZiMDFmYTMtNGFkMi00MTdjLWE1Y2QtN2U0NmM5MWQ5NDgwIiwibWVzc2FnZVR5cGUiOiJBUmVzIiwibWVzc2FnZVZlcnNpb24iOiIyLjEuMCIsInRyYW5zU3RhdHVzIjoiQyIsIm1lc3NhZ2VFeHRlbnNpb24iOlt7Im5hbWUiOiJBQ1MgRGF0YSIsImlkIjoiQTAwMDAwMDAwNC1hY3NEYXRhIiwiY3JpdGljYWxpdHlJbmRpY2F0b3IiOmZhbHNlLCJkYXRhIjp7IkEwMDAwMDAwMDQtYWNzRGF0YSI6eyJ3aGl0ZWxpc3RTdGF0dXMiOiJZIn19fV19fX1dLCJjaGFsbGVuZ2VXaW5kb3dTaXplIjoiMDIifQ\\\"><input type=\\\"hidden\\\" name=\\\"threeDSPageSessions[11751d3f-303b-4e89-a713-d22af724b43e][bfreq]\\\" value=\\\"1469\\\"><input type=\\\"hidden\\\" name=\\\"threeDSPageSessions[11751d3f-303b-4e89-a713-d22af724b43e][threeDSRef]\\\" value=\\\"UDNLRVk6dHJhbnNhY3Rpb25JRD0zMDA1NzA1MjQmbWVyY2hhbnRJRD0xNDA4NDEmX19saWZlX189MTcwNjYyNzkzNQ==\\\"><input id=\\\"btnSubmit\\\" type=\\\"submit\\\" class=\\\"button expanded btn btn-primary\\\" value=\\\"Please Wait...\\\"></form>\"\n}"
 						}
 					]
 				},
@@ -4156,7 +4550,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"payment_type\": \"fixed_schedule\",\n    \"card_token\": \"{{card_token}}\"\n}",
+							"raw": "{\n    \"payment_type\": \"fixed_schedule\",\n    \"customer_name\": \"Edit customer name\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4188,7 +4582,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"payment_type\": \"fixed_schedule\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"recurring_id\": 161,\n    \"recurring_amount\": 28.03\n}",
+									"raw": "{\n    \"payment_type\": \"fixed_schedule\",\n    \"customer_name\": \"Edit customer name\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4196,13 +4590,13 @@
 									}
 								},
 								"url": {
-									"raw": "{{url}}/repeat-payments/31",
+									"raw": "{{url}}/repeat-payments/{{payment_id}}",
 									"host": [
 										"{{url}}"
 									],
 									"path": [
 										"repeat-payments",
-										"31"
+										"{{payment_id}}"
 									]
 								}
 							},
@@ -4211,32 +4605,32 @@
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
-									"key": "Host",
-									"value": "127.0.0.1:8000"
+									"key": "Date",
+									"value": "Tue, 30 Jan 2024 13:19:01 GMT"
 								},
 								{
-									"key": "Date",
-									"value": "Mon, 25 Sep 2023 14:51:34 GMT"
+									"key": "Server",
+									"value": "Apache"
 								},
 								{
-									"key": "Date",
-									"value": "Mon, 25 Sep 2023 14:51:34 GMT"
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "Upgrade",
+									"value": "h2"
 								},
 								{
 									"key": "Connection",
-									"value": "close"
-								},
-								{
-									"key": "X-Powered-By",
-									"value": "PHP/8.2.10"
+									"value": "Upgrade, Keep-Alive"
 								},
 								{
 									"key": "Cache-Control",
 									"value": "no-cache, private"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
 								},
 								{
 									"key": "X-RateLimit-Limit",
@@ -4244,11 +4638,23 @@
 								},
 								{
 									"key": "X-RateLimit-Remaining",
-									"value": "57"
+									"value": "59"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"id\": 32,\n    \"payment_type\": \"fixed_schedule\",\n    \"status\": \"Pending\",\n    \"customer_name\": \"Nora Oberbrunner\",\n    \"customer_email\": \"Arne_Skiles@yahoo.com\",\n    \"reference\": \"If we back up the monitor, we can get to the SQL circuit through the auxiliary XML hard drive!\",\n    \"address\": null,\n    \"Postcode\": null,\n    \"start_payment_date\": \"26-09-2023\",\n    \"final_payment_date\": \"14-10-2023\",\n    \"recurring_amount\": \"28.03\",\n    \"is_limited_installments\": true,\n    \"installments\": 10,\n    \"recurring_data\": [\n        {\n            \"recurring_id\": 1,\n            \"payment_date\": \"0000-00-00\",\n            \"processed_amount\": \"28.03\",\n            \"is_processed\": false,\n            \"card_token\": null\n        }\n    ]\n}"
+							"body": "{\n    \"id\": 274,\n    \"payment_type\": \"fixed_schedule\",\n    \"status\": \"Active\",\n    \"customer_name\": \"Edit customer name\",\n    \"customer_email\": \"Jace23@hotmail.com\",\n    \"reference\": \"If we generate the protocol, we can get to the RSS panel through the haptic RSS port!\",\n    \"address\": null,\n    \"postcode\": null,\n    \"currency\": \"GBP\",\n    \"start_payment_date\": \"30-01-2024\",\n    \"final_payment_date\": \"03-02-2024\",\n    \"recurring_amount\": \"10.01\",\n    \"is_limited_installments\": true,\n    \"installments\": 3,\n    \"is_active\": true,\n    \"parent\": {\n        \"id\": 274,\n        \"payment_type\": \"fixed_schedule\",\n        \"status\": \"Active\",\n        \"customer_name\": \"Edit customer name\",\n        \"customer_email\": \"Jace23@hotmail.com\",\n        \"reference\": \"If we generate the protocol, we can get to the RSS panel through the haptic RSS port!\",\n        \"address\": null,\n        \"Postcode\": null,\n        \"start_payment_date\": \"30-01-2024\",\n        \"final_payment_date\": \"03-02-2024\",\n        \"recurring_amount\": \"10.01\",\n        \"is_limited_installments\": true,\n        \"installments\": 3,\n        \"is_active\": true\n    },\n    \"child\": {\n        \"id\": 274,\n        \"payment_type\": \"fixed_schedule\",\n        \"status\": \"Active\",\n        \"customer_name\": \"Edit customer name\",\n        \"customer_email\": \"Jace23@hotmail.com\",\n        \"reference\": \"If we generate the protocol, we can get to the RSS panel through the haptic RSS port!\",\n        \"address\": null,\n        \"Postcode\": null,\n        \"start_payment_date\": \"30-01-2024\",\n        \"final_payment_date\": \"03-02-2024\",\n        \"recurring_amount\": \"10.01\",\n        \"is_limited_installments\": true,\n        \"installments\": 3,\n        \"is_active\": true\n    },\n    \"recurring_data\": [\n        {\n            \"recurring_id\": 1433,\n            \"payment_date\": \"2024-01-30\",\n            \"processed_amount\": \"9.00\",\n            \"is_processed\": true,\n            \"xref\": \"24013013VW14QP39ZG76FFT\"\n        },\n        {\n            \"recurring_id\": 1434,\n            \"payment_date\": \"2024-02-01\",\n            \"processed_amount\": \"10.01\",\n            \"is_processed\": false,\n            \"xref\": \"24013013QS05NF06LC37BNN\"\n        },\n        {\n            \"recurring_id\": 1435,\n            \"payment_date\": \"2024-02-03\",\n            \"processed_amount\": \"10.01\",\n            \"is_processed\": false,\n            \"xref\": \"24013013QS05NF06LC37BNN\"\n        }\n    ]\n}"
 						}
 					]
 				},
@@ -4276,7 +4682,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"payment_type\": \"variable_schedule\",\n    \"schedule_set\": {\n        \"23-04-2024\": 23.02\n\t},\n    \"card_token\": \"{{card_token}}\"\n}",
+							"raw": "{\n    \"payment_type\": \"variable_schedule\",\n    \"customer_email\": \"test@yopmail.com\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -4295,81 +4701,6 @@
 						}
 					},
 					"response": [
-						{
-							"name": "Edit repeat payment (Fixed)",
-							"originalRequest": {
-								"method": "PATCH",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{access_token}}",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"payment_type\": \"fixed_schedule\",\n    \"customer_name\": \"{{$randomFullName}}\",\n    \"customer_email\": \"{{$randomEmail}}\",\n    \"recurring_id\": 161,\n    \"recurring_amount\": 28.03\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/repeat-payments/31",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"repeat-payments",
-										"31"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Host",
-									"value": "127.0.0.1:8000"
-								},
-								{
-									"key": "Date",
-									"value": "Mon, 25 Sep 2023 14:51:34 GMT"
-								},
-								{
-									"key": "Date",
-									"value": "Mon, 25 Sep 2023 14:51:34 GMT"
-								},
-								{
-									"key": "Connection",
-									"value": "close"
-								},
-								{
-									"key": "X-Powered-By",
-									"value": "PHP/8.2.10"
-								},
-								{
-									"key": "Cache-Control",
-									"value": "no-cache, private"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "60"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "57"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"id\": 32,\n    \"payment_type\": \"fixed_schedule\",\n    \"status\": \"Pending\",\n    \"customer_name\": \"Nora Oberbrunner\",\n    \"customer_email\": \"Arne_Skiles@yahoo.com\",\n    \"reference\": \"If we back up the monitor, we can get to the SQL circuit through the auxiliary XML hard drive!\",\n    \"address\": null,\n    \"Postcode\": null,\n    \"start_payment_date\": \"26-09-2023\",\n    \"final_payment_date\": \"14-10-2023\",\n    \"recurring_amount\": \"28.03\",\n    \"is_limited_installments\": true,\n    \"installments\": 10,\n    \"recurring_data\": [\n        {\n            \"recurring_id\": 1,\n            \"payment_date\": \"0000-00-00\",\n            \"processed_amount\": \"28.03\",\n            \"is_processed\": false,\n            \"card_token\": null\n        }\n    ]\n}"
-						},
 						{
 							"name": "Edit repeat payment (Variable)",
 							"originalRequest": {
@@ -4443,7 +4774,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"id\": 28,\n    \"payment_type\": \"variable_schedule\",\n    \"status\": \"Pending\",\n    \"customer_name\": \"Rachel O'Connell\",\n    \"customer_email\": \"Dennis.Bechtelar9@gmail.com\",\n    \"reference\": \"copying the hard drive won't do anything, we need to transmit the online SCSI alarm!\",\n    \"address\": null,\n    \"Postcode\": null,\n    \"start_payment_date\": \"19-04-2024\",\n    \"final_payment_date\": \"20-04-2024\",\n    \"recurring_amount\": null,\n    \"is_limited_installments\": false,\n    \"installments\": null,\n    \"recurring_data\": [\n        {\n            \"recurring_id\": 380,\n            \"payment_date\": \"2024-04-19\",\n            \"processed_amount\": \"21.02\",\n            \"is_processed\": false,\n            \"card_token\": \"eyJwYXltZW50VG9rZW4iOnsibWV0aG9kIjoiY2FyZCIsInJlc291cmNlIjoic3RvcmUiLCJpZCI6Mjk3MDI0M319\"\n        },\n        {\n            \"recurring_id\": 381,\n            \"payment_date\": \"2024-04-18\",\n            \"processed_amount\": \"22.02\",\n            \"is_processed\": false,\n            \"card_token\": \"eyJwYXltZW50VG9rZW4iOnsibWV0aG9kIjoiY2FyZCIsInJlc291cmNlIjoic3RvcmUiLCJpZCI6Mjk3MDI0M319\"\n        },\n        {\n            \"recurring_id\": 382,\n            \"payment_date\": \"2024-04-20\",\n            \"processed_amount\": \"23.02\",\n            \"is_processed\": false,\n            \"card_token\": \"eyJwYXltZW50VG9rZW4iOnsibWV0aG9kIjoiY2FyZCIsInJlc291cmNlIjoic3RvcmUiLCJpZCI6Mjk3MDI0M319\"\n        },\n        {\n            \"recurring_id\": 383,\n            \"payment_date\": \"2024-04-23\",\n            \"processed_amount\": \"23.02\",\n            \"is_processed\": false,\n            \"card_token\": \"eyJwYXltZW50VG9rZW4iOnsibWV0aG9kIjoiY2FyZCIsInJlc291cmNlIjoic3RvcmUiLCJpZCI6Mjk3MDI0M319\"\n        },\n        {\n            \"recurring_id\": 384,\n            \"payment_date\": \"2024-04-23\",\n            \"processed_amount\": \"23.02\",\n            \"is_processed\": false,\n            \"card_token\": \"eyJwYXltZW50VG9rZW4iOnsibWV0aG9kIjoiY2FyZCIsInJlc291cmNlIjoic3RvcmUiLCJpZCI6Mjk3MDI0M319\"\n        },\n        {\n            \"recurring_id\": 385,\n            \"payment_date\": \"2024-04-23\",\n            \"processed_amount\": \"23.02\",\n            \"is_processed\": false,\n            \"card_token\": \"eyJwYXltZW50VG9rZW4iOnsibWV0aG9kIjoiY2FyZCIsInJlc291cmNlIjoic3RvcmUiLCJpZCI6Mjk3MDI0M319\"\n        }\n    ]\n}"
+							"body": "{\n    \"id\": 28,\n    \"payment_type\": \"variable_schedule\",\n    \"status\": \"Pending\",\n    \"customer_name\": \"Rachel O'Connell\",\n    \"customer_email\": \"test@yopmail.com\",\n    \"reference\": \"copying the hard drive won't do anything, we need to transmit the online SCSI alarm!\",\n    \"address\": null,\n    \"Postcode\": null,\n    \"start_payment_date\": \"19-04-2024\",\n    \"final_payment_date\": \"20-04-2024\",\n    \"recurring_amount\": null,\n    \"is_limited_installments\": false,\n    \"installments\": null,\n    \"recurring_data\": [\n        {\n            \"recurring_id\": 380,\n            \"payment_date\": \"2024-04-19\",\n            \"processed_amount\": \"21.02\",\n            \"is_processed\": false,\n            \"card_token\": \"eyJwYXltZW50VG9rZW4iOnsibWV0aG9kIjoiY2FyZCIsInJlc291cmNlIjoic3RvcmUiLCJpZCI6Mjk3MDI0M319\"\n        },\n        {\n            \"recurring_id\": 381,\n            \"payment_date\": \"2024-04-18\",\n            \"processed_amount\": \"22.02\",\n            \"is_processed\": false,\n            \"card_token\": \"eyJwYXltZW50VG9rZW4iOnsibWV0aG9kIjoiY2FyZCIsInJlc291cmNlIjoic3RvcmUiLCJpZCI6Mjk3MDI0M319\"\n        },\n        {\n            \"recurring_id\": 382,\n            \"payment_date\": \"2024-04-20\",\n            \"processed_amount\": \"23.02\",\n            \"is_processed\": false,\n            \"card_token\": \"eyJwYXltZW50VG9rZW4iOnsibWV0aG9kIjoiY2FyZCIsInJlc291cmNlIjoic3RvcmUiLCJpZCI6Mjk3MDI0M319\"\n        },\n        {\n            \"recurring_id\": 383,\n            \"payment_date\": \"2024-04-23\",\n            \"processed_amount\": \"23.02\",\n            \"is_processed\": false,\n            \"card_token\": \"eyJwYXltZW50VG9rZW4iOnsibWV0aG9kIjoiY2FyZCIsInJlc291cmNlIjoic3RvcmUiLCJpZCI6Mjk3MDI0M319\"\n        },\n        {\n            \"recurring_id\": 384,\n            \"payment_date\": \"2024-04-23\",\n            \"processed_amount\": \"23.02\",\n            \"is_processed\": false,\n            \"card_token\": \"eyJwYXltZW50VG9rZW4iOnsibWV0aG9kIjoiY2FyZCIsInJlc291cmNlIjoic3RvcmUiLCJpZCI6Mjk3MDI0M319\"\n        },\n        {\n            \"recurring_id\": 385,\n            \"payment_date\": \"2024-04-23\",\n            \"processed_amount\": \"23.02\",\n            \"is_processed\": false,\n            \"card_token\": \"eyJwYXltZW50VG9rZW4iOnsibWV0aG9kIjoiY2FyZCIsInJlc291cmNlIjoic3RvcmUiLCJpZCI6Mjk3MDI0M319\"\n        }\n    ]\n}"
 						}
 					]
 				},
