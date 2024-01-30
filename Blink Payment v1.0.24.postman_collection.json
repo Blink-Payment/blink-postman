@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "d7bc1624-bb2a-4755-bec2-9a551f6a9bbf",
-		"name": "Blink Payment v1.0.23",
+		"_postman_id": "16b7b978-87cd-4642-8c66-5b4766d9da3f",
+		"name": "Blink Payment v1.0.24",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7767584"
 	},
@@ -46,74 +46,6 @@
 						}
 					},
 					"response": [
-						{
-							"name": "200 Ok",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"api_key\": \"{{api_key}}\",\n    \"secret_key\": \"{{secret_key}}\",\n    \"payment_api_status\": true,\n    \"send_blink_receipt\": true,\n    \"address_postcode_required\": true,\n    \"enable_moto_payments\": true,\n    \"card_layout\": \"single-line\"\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{url}}/tokens",
-									"host": [
-										"{{url}}"
-									],
-									"path": [
-										"tokens"
-									]
-								}
-							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Date",
-									"value": "Wed, 09 Aug 2023 09:47:22 GMT"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Transfer-Encoding",
-									"value": "chunked"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
-								},
-								{
-									"key": "Server",
-									"value": "Apache/2.4.56 () OpenSSL/1.0.2k-fips PHP/8.1.16"
-								},
-								{
-									"key": "X-Powered-By",
-									"value": "PHP/8.1.16"
-								},
-								{
-									"key": "Cache-Control",
-									"value": "no-cache, private"
-								},
-								{
-									"key": "X-RateLimit-Limit",
-									"value": "60"
-								},
-								{
-									"key": "X-RateLimit-Remaining",
-									"value": "59"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJtZXJjaGFudF9pZCI6NDM5OCwic2VjcmV0X2tleSI6IjYzMTBlNDhiZGQwZTQzODE0NTlhNjJiNDZkMmM0ZmQ2ZThhYjY1YTJhNGQ1MjA1YzZjM2RkZWJmYmJhZWJiZjgiLCJleHAiOjE2OTE1NzYyNDJ9.2x7nhth9SBKN_9rGCXppGO5Soqbf8PvJS_4MEAQP4Kk\",\n    \"expired_on\": \"2023-08-09T11:17:22Z\",\n    \"payment_types\": [\n        \"credit-card\",\n        \"open-banking\"\n    ],\n    \"currency\": \"GBP\",\n    \"payment_api_status\": true,\n    \"send_blink_receipt\": true,\n    \"enable_moto_payments\": true,\n    \"address_postcode_required\": true\n}"
-						},
 						{
 							"name": "400 Bad Request",
 							"originalRequest": {
@@ -331,6 +263,82 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"access_token\": \"ffaabb123456789012ffaabb123456789012...\",\n    \"expired_on\": \"2023-02-15T07:19:27Z\",\n    \"payment_types\": [\n        \"credit-card\",\n        \"open-banking\",\n        \"direct-debit\"\n    ],\n    \"currency\": \"GBP\",\n    \"send_blink_receipt\": \"No\"\n}"
+						},
+						{
+							"name": "200 Ok",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"api_key\": \"{{api_key}}\",\n    \"secret_key\": \"{{secret_key}}\",\n    \"payment_api_status\": true,\n    \"send_blink_receipt\": true,\n    \"address_postcode_required\": true,\n    \"enable_moto_payments\": true,\n    \"card_layout\": \"single-line\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/tokens",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"tokens"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 30 Jan 2024 07:35:45 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000"
+								},
+								{
+									"key": "Upgrade",
+									"value": "h2"
+								},
+								{
+									"key": "Connection",
+									"value": "Upgrade, Keep-Alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJtZXJjaGFudF9pZCI6NTg2LCJzZWNyZXRfa2V5IjoiMTNkYjI0NGI1MWRhMDRhMWZmMGNkMWFhNzQwZjNhZmQ5Njk3NjIzNjYzMWFkOTdhMTYzN2RkMTJmNTk3NTEzOSIsImV4cCI6MTcwNjYwMTk0Nn0.yeLNsea5YwGvCs75Nu2Dw_xCUGVmXvvYCyXlvaWGK0I\",\n    \"expired_on\": \"2024-01-30T08:05:46Z\",\n    \"payment_types\": [\n        \"credit-card\"\n    ],\n    \"currencies\": [\n        \"GBP\",\n        \"EUR\",\n        \"USD\"\n    ],\n    \"payment_api_status\": true,\n    \"send_blink_receipt\": true,\n    \"enable_moto_payments\": true,\n    \"address_postcode_required\": true\n}"
 						}
 					]
 				}
@@ -596,7 +604,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"transaction_type\": \"SALE\",\n\t\"payment_type\": \"credit-card\",\n\t\"currency\": \"GBP\",\n\t\"return_url\": \"https://demo-app.blinkpayment.co.uk/return\",\n\t\"notification_url\": \"https://demo-app.blinkpayment.co.uk/notification\",\n    \"card_layout\": \"single-line\"\n}",
+							"raw": "{\n    \"transaction_type\": \"SALE\",\n\t\"payment_type\": \"credit-card\",\n    \"amount\": 1.01,\n\t\"currency\": \"USD\",\n\t\"return_url\": \"https://demo-app.blinkpayment.co.uk/return\",\n\t\"notification_url\": \"https://demo-app.blinkpayment.co.uk/notification\",\n    \"card_layout\": \"single-line\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -627,7 +635,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\t\"amount\": \"1.1\",\n    \"transaction_type\": \"SALE\",\n\t\"payment_type\": \"credit-card\",\n\t\"currency\": \"GBP\",\n\t\"return_url\": \"https://api-demo-php.blinkpayment.co.uk/return\",\n\t\"notification_url\": \"https://api-demo-php.blinkpayment.co.uk/notification\",\n    \"card_layout\": \"single-line\"\n}",
+									"raw": "{\n    \"transaction_type\": \"SALE\",\n\t\"payment_type\": \"credit-card\",\n    \"amount\": 1.01,\n\t\"currency\": \"USD\",\n\t\"return_url\": \"https://demo-app.blinkpayment.co.uk/return\",\n\t\"notification_url\": \"https://demo-app.blinkpayment.co.uk/notification\",\n    \"card_layout\": \"single-line\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -650,31 +658,27 @@
 							"header": [
 								{
 									"key": "Date",
-									"value": "Wed, 09 Aug 2023 09:48:22 GMT"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Transfer-Encoding",
-									"value": "chunked"
-								},
-								{
-									"key": "Connection",
-									"value": "keep-alive"
+									"value": "Tue, 30 Jan 2024 07:37:58 GMT"
 								},
 								{
 									"key": "Server",
-									"value": "Apache/2.4.56 () OpenSSL/1.0.2k-fips PHP/8.1.16"
+									"value": "Apache"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000"
 								},
 								{
 									"key": "Vary",
 									"value": "Authorization"
 								},
 								{
-									"key": "X-Powered-By",
-									"value": "PHP/8.1.16"
+									"key": "Upgrade",
+									"value": "h2"
+								},
+								{
+									"key": "Connection",
+									"value": "Upgrade, Keep-Alive"
 								},
 								{
 									"key": "Cache-Control",
@@ -687,10 +691,22 @@
 								{
 									"key": "X-RateLimit-Remaining",
 									"value": "59"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"id\": 73,\n    \"payment_intent\": \"pi_yrmGSPgTvW3TcdbTx-gavuVBBN2nYxsXhMVNYKtmQmM3btDUwwzyclq1fbpRrI2SVdHbC7UAsdt88J9DwYL26tTvLrArg_2yKbuGGZy9im0\",\n    \"transaction_type\": \"SALE\",\n    \"expiry_date\": \"2023-08-09T11:17:22Z\",\n    \"amount\": \"1.1\",\n    \"currency\": \"GBP\",\n    \"payment_type\": \"credit-card\",\n    \"return_url\": \"https://api-demo-php.blinkpayment.co.uk/return\",\n    \"notification_url\": \"https://api-demo-php.blinkpayment.co.uk/notification\",\n    \"card_layout\": \"single-line\",\n    \"element\": {\n        \"ccElement\": \"<input type=\\\"hidden\\\" name=\\\"merchantID\\\" value=\\\"233508\\\"/>\\n              <input type=\\\"hidden\\\" name=\\\"payment_intent\\\" value=\\\"pi_yrmGSPgTvW3TcdbTx-gavuVBBN2nYxsXhMVNYKtmQmM3btDUwwzyclq1fbpRrI2SVdHbC7UAsdt88J9DwYL26tTvLrArg_2yKbuGGZy9im0\\\"/>\\n              <input type=\\\"hidden\\\" name=\\\"resource\\\" value=\\\"creditcards\\\"/>\\n              <input type=\\\"hidden\\\" name=\\\"transaction_unique\\\" value=\\\"BBwbjdIpjNQ2\\\"/><label class=\\\"field-label\\\">Card information</label>\\n            <div class=\\\"fieldgroup-container relative no-wrap mb-4\\\">\\n                <input type=\\\"hostedfield:cardNumber\\\" placeholder=\\\"1234 1234 1234 1234\\\" />\\n                <input type=\\\"hostedfield:cardExpiryDate\\\" placeholder=\\\"MM/YY\\\" />\\n                <input type=\\\"hostedfield:cardCVV\\\" placeholder=\\\"CVV\\\" />\\n            </div><label class=\\\"field-label\\\">Name on card</label>\\n        <div class=\\\"fieldgroup-container mb-4\\\">\\n            <input type=\\\"text\\\" name=\\\"customer_name\\\" value=\\\"\\\" />\\n        </div> \\n        <label class=\\\"field-label\\\">Email</label>\\n        <div class=\\\"fieldgroup-container mb-4\\\">\\n            <input type=\\\"text\\\" name=\\\"customer_email\\\" value=\\\"\\\" />\\n        </div><label class=\\\"field-label\\\">Address</label>\\n      <div class=\\\"fieldgroup-container mb-4\\\">\\n          <div class=\\\"fieldgroup-child--width-8\\\">\\n              <input type=\\\"text\\\" name=\\\"customer_address\\\" value=\\\"\\\" />\\n          </div>\\n          <div class=\\\"fieldgroup-child--width-4\\\">\\n              <input type=\\\"text\\\" name=\\\"customer_postcode\\\" value=\\\"\\\" placeholder=\\\"Postcode\\\" />\\n          </div>\\n      </div><input type=\\\"hidden\\\" id=\\\"device_timezone\\\" name=\\\"device_timezone\\\" />\\n              <input type=\\\"hidden\\\" id=\\\"device_capabilities\\\" name=\\\"device_capabilities\\\" />\\n              <input type=\\\"hidden\\\" id=\\\"device_accept_language\\\" name=\\\"device_accept_language\\\" />\\n              <input type=\\\"hidden\\\" id=\\\"device_screen_resolution\\\" name=\\\"device_screen_resolution\\\" />\\n              <input type=\\\"hidden\\\" id=\\\"remote_address\\\" name=\\\"remote_address\\\" />\\n              <input type=\\\"hidden\\\" id=\\\"type\\\" name=\\\"type\\\" value=\\\"1\\\"/>\",\n        \"ccMotoElement\": \"<input type=\\\"hidden\\\" name=\\\"merchantID\\\" value=\\\"233508\\\"/>\\n              <input type=\\\"hidden\\\" name=\\\"payment_intent\\\" value=\\\"pi_yrmGSPgTvW3TcdbTx-gavuVBBN2nYxsXhMVNYKtmQmM3btDUwwzyclq1fbpRrI2SVdHbC7UAsdt88J9DwYL26tTvLrArg_2yKbuGGZy9im0\\\"/>\\n              <input type=\\\"hidden\\\" name=\\\"resource\\\" value=\\\"creditcards\\\"/>\\n              <input type=\\\"hidden\\\" name=\\\"transaction_unique\\\" value=\\\"BBwbjdIpjNQ2\\\"/>\\n              <input type=\\\"hidden\\\" id=\\\"type\\\" name=\\\"type\\\" value=\\\"2\\\"/><label class=\\\"field-label\\\">Card information</label>\\n                <div class=\\\"fieldgroup-container relative no-wrap mb-4\\\">\\n                    <input type=\\\"hostedfield:cardNumber\\\" placeholder=\\\"1234 1234 1234 1234\\\" />\\n                    <input type=\\\"hostedfield:cardExpiryDate\\\" placeholder=\\\"MM/YY\\\" />\\n                    <input type=\\\"hostedfield:cardCVV\\\" placeholder=\\\"CVV\\\" />\\n                </div><label class=\\\"field-label\\\">Name on card</label>\\n        <div class=\\\"fieldgroup-container mb-4\\\">\\n            <input type=\\\"text\\\" name=\\\"customer_name\\\" value=\\\"\\\" />\\n        </div> \\n        <label class=\\\"field-label\\\">Email</label>\\n        <div class=\\\"fieldgroup-container mb-4\\\">\\n            <input type=\\\"text\\\" name=\\\"customer_email\\\" value=\\\"\\\" />\\n        </div><label class=\\\"field-label\\\">Address</label>\\n      <div class=\\\"fieldgroup-container mb-4\\\">\\n          <div class=\\\"fieldgroup-child--width-8\\\">\\n              <input type=\\\"text\\\" name=\\\"customer_address\\\" value=\\\"\\\" />\\n          </div>\\n          <div class=\\\"fieldgroup-child--width-4\\\">\\n              <input type=\\\"text\\\" name=\\\"customer_postcode\\\" value=\\\"\\\" placeholder=\\\"Postcode\\\" />\\n          </div>\\n      </div>\",\n        \"obElement\": \"<input type=\\\"hidden\\\" name=\\\"merchant_id\\\" value=\\\"233508\\\"/>\\n              <input type=\\\"hidden\\\" name=\\\"payment_intent\\\" value=\\\"pi_yrmGSPgTvW3TcdbTx-gavuVBBN2nYxsXhMVNYKtmQmM3btDUwwzyclq1fbpRrI2SVdHbC7UAsdt88J9DwYL26tTvLrArg_2yKbuGGZy9im0\\\"/>\\n              <input type=\\\"hidden\\\" name=\\\"resource\\\" value=\\\"openbankings\\\"/>\\n              <input type=\\\"hidden\\\" name=\\\"transaction_unique\\\" value=\\\"BBwbjdIpjNQ2\\\"/><div class=\\\"fieldgroup-container mb-4\\\">\\n                  <input type=\\\"text\\\" placeholder=\\\"Name\\\" name=\\\"customer_name\\\" value=\\\"\\\" />\\n              </div> \\n              <div class=\\\"fieldgroup-container mb-4\\\">\\n                  <input type=\\\"text\\\" placeholder=\\\"Email\\\" name=\\\"customer_email\\\" value=\\\"\\\" />\\n              </div><div class=\\\"fieldgroup-container mb-4\\\">\\n              <div class=\\\"fieldgroup-child--width-8\\\">\\n                  <input type=\\\"text\\\" placeholder=\\\"Address\\\" name=\\\"customer_address\\\" value=\\\"\\\" />\\n              </div>\\n              <div class=\\\"fieldgroup-child--width-4\\\">\\n                  <input type=\\\"text\\\" name=\\\"customer_postcode\\\" value=\\\"\\\" placeholder=\\\"Postcode\\\" />\\n              </div>\\n          </div>\"\n    },\n    \"merchant_id\": 233508,\n    \"transaction_unique\": \"BBwbjdIpjNQ2\"\n}"
+							"body": "{\n    \"id\": 28,\n    \"payment_intent\": \"pi_YxuoWWa0WyXozEMVOxhWNG2lW4-fq6f-arqaqNZTrzsutRXTbGEt0tys0jvgftKur8nyxEK_BSecjq6Fgjhbb5xWLxngGDN8SCdD7Qn4GxA\",\n    \"transaction_type\": \"SALE\",\n    \"expiry_date\": \"2024-01-30T08:05:46Z\",\n    \"amount\": 1.01,\n    \"currency\": \"USD\",\n    \"payment_type\": \"credit-card\",\n    \"return_url\": \"https://demo-app.blinkpayment.co.uk/return\",\n    \"notification_url\": \"https://demo-app.blinkpayment.co.uk/notification\",\n    \"card_layout\": \"single-line\",\n    \"element\": {\n        \"ccElement\": \"<input type=\\\"hidden\\\" class=\\\"blink-form__input--merchantID\\\" name=\\\"merchantID\\\" value=\\\"140841\\\"/>\\n              <input type=\\\"hidden\\\" class=\\\"blink-form__input--payment-intent\\\" name=\\\"payment_intent\\\" value=\\\"pi_YxuoWWa0WyXozEMVOxhWNG2lW4-fq6f-arqaqNZTrzsutRXTbGEt0tys0jvgftKur8nyxEK_BSecjq6Fgjhbb5xWLxngGDN8SCdD7Qn4GxA\\\"/>\\n              <input type=\\\"hidden\\\" class=\\\"blink-form__input--resource\\\" name=\\\"resource\\\" value=\\\"creditcards\\\"/>\\n              <input type=\\\"hidden\\\" class=\\\"blink-form__input--transaction-unique\\\" name=\\\"transaction_unique\\\" value=\\\"w4WcUbYZKTH7\\\"/><label class=\\\"blink-form__label field-label\\\">Card information</label>\\n            <div class=\\\"blink-form__group fieldgroup-container relative no-wrap mb-4\\\">\\n                <input type=\\\"hostedfield:cardNumber\\\" class=\\\"blink-form__input--card-number\\\" placeholder=\\\"1234 1234 1234 1234\\\" />\\n                <input type=\\\"hostedfield:cardExpiryDate\\\" class=\\\"blink-form__input--card-expiry\\\" placeholder=\\\"MM/YY\\\" />\\n                <input type=\\\"hostedfield:cardCVV\\\" class=\\\"blink-form__input--card-cvv\\\" placeholder=\\\"CVV\\\" />\\n            </div><label class=\\\"blink-form__label field-label\\\">Name on card</label>\\n        <div class=\\\"blink-form__group fieldgroup-container mb-4\\\">\\n            <input type=\\\"text\\\" class=\\\"blink-form__input--customer-name\\\" id=\\\"cc_customer_name\\\" name=\\\"customer_name\\\" value=\\\"\\\" />\\n        </div>\\n        <label class=\\\"blink-form__label field-label\\\">Email</label>\\n        <div class=\\\"blink-form__group fieldgroup-container mb-4\\\">\\n            <input type=\\\"text\\\" class=\\\"blink-form__input--customer-email\\\" id=\\\"cc_customer_email\\\" name=\\\"customer_email\\\" value=\\\"\\\" />\\n        </div><label class=\\\"blink-form__label field-label\\\">Address</label>\\n      <div class=\\\"blink-form__group fieldgroup-container mb-4\\\">\\n          <div class=\\\"blink-form__group-child fieldgroup-child--width-8\\\">\\n              <input type=\\\"text\\\" class=\\\"blink-form__input--customer-address\\\" id=\\\"cc_customer_address\\\" name=\\\"customer_address\\\" value=\\\"\\\" />\\n          </div>\\n          <div class=\\\"blink-form__group-child fieldgroup-child--width-4\\\">\\n              <input type=\\\"text\\\" class=\\\"blink-form__input--customer-postcode\\\" id=\\\"cc_customer_postcode\\\" name=\\\"customer_postcode\\\" value=\\\"\\\" placeholder=\\\"Postcode\\\" />\\n          </div>\\n      </div><input type=\\\"hidden\\\" class=\\\"blink-form__input--device-params\\\" id=\\\"device_timezone\\\" name=\\\"device_timezone\\\" />\\n              <input type=\\\"hidden\\\" class=\\\"blink-form__input--device-params\\\" id=\\\"device_capabilities\\\" name=\\\"device_capabilities\\\" />\\n              <input type=\\\"hidden\\\" class=\\\"blink-form__input--device-params\\\" id=\\\"device_accept_language\\\" name=\\\"device_accept_language\\\" />\\n              <input type=\\\"hidden\\\" class=\\\"blink-form__input--device-params\\\" id=\\\"device_screen_resolution\\\" name=\\\"device_screen_resolution\\\" />\\n              <input type=\\\"hidden\\\" class=\\\"blink-form__input--device-params\\\" id=\\\"remote_address\\\" name=\\\"remote_address\\\" />\\n              <input type=\\\"hidden\\\" class=\\\"blink-form__input--type\\\" id=\\\"type\\\" name=\\\"type\\\" value=\\\"1\\\"/>\",\n        \"ccMotoElement\": \"<input type=\\\"hidden\\\" class=\\\"blink-form__input--merchantID\\\" name=\\\"merchantID\\\" value=\\\"140841\\\"/>\\n              <input type=\\\"hidden\\\" class=\\\"blink-form__input--payment-intent\\\" name=\\\"payment_intent\\\" value=\\\"pi_YxuoWWa0WyXozEMVOxhWNG2lW4-fq6f-arqaqNZTrzsutRXTbGEt0tys0jvgftKur8nyxEK_BSecjq6Fgjhbb5xWLxngGDN8SCdD7Qn4GxA\\\"/>\\n              <input type=\\\"hidden\\\" class=\\\"blink-form__input--resource\\\" name=\\\"resource\\\" value=\\\"creditcards\\\"/>\\n              <input type=\\\"hidden\\\" class=\\\"blink-form__input--transaction-unique\\\" name=\\\"transaction_unique\\\" value=\\\"w4WcUbYZKTH7\\\"/>\\n              <input type=\\\"hidden\\\" class=\\\"blink-form__input--type\\\" id=\\\"type\\\" name=\\\"type\\\" value=\\\"2\\\"/><label class=\\\"blink-form__label field-label\\\">Card information</label>\\n                <div class=\\\"blink-form__group fieldgroup-container relative no-wrap mb-4\\\">\\n                    <input type=\\\"hostedfield:cardNumber\\\" class=\\\"blink-form__input--card-number\\\" placeholder=\\\"1234 1234 1234 1234\\\" />\\n                    <input type=\\\"hostedfield:cardExpiryDate\\\" class=\\\"blink-form__input--card-expiry\\\" placeholder=\\\"MM/YY\\\" />\\n                    <input type=\\\"hostedfield:cardCVV\\\" class=\\\"blink-form__input--card-cvv\\\" placeholder=\\\"CVV\\\" />\\n                </div><label class=\\\"blink-form__label field-label\\\">Name on card</label>\\n        <div class=\\\"blink-form__group fieldgroup-container mb-4\\\">\\n            <input type=\\\"text\\\" class=\\\"blink-form__input--customer-name\\\" name=\\\"customer_name\\\" value=\\\"\\\" />\\n        </div>\\n        <label class=\\\"blink-form__label field-label\\\">Email</label>\\n        <div class=\\\"blink-form__group fieldgroup-container mb-4\\\">\\n            <input type=\\\"text\\\" class=\\\"blink-form__input--customer-email\\\" name=\\\"customer_email\\\" value=\\\"\\\" />\\n        </div><label class=\\\"blink-form__label field-label\\\">Address</label>\\n      <div class=\\\"blink-form__group fieldgroup-container mb-4\\\">\\n          <div class=\\\"blink-form__group-child fieldgroup-child--width-8\\\">\\n              <input type=\\\"text\\\" class=\\\"blink-form__input--customer-address\\\" name=\\\"customer_address\\\" value=\\\"\\\" />\\n          </div>\\n          <div class=\\\"blink-form__group-child fieldgroup-child--width-4\\\">\\n              <input type=\\\"text\\\" class=\\\"blink-form__input--customer-postcode\\\" name=\\\"customer_postcode\\\" value=\\\"\\\" placeholder=\\\"Postcode\\\" />\\n          </div>\\n      </div>\",\n        \"gpElement\": \"<div id=\\\"blinkGooglePay\\\">\\n                <input type=\\\"hidden\\\" name=\\\"paymentToken\\\" id=\\\"googlePayToken\\\">\\n                <script src=\\\"https://dev.blinkpayment.co.uk//assets/js/google-pay-api.js\\\">\\n                </script>\\n                <script async src=\\\"https://pay.google.com/gp/p/js/pay.js\\\" onload=\\\"onGooglePayLoaded('TEST','140841','BCR2DN4TYCB4LITZ','','Codat Test','','GBP','1.01')\\\"></script>\\n            </div><input type=\\\"hidden\\\" class=\\\"blink-form__input--resource\\\" name=\\\"resource\\\" value=\\\"googlepay\\\"/>\\n        <input type=\\\"hidden\\\" name=\\\"payment_intent\\\" id=\\\"payment_intent\\\" value=\\\"pi_YxuoWWa0WyXozEMVOxhWNG2lW4-fq6f-arqaqNZTrzsutRXTbGEt0tys0jvgftKur8nyxEK_BSecjq6Fgjhbb5xWLxngGDN8SCdD7Qn4GxA\\\"/>\\n            <input type=\\\"hidden\\\" name=\\\"transaction_unique\\\" id=\\\"transaction_unique\\\" value=\\\"w4WcUbYZKTH7\\\"/>\\n           <div class=\\\"fieldgroup-container mb-4\\\">\\n                <input type=\\\"hidden\\\" name=\\\"customer_name\\\" id=\\\"gp_customer_name\\\" value=\\\"\\\" />\\n            </div>\\n            <div class=\\\"fieldgroup-container mb-4\\\">\\n                <input type=\\\"hidden\\\" name=\\\"customer_email\\\" id=\\\"gp_customer_email\\\" value=\\\"\\\" />\\n            </div><div class=\\\"fieldgroup-container mb-4\\\">\\n              <div class=\\\"fieldgroup-child--width-8\\\">\\n                  <input type=\\\"hidden\\\" name=\\\"customer_address\\\" id=\\\"gp_customer_address\\\" value=\\\"\\\" />\\n              </div>\\n              <div class=\\\"fieldgroup-child--width-4\\\">\\n                  <input type=\\\"hidden\\\" name=\\\"customer_postcode\\\" id=\\\"gp_customer_postcode\\\" value=\\\"\\\" placeholder=\\\"Postcode\\\" />\\n              </div>\\n          </div><input type=\\\"hidden\\\" class=\\\"blink-form__input--device-params\\\" id=\\\"gp_device_timezone\\\" name=\\\"device_timezone\\\" />\\n              <input type=\\\"hidden\\\" class=\\\"blink-form__input--device-params\\\" id=\\\"gp_device_capabilities\\\" name=\\\"device_capabilities\\\" />\\n              <input type=\\\"hidden\\\" class=\\\"blink-form__input--device-params\\\" id=\\\"gp_device_accept_language\\\" name=\\\"device_accept_language\\\" />\\n              <input type=\\\"hidden\\\" class=\\\"blink-form__input--device-params\\\" id=\\\"gp_device_screen_resolution\\\" name=\\\"device_screen_resolution\\\" />\\n              <input type=\\\"hidden\\\" class=\\\"blink-form__input--device-params\\\" id=\\\"gp_remote_address\\\" name=\\\"remote_address\\\" />\\n              <input type=\\\"hidden\\\" class=\\\"blink-form__input--type\\\" id=\\\"gp_type\\\" name=\\\"type\\\" value=\\\"1\\\"/><div id=\\\"container\\\"></div>\",\n        \"apElement\": \"<div id=\\\"blinkApplePay\\\">\\n        <input type=\\\"hidden\\\" name=\\\"merchantID\\\" id=\\\"merchantID\\\" value=\\\"140841\\\">\\n        <script src=\\\"https://dev.blinkpayment.co.uk/\\\\assets\\\\js\\\\apple-pay-api.js\\\"></script>\\n        <script async crossorigin src=\\\"https://applepay.cdn-apple.com/jsapi/v1/apple-pay-sdk.js\\\"></script>\\n        <input type=\\\"hidden\\\" class=\\\"blink-form__input--resource\\\" name=\\\"resource\\\" value=\\\"applepay\\\">\\n        <input type=\\\"hidden\\\" name=\\\"payment_intent\\\" id=\\\"payment_intent\\\" value=\\\"pi_YxuoWWa0WyXozEMVOxhWNG2lW4-fq6f-arqaqNZTrzsutRXTbGEt0tys0jvgftKur8nyxEK_BSecjq6Fgjhbb5xWLxngGDN8SCdD7Qn4GxA\\\" />\\n        <input type=\\\"hidden\\\" name=\\\"transaction_unique\\\" id=\\\"transaction_unique\\\" value=\\\"w4WcUbYZKTH7\\\" />\\n        <input type=\\\"hidden\\\" class=\\\"paymentToken\\\" id=\\\"applePayToken\\\" name=\\\"paymentToken\\\" value=\\\"\\\">\\n\\n        <apple-pay-button buttonstyle=\\\"black\\\" type=\\\"plain\\\" id=\\\"apple-pay-btn\\\" locale=\\\"en-GB\\\" onclick=\\\"onApplePayButtonClicked('140841', '1.01', 'w4WcUbYZKTH7', 'GBP', 'codatdev', '273', 'demo-app.blinkpayment.co.uk', 'https://dev.blinkpayment.co.uk/')\\\"></apple-pay-button>\\n        <div class=\\\"fieldgroup-container mb-4\\\"> <input type=\\\"hidden\\\" name=\\\"customer_name\\\" id=\\\"ap_customer_name\\\" value=\\\"\\\" /> </div>\\n        <div class=\\\"fieldgroup-container mb-4\\\"> <input type=\\\"hidden\\\" name=\\\"customer_email\\\" id=\\\"ap_customer_email\\\" value=\\\"\\\" /> </div>\\n        <div class=\\\"fieldgroup-container mb-4\\\">\\n            <div class=\\\"fieldgroup-child--width-8\\\"> <input type=\\\"hidden\\\" name=\\\"customer_address\\\" id=\\\"ap_customer_address\\\" value=\\\"\\\" /> </div>\\n            <div class=\\\"fieldgroup-child--width-4\\\"> <input type=\\\"hidden\\\" name=\\\"customer_postcode\\\" id=\\\"ap_customer_postcode\\\" value=\\\"\\\" placeholder=\\\"Postcode\\\" /> </div>\\n        </div>\\n        <input type=\\\"hidden\\\" class=\\\"blink-form__input--device-params\\\" id=\\\"ap_device_timezone\\\" name=\\\"device_timezone\\\" />\\n        <input type=\\\"hidden\\\" class=\\\"blink-form__input--device-params\\\" id=\\\"ap_device_capabilities\\\" name=\\\"device_capabilities\\\" />\\n        <input type=\\\"hidden\\\" class=\\\"blink-form__input--device-params\\\" id=\\\"ap_device_accept_language\\\" name=\\\"device_accept_language\\\" />\\n        <input type=\\\"hidden\\\" class=\\\"blink-form__input--device-params\\\" id=\\\"ap_device_screen_resolution\\\" name=\\\"device_screen_resolution\\\" />\\n        <input type=\\\"hidden\\\" class=\\\"blink-form__input--device-params\\\" id=\\\"ap_remote_address\\\" name=\\\"remote_address\\\" />\\n        <input type=\\\"hidden\\\" class=\\\"blink-form__input--type\\\" id=\\\"ap_type\\\" name=\\\"type\\\" value=\\\"1\\\" />\\n        </div>\"\n    },\n    \"merchant_id\": 140841,\n    \"transaction_unique\": \"w4WcUbYZKTH7\"\n}"
 						}
 					]
 				}
@@ -5075,6 +5091,375 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"id\": 88,\n    \"status\": \"Success\",\n    \"card_element\": \"<input type=\\\"hidden\\\" name=\\\"payment_id\\\" value=\\\"88\\\"/>\\n        <input type=\\\"hidden\\\" name=\\\"merchantID\\\" value=\\\"140841\\\"/><label class=\\\"field-label\\\">Card information</label>\\n      <div class=\\\"fieldgroup-container relative no-wrap mb-4\\\">\\n          <input type=\\\"hostedfield:cardNumber\\\" placeholder=\\\"1234 1234 1234 1234\\\" />\\n          <input type=\\\"hostedfield:cardExpiryDate\\\" placeholder=\\\"MM/YY\\\" />\\n          <input type=\\\"hostedfield:cardCVV\\\" placeholder=\\\"CVV\\\" />\\n      </div>\",\n    \"reference\": \"synthesizing the transmitter won't do anything, we need to parse the open-source SMTP feed!\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Run transaction",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"payment_type\": \"fixed_schedule\",\n    \"recurring_id\": 1377\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/repeat-payments/run/{{schedule_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"repeat-payments",
+								"run",
+								"{{schedule_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Run transaction",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"payment_type\": \"fixed_schedule\",\n    \"recurring_id\": 1377\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/repeat-payments/run/{{schedule_id}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"repeat-payments",
+										"run",
+										"{{schedule_id}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 24 Jan 2024 08:04:37 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "Upgrade",
+									"value": "h2"
+								},
+								{
+									"key": "Connection",
+									"value": "Upgrade, Keep-Alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Payment run successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Retry transaction",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"payment_type\": \"fixed_schedule\",\n    \"recurring_id\": 1385\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/repeat-payments/retry/{{schedule_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"repeat-payments",
+								"retry",
+								"{{schedule_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Retry transaction",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"payment_type\": \"fixed_schedule\",\n    \"recurring_id\": 1385\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/repeat-payments/retry/{{schedule_id}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"repeat-payments",
+										"retry",
+										"{{schedule_id}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 24 Jan 2024 08:45:01 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "Upgrade",
+									"value": "h2"
+								},
+								{
+									"key": "Connection",
+									"value": "Upgrade, Keep-Alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Payment retried successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Add new card",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"payment_type\": \"fixed_schedule\",\n    \"paymentToken\": \"{{paymentToken}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/repeat-payments/card/{{schedule_id}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"repeat-payments",
+								"card",
+								"{{schedule_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add new card",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"payment_type\": \"fixed_schedule\",\n    \"paymentToken\": \"{{paymentToken}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/repeat-payments/card/{{schedule_id}}",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"repeat-payments",
+										"card",
+										"{{schedule_id}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 29 Jan 2024 16:11:09 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=63072000"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "Upgrade",
+									"value": "h2"
+								},
+								{
+									"key": "Connection",
+									"value": "Upgrade, Keep-Alive"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"message\": \"Card updated\"\n}"
 						}
 					]
 				}
